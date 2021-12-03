@@ -1,0 +1,15 @@
+[user]
+	name = Anders Kirkeby
+	email = anders.kirkeby@ruter.no
+[core]
+	autocrlf = input
+[filesystem "AdoptOpenJDK|11.0.10|/dev/disk3s5"]
+	timestampResolution = 4000 nanoseconds
+	minRacyThreshold = 0 nanoseconds
+[init]
+	defaultBranch = main
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager-core
+[credential "https://dev.azure.com"]
+	useHttpPath = true

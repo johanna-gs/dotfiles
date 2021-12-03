@@ -1,0 +1,15 @@
+- clean: ['~']
+
+- link:
+    ~/.gitconfig:
+        path: gitconfig
+        create: false
+        relink: false
+        force: false
+    ~/.ssh/config:
+        path: ssh/config
+        create: true
+        relink: false
+        force: false
+
+
