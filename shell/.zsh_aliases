@@ -1,0 +1,31 @@
+alias code="code-insiders"
+alias zsh-reload="source ~/.zshrc"
+
+alias kx="kubectx"
+
+alias k="kubectl"
+alias kl="kubectl logs"
+alias kg="kubectl get"
+alias kgp="kubectl get pods --selector='!e2e-test-name'"
+alias kgd="kubectl get deployments"
+alias kgi="kubectl get ingress"
+alias kgs="kubectl get services"
+alias kgss="kubectl get secrets"
+alias kgcm="kubectl get configmaps"
+alias kgns="kubectl get namespaces"
+
+alias kd="kubectl describe"
+alias kdp="kubectl describe pods"
+alias kdi="kubectl describe ingress"
+alias kdd="kubectl describe deployments"
+alias kdcj="kubectl describe cronjobs"
+alias kdcm="kubectl describe configmaps"
+
+alias kpf="kubectl port-forward"
+
+alias pip=pip3
+alias python=python3
+
+alias kafka-topics=~/Ruter/kafka_2.7.0/bin/kafka-topics.sh
+
+alias sso-login="aws sso login --profile sso-dev-eks"

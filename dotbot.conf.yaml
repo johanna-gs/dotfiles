@@ -1,0 +1,22 @@
+- clean: ['~']
+
+- defaults:
+    link:
+      relink: true
+
+- link:
+    ~/.dircolors: dircolors
+    # Git
+    ~/.gitconfig: gitconfig
+    ~/.gitignore_global: gitignore_global
+    # Terminal stuff
+    ~/.bash_profile: bash_profile
+    ~/.bashrc: bashrc
+    ~/.config/kitty: kitty
+    ~/.zsh_aliases: shell/.zsh_aliases
+    ~/.zsh_functions: shell/.zsh_functions
+    ~/.zshrc: shell/.zshrc
+    ~/antigen: ~
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
