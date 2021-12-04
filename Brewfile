@@ -40,6 +40,7 @@ brew "go-task/tap/go-task"
 brew "helm"
 brew "httpie"
 brew "jq"
+brew "lolcat"
 brew "mas"
 brew "yq"
 
