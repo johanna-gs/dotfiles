@@ -1,8 +1,21 @@
 alias code="code-insiders"
-alias zsh-reload="source ~/.zshrc"
 
+# Git
+alias g="git"
+
+# Docker
+alias d="docker"
+alias dc="docker-compose"
+alias dce="docker-compose exec"
+alias dcea="docker-compose exec app"
+dceas() {
+    docker-compose exec app su app -c "$*"
+}
+
+# Kubectx
 alias kx="kubectx"
 
+# Kubectl
 alias k="kubectl"
 alias kl="kubectl logs"
 alias kg="kubectl get"
@@ -29,3 +42,21 @@ alias python=python3
 alias kafka-topics=~/Ruter/kafka_2.7.0/bin/kafka-topics.sh
 
 alias sso-login="aws sso login --profile sso-dev-eks"
+
+alias intellij="open -na 'IntelliJ IDEA.app'"
+
+# Detect which `ls` flavor is in use
+if ls --color >/dev/null 2>&1; then # GNU `ls`
+    colorflag="--color"
+else # OS X `ls`
+    colorflag="-G"
+fi
+
+alias ls='ls -lhF -G'
+alias lsa='ls -A'
+alias lsd="ls ${colorflag} | /usr/bin/grep --color=never '^d'"
+alias lsda="lsa | /usr/bin/grep --color=never '^d'"
+
+alias grep='grep --color=auto -n -i'
+
+alias clear="clear && printf '\e[3J'"
