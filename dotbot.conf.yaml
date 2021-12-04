@@ -13,9 +13,10 @@
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
     ~/.config/kitty: kitty
-    ~/.zsh_aliases: shell/.zsh_aliases
-    ~/.zsh_functions: shell/.zsh_functions
-    ~/.zshrc: shell/.zshrc
+    ~/.antigenrc: shell/antigenrc
+    ~/.zsh_aliases: shell/zsh_aliases
+    ~/.zsh_functions: shell/zsh_functions
+    ~/.zshrc: shell/zshrc
     ~/antigen: ~
     # Brew
     ~/Brewfile: Brewfile

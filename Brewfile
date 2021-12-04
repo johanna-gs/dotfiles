@@ -32,7 +32,6 @@ brew "screen"
 brew "gmp"
 
 # Productivity tools
-brew "antibody"
 brew "awscli"
 brew "fx"
 brew "git"
