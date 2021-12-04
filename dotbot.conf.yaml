@@ -17,6 +17,9 @@
     ~/.zsh_functions: shell/.zsh_functions
     ~/.zshrc: shell/.zshrc
     ~/antigen: ~
+    # Brew
+    ~/Brewfile: Brewfile
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - [brew cu, Updating brew dependencies]
