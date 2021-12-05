@@ -69,3 +69,7 @@
     rebase = false
 [init]
     defaultBranch = main
+[includeIf "gitdir:~/**"]
+    path = .gitconfig-private
+[includeIf "gitdir:~/workspace/**"]
+    path = .gitconfig-job

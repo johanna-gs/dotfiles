@@ -60,7 +60,9 @@ typeset -U path cdpath fpath
 bindkey -v
 export KEYTIMEOUT=1
 
-export ANDROID_HOME="$HOME/Android/Sdk/"
+# Kitty bindings
+bindkey "\e[1;3D" backward-word # ⌥←
+bindkey "\e[1;3C" forward-word # ⌥→
 
 export GIT_EDITOR=vim
 
@@ -89,10 +91,32 @@ zstyle ':completion:*:complete:(cd|pushd):*' tag-order \
 
 export EDITOR='vim'
 export NVIM_LISTEN_ADDRESS='/tmp/nvimsocket'
-export ARTISAN_OPEN_ON_MAKE_EDITOR='nvr'
-export FZF_DEFAULT_COMMAND='ag -u -g ""'
+# export FZF_DEFAULT_COMMAND='ag -u -g ""'
 
 unsetopt sharehistory
+
+# Open vim with z argument
+v() {
+    if [ -n "$1" ]; then
+    z $1
+    fi
+
+    nvim
+}
+
+# cd() {
+#     cd $1 && eval ls
+# }
+# alias cd="cdls"
+open () {
+    xdg-open $* > /dev/null 2>&1
+}
+
+if (( $+commands[tag] )); then
+    tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
+    alias ag=tag
+fi
+
 
 # }}}
 
@@ -105,6 +129,7 @@ fi
 
 # }}}
 
+[ -f ~/.zsh_envs ] && source ~/.zsh_envs
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
 [ -f ~/.zsh_functions ] && source ~/.zsh_functions
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -60,3 +60,7 @@ alias lsda="lsa | /usr/bin/grep --color=never '^d'"
 alias grep='grep --color=auto -n -i'
 
 alias clear="clear && printf '\e[3J'"
+
+alias vim="nvim"
+alias copy="xclip -selection clipboard"
+alias paste="xclip -o -selection clipboard"

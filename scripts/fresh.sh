@@ -2,6 +2,8 @@
 
 echo "Setting up your Mac..."
 
+export DOTFILES=~/.dotfiles
+
 if ! xcode-select --print-path &>/dev/null; then
 
     # Prompt user to install the XCode Command Line Tools
