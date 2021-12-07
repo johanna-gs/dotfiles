@@ -37,7 +37,6 @@
     unstage = reset HEAD
     undo-commit = reset --soft HEAD^
     set-upstream = !git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)
-
 [color]
     ui = auto
 [commit]
@@ -71,7 +70,7 @@
     rebase = false
 [init]
     defaultBranch = main
-[includeIf "gitdir:~/**"]
+[includeIf "gitdir:~/privatespace"]
     path = ~/.gitconfig-private
-[includeIf "gitdir:~/workspace/**"]
+[includeIf "gitdir:~/Ruter/"]
     path = ~/.gitconfig-job

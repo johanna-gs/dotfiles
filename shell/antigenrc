@@ -10,7 +10,6 @@ antigen bundle gpg-agent
 antigen bundle httpie
 
 antigen bundle jonmosco/kube-ps1
-antigen bundle matthieusb/zsh-sdkman
 
 # Load bundles from external repos
 antigen bundle zsh-users/zsh-completions

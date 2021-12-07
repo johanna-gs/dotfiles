@@ -111,7 +111,13 @@ if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
     export GPG_AGENT_INFO
 fi
 
+export GPG_TTY=$(tty) # https://stackoverflow.com/questions/41052538/git-error-gpg-failed-to-sign-data/41054093
+
 [ -f ~/.zsh_envs ] && source ~/.zsh_envs
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
 [ -f ~/.zsh_functions ] && source ~/.zsh_functions
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="~/.sdkman"
+[[ -s "~/.sdkman/bin/sdkman-init.sh" ]] && source "~/.sdkman/bin/sdkman-init.sh"
