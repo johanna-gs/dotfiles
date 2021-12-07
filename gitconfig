@@ -48,6 +48,8 @@
     pager = delta
 [fetch]
     prune = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
 [help]
     autocorrect = 10
 [include]
