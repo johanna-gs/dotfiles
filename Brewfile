@@ -23,9 +23,10 @@ brew "wget"
 
 # Install GnuPG to enable PGP-signing commits.
 brew "gnupg"
+brew "pinentry-mac"
 
 # Install more recent versions of some macOS tools.
-brew "vim"
+brew "neovim"
 brew "grep"
 brew "openssh"
 brew "screen"
@@ -34,6 +35,7 @@ brew "gmp"
 # Productivity tools
 brew "awscli"
 brew "fx"
+brew "fzf"
 brew "git"
 brew "go-task/tap/go-task"
 brew "helm"
@@ -41,6 +43,7 @@ brew "httpie"
 brew "jq"
 brew "lolcat"
 brew "mas"
+brew "ripgrep"
 brew "yq"
 
 # Shell tools

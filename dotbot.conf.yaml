@@ -1,4 +1,4 @@
-- clean: ['~']
+- clean: ["~"]
 
 - defaults:
     link:
@@ -13,14 +13,20 @@
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
     ~/.config/kitty: kitty
-    ~/.antigenrc: shell/antigenrc
-    ~/.zsh_aliases: shell/zsh_aliases
-    ~/.zsh_functions: shell/zsh_functions
-    ~/.zshrc: shell/zshrc
+    ~/.config/nvim: nvim
+    ~/.zsh_aliases: shell/.zsh_aliases
+    ~/.zsh_functions: shell/.zsh_functions
+    ~/.zshrc: shell/.zshrc
     ~/antigen: ~
     # Brew
     ~/Brewfile: Brewfile
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  - [brew cu, Updating brew dependencies]
+    - [git submodule update --init --recursive, Installing submodules]
+    - ["vim +PlugUpdate +PlugClean! +qa", Installing and updating plugins]
+    - command: brew bundle install
+      description: Updating brew dependencies
+      stdout: true
+    - command: brew cu
+      description: Updating brew cask dependencies
+      stdout: true
