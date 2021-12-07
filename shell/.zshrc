@@ -6,9 +6,6 @@
 # Path to your dotfiles.
 export DOTFILES=$HOME/.dotfiles
 
-# Setup required env var for oh-my-zsh plugins
-export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
@@ -21,9 +18,6 @@ export PATH=/opt:$PATH
 source "$DOTFILES/antigen/antigen.zsh"
 
 antigen init ~/.antigenrc
-
-# Load the Antibody plugin manager for zsh.
-# source <(antibody init)
 
 # Configuration {{{
 # ==============================================================================
@@ -107,6 +101,15 @@ if [[ $- == *i* && $0 == '/bin/zsh' ]]; then
 fi
 
 # }}}
+
+# In order for gpg to find gpg-agent, gpg-agent must be running, and there must be an env
+# variable pointing GPG to the gpg-agent socket. This little script, which must be sourced
+# in your shell's init script (ie, .bash_profile, .zshrc, whatever), will either start
+# gpg-agent or set up the GPG_AGENT_INFO variable if it's already running.
+if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
+    source ~/.gnupg/.gpg-agent-info
+    export GPG_AGENT_INFO
+fi
 
 [ -f ~/.zsh_envs ] && source ~/.zsh_envs
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases

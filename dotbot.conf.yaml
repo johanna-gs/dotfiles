@@ -20,6 +20,9 @@
     ~/antigen: ~
     # Brew
     ~/Brewfile: Brewfile
+    # GPG
+    ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.confg
+    ~/.gnupg/gpg.confg: gnupg/gpg.conf
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

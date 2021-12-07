@@ -41,7 +41,7 @@
 [color]
     ui = auto
 [commit]
-	gpgsign = true
+    gpgsign = true
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
@@ -70,6 +70,6 @@
 [init]
     defaultBranch = main
 [includeIf "gitdir:~/**"]
-    path = .gitconfig-private
+    path = ~/.gitconfig-private
 [includeIf "gitdir:~/workspace/**"]
-    path = .gitconfig-job
+    path = ~/.gitconfig-job
