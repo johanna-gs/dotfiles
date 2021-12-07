@@ -21,10 +21,10 @@ done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "andrs"
-sudo scutil --set HostName "andrs"
-sudo scutil --set LocalHostName "andrs"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "andrs"
+# sudo scutil --set ComputerName "andrs-mini"
+# sudo scutil --set HostName "andrs-mini"
+# sudo scutil --set LocalHostName "andrs-mini"
+# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "andrs-mini"
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
