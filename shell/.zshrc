@@ -118,6 +118,9 @@ export GPG_TTY=$(tty) # https://stackoverflow.com/questions/41052538/git-error-g
 [ -f ~/.zsh_functions ] && source ~/.zsh_functions
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# # Gradle Setup
+export GRADLE_HOME=$(which gradle)
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="~/.sdkman"
-[[ -s "~/.sdkman/bin/sdkman-init.sh" ]] && source "~/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh" || echo "⚠️  Failed to load sdkman ⚠️"

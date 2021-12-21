@@ -1,1 +1,39 @@
+# .zshrc
 
+# Documentation
+# https://docs.gitlab.com/ce/api/projects.html#list-projects
+
+GITLAB_URL="https://gitlab.com"
+GITLAB_GP_GROUP_ID="6620835"
+GITLAB_PROJECT_FILE="~/.repositories.json"
+
+# while read repo; do
+#     THEPATH=$(echo "$repo" | jq -r ".path")
+#     GIT=$(echo "$repo" | jq -r ".git")
+
+#     if [ ! -d "$THEPATH" ]; then
+#         echo "Cloning $THEPATH ( $GIT )"
+#         git clone "$GIT" --quiet &
+#     else
+#         echo "Pulling $THEPATH"
+#         (cd "$THEPATH" && git pull --quiet) &
+#     fi
+# done <"$FILENAME"
+
+# wait
+
+gclone() {
+    # ensure the file is remove upon exit
+    trap "{ rm -f $GITLAB_PROJECT_FILE; }" EXIT
+
+    if [ -z "$GITLAB_PRIVATE_TOKEN" ]; then
+        echo "Please set the environment variable GITLAB_PRIVATE_TOKEN"
+        echo "See ${GITLAB_URL}/profile/account"
+        exit 1
+    fi
+
+    GITLAB_GROUP_ID=${1:-${GITLAB_GP_GROUP_ID}} # default https://gitlab.com/ruter-as/sb/grunnplattform
+
+    curl -s --header "PRIVATE-TOKEN: $GITLAB_PRIVATE_TOKEN" "${GITLAB_URL}/api/v4/groups/${GITLAB_GROUP_ID}/projects" |
+        jq --raw-output --compact-output ".[]" >$GITLAB_PROJECT_FILE
+}

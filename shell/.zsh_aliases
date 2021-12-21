@@ -42,6 +42,7 @@ alias python=python3
 alias kafka-topics=~/Ruter/kafka_2.7.0/bin/kafka-topics.sh
 
 alias sso-login="aws sso login --profile sso-dev-eks"
+alias sl="sso-login"
 
 alias intellij="open -na 'IntelliJ IDEA.app'"
 
@@ -57,7 +58,7 @@ alias lsa='ls -A'
 alias lsd="ls ${colorflag} | /usr/bin/grep --color=never '^d'"
 alias lsda="lsa | /usr/bin/grep --color=never '^d'"
 
-alias grep='grep --color=auto -n -i'
+alias grep='grep --color=auto -i'
 
 alias clear="clear && printf '\e[3J'"
 

@@ -1,76 +1,84 @@
 [alias]
-    a = add
-    aa = add --all
-    ap = add --patch
-    au = add --update
+a = add
+aa = add --all
+ap = add --patch
+au = add --update
 
-    b = branch
-    ba = branch --all
-    bd = branch --delete
-    bD = branch --delete --force
-    bm = branch --move
-    bM = branch --move --force
+b = branch
+ba = branch --all
+bd = branch --delete
+bD = branch --delete --force
+bm = branch --move
+bM = branch --move --force
 
-    c = commit
-    ca = commit --amend
-    ci = commit --interactive
-    cm = commit --message
-    cv = commit --verbose
+c = commit
+ca = commit --amend
+ci = commit --interactive
+cm = commit --message
+cv = commit --verbose
 
-    d = diff
-    dc = diff --cached
-    ds = diff --staged
-    dw = diff --word-diff
+d = diff
+dc = diff --cached
+ds = diff --staged
+dw = diff --word-diff
 
-    l = log
-    lg = log --graph
-    lk = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'
-    lo = log --oneline
-    lp = log --patch
-    lt = log --topo-order
+l = log
+lg = log --graph
+lk = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'
+lo = log --oneline
+lp = log --patch
+lt = log --topo-order
 
-    o = checkout
-    ob = checkout -b
+o = checkout
+ob = checkout -b
 
-    s = status --short --branch
+s = status --short --branch
 
-    unstage = reset HEAD
-    undo-commit = reset --soft HEAD^
-    set-upstream = !git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)
+unstage = reset HEAD
+undo-commit = reset --soft HEAD^
+set-upstream = !git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)
 [color]
-    ui = auto
+ui = auto
 [commit]
-    gpgsign = true
+gpgsign = true
 [core]
-    editor = vim
-    excludesfile = ~/.gitignore_global
-    pager = delta
+editor = vim
+excludesfile = ~/.gitignore_global
+pager = delta
+autocrlf = input
 [fetch]
-    prune = true
+prune = true
 [gpg]
-	program = /opt/homebrew/bin/gpg
+program = /opt/homebrew/bin/gpg
 [help]
-    autocorrect = 10
+autocorrect = 10
 [include]
-    path = ~/.gitconfig_local
+path = ~/.gitconfig_local
 [push]
-    default = current
+default = current
 [merge]
-    conflictstyle = diff3
+conflictstyle = diff3
 [interactive]
-    diffFilter = delta --color-only
+diffFilter = delta --color-only
 [delta]
-    line-numbers = true
-    syntax-theme = Dracula
-    plus-style = "syntax #2A363B"
-    plus-emph-style = "syntax #2D4E45"
-    minus-style = "syntax #3B2C37"
-    minus-emph-style = "syntax #613038"
+line-numbers = true
+syntax-theme = Dracula
+plus-style = "syntax #2A363B"
+plus-emph-style = "syntax #2D4E45"
+minus-style = "syntax #3B2C37"
+minus-emph-style = "syntax #613038"
 [pull]
-    rebase = false
+rebase = false
 [init]
-    defaultBranch = main
-[includeIf "gitdir:~/privatespace"]
-    path = ~/.gitconfig-private
+defaultBranch = main
+# [includeIf "gitdir:~/privatespace/"]
+#     path = ~/.gitconfig-private
 [includeIf "gitdir:~/Ruter/"]
-    path = ~/.gitconfig-job
+path = ~/.gitconfig-job
+[includeIf "gitdir:~/workspace/"]
+path = ~/.gitconfig-job
+[credential]
+helper =
+helper = /usr/local/share/gcm-core/git-credential-manager-core
+[credential "https://dev.azure.com"]
+useHttpPath = true
