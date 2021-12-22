@@ -44,5 +44,10 @@ if test ! $(which brew); then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+mkdir -p ~/.gnupg # Create the gpg directory before running the installer
+
+# Run the dotbot install scripts
+sh $DOTFILES/install
+
 # Set macOS preferences - we will run this last because this will reload the shell
 source $DOTFILES/.macos

@@ -23,6 +23,9 @@
     # GPG
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
     ~/.gnupg/gpg.confg: gnupg/gpg.conf
+    # Karabiner
+    ~/.config/karabiner/karabiner.json: karabiner/karabiner.json
+    ~/.config/karabiner/assets/complex_modifications: karabiner/modifications
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
