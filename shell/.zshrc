@@ -102,6 +102,13 @@ fi
 
 # }}}
 
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8'
+
+# Prefer US English and use UTF-8.
+export LANG='en_NO.UTF-8'
+export LC_ALL='en_NO.UTF-8'
+
 # In order for gpg to find gpg-agent, gpg-agent must be running, and there must be an env
 # variable pointing GPG to the gpg-agent socket. This little script, which must be sourced
 # in your shell's init script (ie, .bash_profile, .zshrc, whatever), will either start

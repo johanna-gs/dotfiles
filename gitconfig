@@ -71,10 +71,8 @@ minus-emph-style = "syntax #613038"
 rebase = false
 [init]
 defaultBranch = main
-# [includeIf "gitdir:~/privatespace/"]
-#     path = ~/.gitconfig-private
-[includeIf "gitdir:~/Ruter/"]
-path = ~/.gitconfig-job
+[includeIf "gitdir:~/"]
+path = ~/.gitconfig-private
 [includeIf "gitdir:~/workspace/"]
 path = ~/.gitconfig-job
 [credential]
