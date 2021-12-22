@@ -25,9 +25,11 @@
     ~/.gnupg/gpg.confg: gnupg/gpg.conf
     # Karabiner
     ~/.config/karabiner/karabiner.json:
-        force: true
-        path: karabiner/karabiner.json
-    ~/.config/karabiner/assets/complex_modifications: karabiner/modifications
+      force: true
+      path: karabiner/karabiner.json
+    ~/.config/karabiner/assets/complex_modifications:
+      force: true
+      path: karabiner/modifications
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

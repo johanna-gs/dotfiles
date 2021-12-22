@@ -54,14 +54,13 @@ brew "zsh-syntax-highlighting"
 
 # Casks
 cask "alfred"
-cask "amethyst"
-cask "firefox-developer-edition"
 cask "karabiner-elements"
 cask "kitty"
 cask "slack"
 cask "visualvm"
 cask "visual-studio-code-insiders"
 cask "git-credential-manager-core"
+cask "brave-browser"
 
 #  Fonts
 cask "font-fira-code"
