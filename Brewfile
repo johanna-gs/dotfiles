@@ -6,6 +6,7 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "homebrew/cask-fonts"
 tap "buo/cask-upgrade"
+tap "microsoft/git"
 
 brew "coreutils"
 # Install some other useful utilities like `sponge`.
@@ -60,6 +61,7 @@ cask "kitty"
 cask "slack"
 cask "visualvm"
 cask "visual-studio-code-insiders"
+cask "git-credential-manager-core"
 
 #  Fonts
 cask "font-fira-code"
