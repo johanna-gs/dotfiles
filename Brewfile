@@ -45,6 +45,7 @@ brew "jq"
 brew "lolcat"
 brew "mas"
 brew "ripgrep"
+brew "svn"
 brew "yq"
 
 # Shell tools
@@ -63,10 +64,9 @@ cask "git-credential-manager-core"
 cask "brave-browser"
 
 #  Fonts
-cask "font-fira-code"
 cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-nerd-font"
 
 # Mac App Store
-
 mas "Amphetamine", id: 937984704
 mas "Keynote", id: 409183694

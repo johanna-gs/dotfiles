@@ -13,11 +13,12 @@
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
     ~/.config/kitty: kitty
-    ~/.config/nvim: nvim
+    # ~/.config/nvim: nvim
     ~/.zsh_aliases: shell/.zsh_aliases
     ~/.zsh_functions: shell/.zsh_functions
     ~/.zshrc: shell/.zshrc
     ~/.antigenrc: shell/.antigenrc
+    ~/.p10k.zsh: shell/.p10k.zsh
     # Brew
     ~/Brewfile: Brewfile
     # GPG
@@ -30,6 +31,8 @@
     ~/.config/karabiner/assets/complex_modifications:
       force: true
       path: karabiner/modifications
+    # LunarVim
+    # ~/.config/lvim: lvim
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

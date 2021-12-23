@@ -65,3 +65,22 @@ alias clear="clear && printf '\e[3J'"
 alias vim="nvim"
 alias copy="xclip -selection clipboard"
 alias paste="xclip -o -selection clipboard"
+
+# Detect which `ls` flavor is in use
+if ls --color >/dev/null 2>&1; then # GNU `ls`
+    colorflag="--color"
+else # OS X `ls`
+    colorflag="-G"
+fi
+
+alias ls='ls -lhF ${colorflag}'
+alias lsa='ls -A'
+alias lsd="ls ${colorflag} | /usr/bin/grep --color=never '^d'"
+alias lsda="lsa | /usr/bin/grep --color=never '^d'"
+
+alias grep='grep --color=auto -n -i'
+
+alias clear="clear && printf '\e[3J'"
+
+alias df="df -h"
+alias du="du -h"
