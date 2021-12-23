@@ -13,7 +13,6 @@
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
     ~/.config/kitty: kitty
-    # ~/.config/nvim: nvim
     ~/.zsh_aliases: shell/.zsh_aliases
     ~/.zsh_functions: shell/.zsh_functions
     ~/.zshrc: shell/.zshrc
@@ -31,8 +30,9 @@
     ~/.config/karabiner/assets/complex_modifications:
       force: true
       path: karabiner/modifications
-    # LunarVim
-    # ~/.config/lvim: lvim
+    ~/Library/LaunchAgents/dotbot-daemon.plist: 
+      path: launchd/dotbot-daemon.plist
+      create: true
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
