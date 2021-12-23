@@ -69,7 +69,7 @@
     rebase = false
 [init]
     defaultBranch = main
-[includeIf "gitdir:~/.dotfiles"]
+[includeIf "gitdir:~/"]
     path = ~/.gitconfig-private
 [includeIf "gitdir:~/privatespace/"]
     path = ~/.gitconfig-private
