@@ -62,6 +62,7 @@ cask "visualvm"
 cask "visual-studio-code-insiders"
 cask "git-credential-manager-core"
 cask "brave-browser"
+cask "hammerspoon"
 
 #  Fonts
 cask "font-jetbrains-mono"

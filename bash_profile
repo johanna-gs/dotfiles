@@ -32,3 +32,7 @@ fi
 if [[ -e ~/.ssh/known_hosts ]]; then
     complete -o default -W "$(cat ~/.ssh/known_hosts | sed 's/[, ].*//' | sort | uniq)" ssh scp sftp
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/anderskirkeby/.sdkman"
+[[ -s "/Users/anderskirkeby/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/anderskirkeby/.sdkman/bin/sdkman-init.sh"

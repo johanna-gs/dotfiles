@@ -30,9 +30,7 @@
     ~/.config/karabiner/assets/complex_modifications:
       force: true
       path: karabiner/modifications
-    ~/Library/LaunchAgents/dotbot-daemon.plist: 
-      path: launchd/dotbot-daemon.plist
-      create: true
+    ~/.hammerspoon/init.lua: hammerspoon/init.lua
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
