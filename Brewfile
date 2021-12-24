@@ -61,8 +61,11 @@ cask "slack"
 cask "visualvm"
 cask "visual-studio-code-insiders"
 cask "git-credential-manager-core"
+cask "firefox-developer-edition"
 cask "brave-browser"
 cask "hammerspoon"
+cask "obsidian"
+cask "spotify"
 
 #  Fonts
 cask "font-jetbrains-mono"
