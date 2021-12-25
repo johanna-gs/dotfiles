@@ -13,6 +13,10 @@ fi
 # Path to your dotfiles.
 export DOTFILES=$HOME/.dotfiles
 
+# Golang setup
+export GOPATH=$HOME/go
+export GOROOT="$(brew --prefix golang)/libexec"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
@@ -20,6 +24,7 @@ export PATH=/usr/local/bin:$PATH
 export PATH=./vendor/bin:$PATH
 export PATH=~/.bin:$PATH
 export PATH=/opt:$PATH
+export PATH=${GOPATH}/bin:${GOROOT}/bin:$PATH
 
 export LANG='en_GB.UTF-8'
 export LC_ALL='en_GB.UTF-8'
