@@ -66,6 +66,7 @@ cask "brave-browser"
 cask "hammerspoon"
 cask "obsidian"
 cask "spotify"
+cask "intellij-idea"
 
 #  Fonts
 cask "font-jetbrains-mono"
