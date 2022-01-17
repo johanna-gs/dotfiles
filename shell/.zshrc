@@ -25,6 +25,7 @@ export PATH=./vendor/bin:$PATH
 export PATH=~/.bin:$PATH
 export PATH=/opt:$PATH
 export PATH=${GOPATH}/bin:${GOROOT}/bin:$PATH
+export PATH=/opt/homebrew/opt/node@16/bin:$PATH 
 
 export LANG='en_GB.UTF-8'
 export LC_ALL='en_GB.UTF-8'
