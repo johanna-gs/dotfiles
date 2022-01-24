@@ -75,3 +75,6 @@ cask "font-jetbrains-mono-nerd-font"
 # Mac App Store
 mas "Amphetamine", id: 937984704
 mas "Keynote", id: 409183694
+
+# Native development
+cask "flutter" 

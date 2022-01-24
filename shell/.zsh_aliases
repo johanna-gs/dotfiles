@@ -44,7 +44,7 @@ alias kafka-topics=~/Ruter/kafka_2.7.0/bin/kafka-topics.sh
 alias sso-login="aws sso login --profile sso-dev-eks"
 alias sl="sso-login"
 
-alias intellij="open -na 'IntelliJ IDEA.app'"
+alias idea="open -na 'IntelliJ IDEA.app'"
 
 # Detect which `ls` flavor is in use
 if ls --color >/dev/null 2>&1; then # GNU `ls`
@@ -84,3 +84,5 @@ alias clear="tput reset"
 
 alias df="df -h"
 alias du="du -h"
+
+alias simulator="open -a /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"

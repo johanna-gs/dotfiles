@@ -27,6 +27,13 @@ export PATH=/opt:$PATH
 export PATH=${GOPATH}/bin:${GOROOT}/bin:$PATH
 export PATH=/opt/homebrew/opt/node@16/bin:$PATH 
 
+# Flutter setup
+export PATH=/opt/homebrew/bin/flutter:$PATH
+
+# # Sudo-less gem installs
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
+
 export LANG='en_GB.UTF-8'
 export LC_ALL='en_GB.UTF-8'
 
@@ -55,18 +62,6 @@ bindkey "\e[1;3C" forward-word # ⌥→
 
 export GIT_EDITOR=vim
 
-path=(
-    $HOME/.local/bin
-    $HOME/.bin
-    $HOME/bin
-    $HOME/.composer/vendor/bin
-    $HOME/.go/bin
-    ./vendor/bin
-    ${ANDROID_HOME}tools/
-    ${ANDROID_HOME}platform-tools/
-    $path
-)
-
 setopt auto_cd
 cdpath=(
     $HOME/Code
@@ -90,10 +85,6 @@ v() {
     fi
 
     nvim
-}
-
-open () {
-    xdg-open $* > /dev/null 2>&1
 }
 
 if (( $+commands[tag] )); then
