@@ -1,3 +1,7 @@
 Brewfile.lock.json
 
 logs/**
+
+shell/.zsh_envs
+
+git/**

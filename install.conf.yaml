@@ -7,6 +7,8 @@
 - link:
     # Git
     ~/.gitconfig: gitconfig
+    ~/.gitconfig-job: git/.gitconfig-job
+    ~/.gitconfig-private: git/.gitconfig-private
     ~/.gitignore_global: gitignore_global
     # Terminal stuff
     ~/.bash_profile: bash_profile
@@ -14,6 +16,7 @@
     ~/.config/kitty: kitty
     ~/.zsh_aliases: shell/.zsh_aliases
     ~/.zsh_functions: shell/.zsh_functions
+    ~/.zsh_envs: shell/.zsh_envs
     ~/.zshrc: shell/.zshrc
     ~/.antigenrc: shell/.antigenrc
     ~/.p10k.zsh: shell/.p10k.zsh
