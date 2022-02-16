@@ -48,6 +48,10 @@ brew "ripgrep"
 brew "svn"
 brew "yq"
 
+# Kubernetes tools
+brew "kubernetes-cli"
+brew "kubectx"
+
 # Shell tools
 brew "zsh"
 brew "zsh-completions"
@@ -67,6 +71,7 @@ cask "hammerspoon"
 cask "obsidian"
 cask "spotify"
 cask "intellij-idea"
+cask "steam"
 
 #  Fonts
 cask "font-jetbrains-mono"
