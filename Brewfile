@@ -48,10 +48,12 @@ brew "mas"
 brew "ripgrep"
 brew "svn"
 brew "yq"
+brew "terraform"
 
 # Kubernetes tools
 brew "kubernetes-cli"
 brew "kubectx"
+brew "minikube"
 
 # Shell tools
 brew "zsh"
