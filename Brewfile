@@ -55,6 +55,13 @@ brew "kubernetes-cli"
 brew "kubectx"
 brew "minikube"
 
+# Lima VM to run Docker on 'Linux' 
+brew "lima" 
+brew "docker"
+
+# Kubernetes Operator development
+brew "operator-sdk"
+
 # Shell tools
 brew "zsh"
 brew "zsh-completions"

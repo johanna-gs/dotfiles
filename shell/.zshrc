@@ -140,6 +140,9 @@ export GRADLE_HOME=$(which gradle)
 # Flutterfire setup
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 
+# Docker through lima-vm
+export DOCKER_HOST=unix://$HOME/.lima/docker/sock/docker.sock
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh" || echo "⚠️  Failed to load sdkman ⚠️"
