@@ -51,7 +51,7 @@ brew "yq"
 brew "terraform"
 
 # Kubernetes tools
-brew "kubernetes-cli"
+brew "kubectl"
 brew "kubectx"
 brew "minikube"
 
@@ -76,14 +76,12 @@ cask "visualvm"
 cask "visual-studio-code-insiders"
 cask "git-credential-manager-core"
 cask "firefox-developer-edition"
-cask "brave-browser"
 cask "hammerspoon"
-cask "obsidian"
 cask "spotify"
 cask "intellij-idea"
-cask "steam"
-cask "displaylink"
 cask "notion"
+cask "figma"
+cask "cleanmymac"
 
 #  Fonts
 cask "font-jetbrains-mono"
@@ -92,6 +90,3 @@ cask "font-jetbrains-mono-nerd-font"
 # Mac App Store
 mas "Amphetamine", id: 937984704
 mas "Keynote", id: 409183694
-
-# Native development
-cask "flutter" 
