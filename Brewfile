@@ -54,6 +54,7 @@ brew "terraform"
 brew "kubectl"
 brew "kubectx"
 brew "minikube"
+brew "operator-sdk"
 
 # Lima VM to run Docker on 'Linux' 
 brew "lima" 
