@@ -23,23 +23,23 @@ GITLAB_PROJECT_FILE="~/.repositories.json"
 # wait
 
 gclone() {
-    # ensure the file is remove upon exit
-    trap "{ rm -f $GITLAB_PROJECT_FILE; }" EXIT
+  # ensure the file is remove upon exit
+  trap "{ rm -f $GITLAB_PROJECT_FILE; }" EXIT
 
-    if [ -z "$GITLAB_PRIVATE_TOKEN" ]; then
-        echo "Please set the environment variable GITLAB_PRIVATE_TOKEN"
-        echo "See ${GITLAB_URL}/profile/account"
-        exit 1
-    fi
+  if [ -z "$GITLAB_PRIVATE_TOKEN" ]; then
+    echo "Please set the environment variable GITLAB_PRIVATE_TOKEN"
+    echo "See ${GITLAB_URL}/profile/account"
+    exit 1
+  fi
 
-    GITLAB_GROUP_ID=${1:-${GITLAB_GP_GROUP_ID}} # default https://gitlab.com/ruter-as/sb/grunnplattform
+  GITLAB_GROUP_ID=${1:-${GITLAB_GP_GROUP_ID}} # default https://gitlab.com/ruter-as/sb/grunnplattform
 
-    curl -s --header "PRIVATE-TOKEN: $GITLAB_PRIVATE_TOKEN" "${GITLAB_URL}/api/v4/groups/${GITLAB_GROUP_ID}/projects" |
-        jq --raw-output --compact-output ".[]" >$GITLAB_PROJECT_FILE
+  curl -s --header "PRIVATE-TOKEN: $GITLAB_PRIVATE_TOKEN" "${GITLAB_URL}/api/v4/groups/${GITLAB_GROUP_ID}/projects" |
+    jq --raw-output --compact-output ".[]" >$GITLAB_PROJECT_FILE
 }
 
 kafkapod() {
-    kubectl run -it --tty --rm --restart=Never --image=jorgenringen/kafkacmd kafkacat-ak --overrides='{
+  kubectl run -it --tty --rm --restart=Never --image=jorgenringen/kafkacmd kafkacat-ak --overrides='{
     "apiVersion": "v1",
     "kind": "Pod",
     "spec": {
