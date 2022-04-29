@@ -68,8 +68,11 @@ brew "zsh"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 
+brew "bitwarden-cli"
+
 # Casks
 cask "alfred"
+cask "raycast"
 cask "karabiner-elements"
 cask "kitty"
 cask "slack"

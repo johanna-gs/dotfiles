@@ -33,6 +33,14 @@ hs.hotkey.bind(hyper, "f", function()
     manager.maximize()
 end)
 
+hs.hotkey.bind(hyper, "p", function()
+    manager.nextScreen()
+end)
+
+hs.hotkey.bind(hyper, "o", function()
+    manager.nextScreen()
+end)
+
 hs.hotkey.bind(hyper, "r", function()
     hs.reload()
 end)
@@ -58,20 +66,15 @@ function manager.win()
 end
 
 function manager.setFrame(title, unit)
-    -- hs.alert(title)
     local win = manager.win()
-    return win:setFrame(unit)
+
+    -- print("x: " .. unit.x .. ", w: " .. unit.w)
+
+    return win:setFrame(unit, 0)
 end
 
 function manager.screen()
-    local screen = manager.win():screen():frame()
-    local margins = manager.screen_margins
-    return {
-        x = screen.x + margins.left,
-        y = screen.y + margins.top,
-        w = screen.w - (margins.left + margins.right),
-        h = screen.h - (margins.top + margins.bottom)
-    }
+    return manager.win():screen():frame()
 end
 
 function manager.maximize()
@@ -117,11 +120,43 @@ end
 function manager.sendRight()
     local s = manager.screen()
     manager.setFrame("Right", {
-        x = s.w * .5,
+        x = s.x + s.w * .5,
         y = s.y,
         w = s.w * .5,
         h = s.h
     })
+end
+
+function manager.nextScreen()
+    local win = hs.window.focusedWindow()
+    local screen = win:screen():frame()
+    local nextScreen = win:screen():next():frame()
+    local wf = win:frame()
+
+    -- Calculate the coordinates of the window frame in the next screen and retain aspect ratio
+    wf.x = ((((wf.x - screen.x) / screen.w) * nextScreen.w) + nextScreen.x)
+    wf.y = ((((wf.y - screen.y) / screen.h) * nextScreen.h) + nextScreen.y)
+    wf.h = ((wf.h / screen.h) * nextScreen.h)
+    wf.w = ((wf.w / screen.w) * nextScreen.w)
+
+    -- Set the focused window's new frame dimensions
+    win:setFrame(wf)
+end
+
+function manager.previousScreen()
+    local win = hs.window.focusedWindow()
+    local screen = win:screen():frame()
+    local nextScreen = win:screen():previous():frame()
+    local wf = win:frame()
+
+    -- Calculate the coordinates of the window frame in the next screen and retain aspect ratio
+    wf.x = ((((wf.x - screen.x) / screen.w) * nextScreen.w) + nextScreen.x)
+    wf.y = ((((wf.y - screen.y) / screen.h) * nextScreen.h) + nextScreen.y)
+    wf.h = ((wf.h / screen.h) * nextScreen.h)
+    wf.w = ((wf.w / screen.w) * nextScreen.w)
+
+    -- Set the focused window's new frame dimensions
+    win:setFrame(wf)
 end
 
 --- ==========================================
