@@ -94,3 +94,4 @@ cask "font-jetbrains-mono-nerd-font"
 # Mac App Store
 mas "Amphetamine", id: 937984704
 mas "Keynote", id: 409183694
+mas "The Unarchiver", id: 425424353
