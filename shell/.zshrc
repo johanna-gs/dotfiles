@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/zshrc.pre.zsh"
 # .zshrc
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -18,6 +16,13 @@ export DOTFILES=$HOME/.dotfiles
 # Golang setup
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
+
+#############
+# Confluent #
+#############
+
+export CONFLUENT_HOME=~/workspace/kafka/confluent-7.1.1
+export PATH=$CONFLUENT_HOME/bin:$PATH
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -156,6 +161,3 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"

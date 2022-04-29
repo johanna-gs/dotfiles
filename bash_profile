@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/bash_profile.pre.bash"
 #
 # ~/.bash_profile
 #
@@ -38,6 +36,3 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/anderskirkeby/.sdkman"
 [[ -s "/Users/anderskirkeby/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/anderskirkeby/.sdkman/bin/sdkman-init.sh"
-
-# Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/bash_profile.post.bash"
