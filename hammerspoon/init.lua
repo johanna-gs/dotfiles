@@ -46,6 +46,14 @@ hs.hotkey.bind(hyper, "r", function()
 end)
 
 --- ==========================================
+--- Display manager
+--- ==========================================
+
+hs.hotkey.bind(hyper, "t", function()
+    rearrangeDisplays()
+end)
+
+--- ==========================================
 --- Internal variables
 --- ==========================================
 
@@ -157,6 +165,48 @@ function manager.previousScreen()
 
     -- Set the focused window's new frame dimensions
     win:setFrame(wf)
+end
+
+function rearrangeDisplays()
+    local displays = hs.screen.allScreens()
+
+    local main_display = displays[1]
+    local main_display_mode = displays[1]:currentMode()
+
+    local external_displays = table.slice(displays, 2, #displays)
+
+    if (#displays == 1) then
+        print("One display connected. Nothing to re-arrange")
+        return
+    end
+
+    if (#external_displays == 1) then
+        local external_display = external_displays[1]
+        local external_mode = external_display:currentMode()
+
+        local origin_x = -(external_mode["w"] / 2) + (main_display_mode["w"] / 2)
+        local origin_y = -external_mode["h"]
+
+        external_display:setOrigin(origin_x, origin_y)
+
+        hs.alert("Rearranged displays")
+    else
+        hs.alert("More than one external display not yet supported")
+    end
+end
+
+--- ==========================================
+--- Utilities
+--- ==========================================
+
+function table.slice(tbl, first, last, step)
+    local sliced = {}
+
+    for i = first or 1, last or #tbl, step or 1 do
+        sliced[#sliced + 1] = tbl[i]
+    end
+
+    return sliced
 end
 
 --- ==========================================
