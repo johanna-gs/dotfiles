@@ -3,3 +3,8 @@ Host *
    UseKeychain yes
    AddKeysToAgent yes
    IdentityFile ~/.ssh/id_ed25519
+
+Host 192.168.1.1
+   User root
+   PubkeyAcceptedAlgorithms +ssh-rsa
+   HostKeyAlgorithms +ssh-rsa

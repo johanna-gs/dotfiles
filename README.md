@@ -21,3 +21,7 @@ this can be done manually or automatically through:
 ```sh
 $ kubectl config --kubeconfig=~/.lima/k8s/conf/kubeconfig set-cluster minikube --server=https://127.0.0.1:6443
 ```
+
+## Brew, Bundle, and Brewfile
+
+https://gist.github.com/ChristopherA/a579274536aab36ea9966f301ff14f3f
