@@ -21,3 +21,17 @@ this can be done manually or automatically through:
 ```sh
 $ kubectl config --kubeconfig=~/.lima/k8s/conf/kubeconfig set-cluster minikube --server=https://127.0.0.1:6443
 ```
+
+### Docker
+
+```sh
+$ limactl start https://raw.githubusercontent.com/lima-vm/lima/master/examples/docker.yaml
+```
+
+After starting docker inside Lima, it can be set up as a separate context
+
+```sh
+$ docker context create lima --docker "host=unix:///Users/anderskirkeby/.lima/docker/sock/docker.sock"
+$ docker context use lima
+$ docker run ... # will run the docker-container inside LimaVM
+```

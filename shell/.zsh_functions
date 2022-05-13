@@ -38,6 +38,30 @@ gclone() {
     jq --raw-output --compact-output ".[]" >$GITLAB_PROJECT_FILE
 }
 
+confluentDownload() {
+  confluentDir="$HOME/workspace/kafka"
+
+  [[ ! -d confluentDir ]] && mkdir $confluentDir
+
+  minorVersion=$1
+
+  [[ -z "$minorVersion" ]] && { echo "No version set, cannot process. Exiting."; exit 1 }
+  [[ "$minorVersion" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "Invalid version format. Expected x.x.x, was $minorVersion. Exiting."; exit 1 }
+
+  # Remove everything after the second '.'
+  patchVersion=$(echo $minorVersion | cut -f1,2 -d'.')
+
+  downloadUrl="http://packages.confluent.io/archive/${patchVersion}/confluent-${minorVersion}.tar.gz"
+
+  echo $downloadUrl
+
+  curl --create-dirs -O --output-dir $confluentDir $downloadUrl
+
+  tar -xzvf "$confluentDir/confluent-${minorVersion}.tar.gz" -C $confluentDir
+
+  find $confluentDir -name "*.tar.gz" -type f -delete 
+}
+
 kafkapod() {
   kubectl run -it --tty --rm --restart=Never --image=jorgenringen/kafkacmd kafkacat-ak --overrides='{
     "apiVersion": "v1",

@@ -64,7 +64,7 @@ brew "docker"
 brew "operator-sdk"
 
 # Shell tools
-brew "zsh"
+# brew "zsh"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 
