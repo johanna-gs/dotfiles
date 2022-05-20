@@ -35,3 +35,7 @@ $ docker context create lima --docker "host=unix:///Users/anderskirkeby/.lima/do
 $ docker context use lima
 $ docker run ... # will run the docker-container inside LimaVM
 ```
+
+## Brew, Bundle, and Brewfile
+
+https://gist.github.com/ChristopherA/a579274536aab36ea9966f301ff14f3f
