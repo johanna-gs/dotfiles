@@ -71,6 +71,7 @@ brew "zsh-syntax-highlighting"
 brew "bitwarden-cli"
 
 # Casks
+cask "bartender"
 cask "cleanmymac"
 cask "confluent-cli"
 cask "firefox-developer-edition"
@@ -87,9 +88,14 @@ cask "spotify"
 cask "visual-studio-code-insiders"
 cask "visualvm"
 
+# 3D Printing
+cask "prusaslicer"
+cask "blender"
+
 #  Fonts
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
+
 
 # Mac App Store
 mas "Amphetamine", id: 937984704

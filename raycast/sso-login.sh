@@ -13,3 +13,5 @@
 # @raycast.author Anders Kirkeby
 
 aws sso login --profile sso-dev-eks
+
+open raycast://confetti # 🎉
