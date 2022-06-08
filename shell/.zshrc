@@ -37,6 +37,9 @@ export PATH=/opt/homebrew/opt/node@16/bin:$PATH
 # Flutter setup
 export PATH=/opt/homebrew/bin/flutter:$PATH
 
+# Pyenv setup
+export PYENV_ROOT="$HOME/.pyenv"
+
 # # Sudo-less gem installs
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
@@ -48,6 +51,9 @@ export LC_ALL='en_GB.UTF-8'
 source "$DOTFILES/antigen/antigen.zsh"
 
 antigen init ~/.antigenrc
+
+# Manual zsh completions
+fpath=(~/.oh-my-zsh/completions $fpath)
 
 # Configuration {{{
 # ==============================================================================
@@ -150,9 +156,8 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 export DOCKER_HOST=unix://$HOME/.lima/docker/sock/docker.sock
 
 # Load pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

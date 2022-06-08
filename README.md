@@ -1,5 +1,9 @@
 # $HOME sweet $HOME
 
+## Configuration
+
+To update and symlink the different folders [dotbot](https://github.com/anishathalye/dotbot) is used!
+
 ## Minikube on M1
 
 Running minikube on m1-macs can be bit of a hassle - it is possible to fidle around using lima-vm as the container runtime. However, it is much easier to simply run kubernetes (with kubeadm) directly on lima - from the setup [here](https://github.com/lima-vm/lima/blob/master/examples/k8s.yaml).

@@ -60,6 +60,9 @@ brew "operator-sdk"
 brew "lima" 
 brew "docker"
 
+# Python
+brew "pyenv"
+
 # Kubernetes Operator development
 brew "operator-sdk"
 
@@ -96,8 +99,8 @@ cask "blender"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
 
-
 # Mac App Store
 mas "Amphetamine", id: 937984704
 mas "Keynote", id: 409183694
 mas "The Unarchiver", id: 425424353
+mas "Numbers", id: 409203825

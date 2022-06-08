@@ -36,8 +36,7 @@ alias kdcm="kubectl describe configmaps"
 
 alias kpf="kubectl port-forward"
 
-alias pip=pip3
-alias python=python3
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
 alias kafka-topics=~/Ruter/kafka_2.7.0/bin/kafka-topics.sh
 

@@ -20,6 +20,12 @@
     ~/.zshrc: shell/.zshrc
     ~/.antigenrc: shell/.antigenrc
     ~/.p10k.zsh: shell/.p10k.zsh
+    # zsh completions
+    ~/.oh-my-zsh/completions/:
+      create: true
+      glob: true
+      path: shell/completions/*
+      relink: true
     # Brew
     ~/Brewfile: Brewfile
     # GPG
@@ -32,7 +38,9 @@
     ~/.config/karabiner/assets/complex_modifications:
       force: true
       path: karabiner/modifications
-    ~/.hammerspoon/init.lua: hammerspoon/init.lua
+    ~/.hammerspoon:
+      if: "[ `uname` = Darwin ]"
+      path: hammerspoon
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
