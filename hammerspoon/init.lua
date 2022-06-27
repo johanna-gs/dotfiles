@@ -184,6 +184,7 @@ function rearrangeDisplays()
         local external_display = external_displays[1]
         local external_mode = external_display:currentMode()
 
+        -- Place the main display (macbook screen) below the external display
         local origin_x = -(external_mode["w"] / 2) + (main_display_mode["w"] / 2)
         local origin_y = -external_mode["h"]
 

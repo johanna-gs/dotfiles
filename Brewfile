@@ -27,6 +27,9 @@ brew "wget"
 brew "gnupg"
 brew "pinentry-mac"
 
+# MacOS version of tree
+brew "tree"
+
 # Install more recent versions of some macOS tools.
 brew "neovim"
 brew "grep"
