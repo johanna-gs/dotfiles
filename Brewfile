@@ -39,6 +39,7 @@ brew "gmp"
 
 # Productivity tools
 brew "awscli"
+brew "cowsay"
 brew "fx"
 brew "fzf"
 brew "git"
@@ -59,12 +60,16 @@ brew "kubectx"
 brew "minikube"
 brew "operator-sdk"
 
-# Lima VM to run Docker on 'Linux' 
-brew "lima" 
+# https://github.com/abiosoft/colima
+brew "colima" 
 brew "docker"
 
 # Python
 brew "pyenv"
+brew "pyenv-virtualenv"
+
+# Node
+brew "nvm"
 
 # Kubernetes Operator development
 brew "operator-sdk"
@@ -75,6 +80,9 @@ brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 
 brew "bitwarden-cli"
+
+# set arguments for all 'brew install --cask' commands
+cask_args appdir: "~/Applications", require_sha: true
 
 # Casks
 cask "bartender"

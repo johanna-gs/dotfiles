@@ -62,65 +62,64 @@ confluentDownload() {
   find $confluentDir -name "*.tar.gz" -type f -delete 
 }
 
-kafkapod() {
-  kubectl run -it --tty --rm --restart=Never --image=jorgenringen/kafkacmd kafkacat-ak --overrides='{
+kafkacli-v2() {
+  VERSION="${1:-latest}"
+  OVERRIDES=$(cat <<EOF
+  {
     "apiVersion": "v1",
     "kind": "Pod",
     "spec": {
-      "containers": [
-        {
-          "name": "kafkacat-ak",
-          "image": "jorgenringen/kafkacmd",
-          "env": [
-            {
-              "name": "BOOTSTRAP",
-              "valueFrom": {
-                "configMapKeyRef": {
-                  "key": "pd.services.kafkabroker.v2.socketaddr_set",
-                  "name": "tf-state"
-                }
-              }
-            },
-            {
-              "name": "SCHEMA_REGISTRY_URL",
-              "valueFrom": {
-                "configMapKeyRef": {
-                  "key": "pd.services.schemaregistry.v2.endpoint_set",
-                  "name": "tf-state"
-                }
+      "containers": [{
+        "name": "kafkacli-v2-ak",
+        "image": "822152007605.dkr.ecr.eu-west-1.amazonaws.com/sb/kafka-cli-image:${VERSION}",
+        "env": [{
+            "name": "BOOTSTRAP",
+            "valueFrom": {
+              "configMapKeyRef": {
+                "key": "pd.services.kafkabroker.v2.socketaddr_set",
+                "name": "tf-state"
               }
             }
-          ],
-          "args": [
-            "zsh"
-          ],
-          "stdin": true,
-          "stdinOnce": true,
-          "tty": true,
-          "resources": {
-            "limits": {
-              "cpu": "3",
-              "memory": "2048Mi"
-            },
-            "requests": {
-              "cpu": "100m",
-              "memory": "2048Mi"
+          },
+          {
+            "name": "SCHEMA_REGISTRY_URL",
+            "valueFrom": {
+              "configMapKeyRef": {
+                "key": "pd.services.schemaregistry.v2.endpoint_set",
+                "name": "tf-state"
+              }
             }
           }
+        ],
+        "stdin": true,
+        "stdinOnce": true,
+        "tty": true,
+        "resources": {
+          "limits": {
+            "cpu": "3",
+            "memory": "2048Mi"
+          },
+          "requests": {
+            "cpu": "100m",
+            "memory": "2048Mi"
+          }
         }
-      ],
+      }],
+      "imagePullPolicy": "Always",
       "restartPolicy": "Never",
       "nodeSelector": {
         "group": "core"
       },
-      "tolerations": [
-        {
-          "key": "group",
-          "operator": "Equal",
-          "value": "core",
-          "effect": "NoSchedule"
-        }
-      ]
+      "tolerations": [{
+        "key": "group",
+        "operator": "Equal",
+        "value": "core",
+        "effect": "NoSchedule"
+      }]
     }
-  }' --annotations="ad.datadoghq.com/kafkacat-ak.logs"='[{"source": "stdout","service": "kafkacat-ak","log_processing_rules": [{"type": "exclude_at_match","name": "exclude_pod","pattern" : ".*"}]}]'
+  }
+EOF
+  )
+
+  kubectl run -it --tty --rm --restart=Never --image=822152007605.dkr.ecr.eu-west-1.amazonaws.com/sb/kafka-cli-image:$VERSION kafkacli-ak --overrides=$OVERRIDES
 }

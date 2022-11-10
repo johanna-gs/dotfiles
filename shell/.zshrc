@@ -156,8 +156,24 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 export DOCKER_HOST=unix://$HOME/.lima/docker/sock/docker.sock
 
 # Load pyenv
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# Python Poetry
+export PATH="/Users/anderskirkeby/.local/bin:$PATH"
+
+fpath+=~/.zfunc
+autoload -Uz compinit && compinit
+
+# Load nvm 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

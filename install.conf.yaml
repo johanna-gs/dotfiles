@@ -51,3 +51,12 @@
     - command: brew cu -a -y
       description: Updating brew cask dependencies
       stdout: true
+    - command: brew update && brew upgrade
+      description: Updating brew dependencies - part 2
+      stdout: true
+    - command: open -a "Raycast"
+      stdout: false
+    - command: open -a "Hammerspoon"
+      stdout: false
+    - command: open -a "Karabiner-Elements"
+      stdout: false
