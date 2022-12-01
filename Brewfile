@@ -63,6 +63,7 @@ brew "operator-sdk"
 # https://github.com/abiosoft/colima
 brew "colima" 
 brew "docker"
+brew "docker-compose"
 
 # Python
 brew "pyenv"
