@@ -1,0 +1,19 @@
+- clean: ["~"]
+
+- defaults:
+    link:
+      relink: true
+
+
+- link:
+    # git configurations
+    # inspired by: https://kurtmckee.org/2022/06/managing-your-git-config-using-dotbot/
+    ~/.gitignore: .config/git/gitignore
+    ~/.gitconfig: .config/git/gitconfig.ini
+    ~/.gitconfig-platform-specific: .config/git/platform/wsl.ini
+    ~/.gitconfig-privatespace: .config/git/gitconfig-privatespace.ini
+    ~/.gitconfig-workspace: .config/git/gitconfig-workspace.ini
+
+- shell:
+    - command: pwd -P
+      sdout: true

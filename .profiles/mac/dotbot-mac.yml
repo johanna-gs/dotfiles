@@ -7,21 +7,17 @@
 - link:
     # Brew
     ~/Brewfile: Brewfile
-      if: "[ `uname` = Darwin ]"
     # GPG
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
     ~/.gnupg/gpg.confg: gnupg/gpg.conf
     # Karabiner
     ~/.config/karabiner/karabiner.json:
-      if: "[ `uname` = Darwin ]"
       force: true
       path: karabiner/karabiner.json
     ~/.config/karabiner/assets/complex_modifications:
-      if: "[ `uname` = Darwin ]"
       force: true
       path: karabiner/modifications
     ~/.hammerspoon:
-      if: "[ `uname` = Darwin ]"
       path: hammerspoon
 
 - shell:

@@ -1,0 +1,73 @@
+{
+  // Show breadcrumbs below the tab bar, telling you where you are in the code.
+  "breadcrumbs.enabled": true,
+  // This has a strangely satisfying 80s feel to it.
+  "editor.cursorBlinking": "smooth",
+  "editor.fontFamily": "JetBrainsMono NF, Source Code Pro, Consolas, 'Courier New', monospace",
+  "editor.fontSize": 14,
+  "editor.fontLigatures": true,
+  // Enable auto-formatting on ctrl/cmd+s
+  "editor.formatOnSave": true,
+  "terminal.integrated.fontSize": 14,
+  // Make the minimap more abstract, and always show the displayed section (not just when hovering with the mouse).
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.maxColumn": 120,
+  "editor.minimap.showSlider": "always",
+  // Show whitespace characters, but not single spaces between words.
+  "editor.renderWhitespace": "boundary",
+  // Display vertical rulers after 80 and 120 characters.
+  "editor.rulers": [80, 120],
+  // Scroll a bit smoother to help your eyes keep track.
+  "editor.smoothScrolling": true,
+  // Hide "Open Editors" section in the explorer. You can see it from the tab bar anyway.
+  "explorer.openEditors.visible": 0,
+  // Glob -> File Type associations.
+  "files.associations": {
+    "Saltfile": "yaml",
+    "*.drawio": "xml",
+    "*.zcml": "xml",
+    "*.sls": "yaml"
+  },
+  // Files should (almost) always use LF line endings, not CRLF, not even under Windows.
+  "files.eol": "\n",
+  // Files should always end in a newline, but not more than one.
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  // Also, lines should _usually_ not end with whitespace.
+  "files.trimTrailingWhitespace": true,
+  // File paths not to watch, e.g. because they get created and deleted quickly which can cause
+  // “permission denied” errors.
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/target/*/incremental/**": true // Rust’s incremental compilation.
+  },
+  "terminal.explorerKind": "external",
+  "terminal.external.windowsExec": "wt",
+  // I don't remember, this fixed some keyboard shortcuts or something.
+  "terminal.integrated.allowChords": false,
+  // I'm using non-breaking spaces and stuff like that in my files, don't highlight it.
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  // Just show the project and file name. I can see from the icon that this is VS Code.
+  // Starting with the project name allows me to distinguish multiple Code instances in the task bar more easily.
+  "window.title": "${rootName}${separator}${dirty}${activeEditorShort}",
+  "workbench.colorTheme": "Dracula",
+  // This apparently sends keystrokes to Microsoft when searching in the settings. Don't need it.
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  // Filetype-specific settings.
+  "[markdown]": {
+    // (Soft) wrap long lines so that they fit in the viewport.
+    "editor.wordWrap": "on",
+    // Don't try to suggest things to me, I'm writing prose.
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "redhat.telemetry.enabled": false
+}

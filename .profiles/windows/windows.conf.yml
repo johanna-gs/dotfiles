@@ -1,5 +1,0 @@
-- clean: ["~"]
-
-- defaults:
-    link:
-      relink: true

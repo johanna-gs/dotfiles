@@ -52,4 +52,4 @@ mkdir -p ~/.gnupg # Create the gpg directory before running the installer
 sh $DOTFILES/install
 
 # Set macOS preferences - we will run this last because this will reload the shell
-source $DOTFILES/.macos
+source $DOTFILES/.profiles/mac/config.sh
