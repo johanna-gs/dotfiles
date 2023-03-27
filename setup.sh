@@ -71,16 +71,25 @@ if test ! $(which brew); then
 fi
 
 if [[ ${OS} == "WSL2" ]]; then
+    # Install homebrew
     (
         echo
         echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'
     ) >>/home/$USER/.profile
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+    echo "After running the installer, make sure you add the git-credential-manager config:"
+    echo "      git config --global credential.helper '/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe'"
 fi
 
 mkdir -p ~/.gnupg # Create the gpg directory before running the installer
 
 [ -d ~/dotfiles ] || git clone https://github.com/andeki92/dotfiles.git ~/dotfiles
 [ -d ~/dotfiles ] && (cd ~/dotfiles && git submodule update --init --recursive)
+
+if [ ! -f ~/.ssh/id_rsa ]; then
+    echo "Seems like you're missing a ssh-key, let's fix that 🔐"
+    ssh-keygen
+fi
 
 echo "Finished setting up your ${OS} environment 😎"
