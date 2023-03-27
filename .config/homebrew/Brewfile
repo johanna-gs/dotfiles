@@ -1,0 +1,45 @@
+brew "wget"
+
+
+
+
+brew "mas" if OS.mac?
+
+brew "gping" # modern replacement for 'ping'
+brew "bottom" # modern replacement for 'top'
+brew "jq"
+brew "exa" # modern replacement for 'ls'
+brew "zsh"
+
+# set arguments for all 'brew install --cask' commands
+cask_args appdir: "~/Applications", require_sha: true
+
+# Casks
+cask "bartender"
+cask "cleanmymac"
+cask "confluent-cli"
+cask "firefox-developer-edition"
+cask "figma"
+cask "git-credential-manager-core"
+cask "hammerspoon"
+cask "intellij-idea"
+cask "karabiner-elements"
+cask "kitty"
+cask "notion"
+cask "raycast"
+cask "slack"
+cask "spotify"
+cask "visual-studio-code"
+
+# 3D Printing
+cask "prusaslicer"
+cask "blender"
+
+#  Fonts
+cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-nerd-font"
+
+mas "Amphetamine", id: 937984704
+mas "Keynote", id: 409183694
+mas "The Unarchiver", id: 425424353
+mas "Numbers", id: 409203825

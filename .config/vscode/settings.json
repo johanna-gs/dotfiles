@@ -47,6 +47,7 @@
   "terminal.external.windowsExec": "wt",
   // I don't remember, this fixed some keyboard shortcuts or something.
   "terminal.integrated.allowChords": false,
+  "terminal.integrated.shellIntegration.decorationsEnabled": "never",
   // I'm using non-breaking spaces and stuff like that in my files, don't highlight it.
   "editor.unicodeHighlight.nonBasicASCII": false,
   // Just show the project and file name. I can see from the icon that this is VS Code.

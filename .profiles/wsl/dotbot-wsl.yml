@@ -4,6 +4,10 @@
     link:
       relink: true
 
+- create:
+  - ~/.zsh
+  - ~/.config
+
 
 - link:
     # git configurations
@@ -13,7 +17,25 @@
     ~/.gitconfig-platform-specific: .config/git/platform/wsl.ini
     ~/.gitconfig-privatespace: .config/git/gitconfig-privatespace.ini
     ~/.gitconfig-workspace: .config/git/gitconfig-workspace.ini
+    # zsh configurations
+    ~/.zshrc: .config/zsh/.zshrc
+    ~/.zsh/aliases.zsh: .config/zsh/aliases.zsh
+    ~/.zsh/functions.zsh: .config/zsh/functions.zsh
+    ~/.zsh/starship.zsh: .config/zsh/starship.zsh
+    # starship
+    ~/.config/starship.toml: .config/starship/starship.toml
+    # homebrew
+    ~/Brewfile: .config/homebrew/Brewfile
+
+
 
 - shell:
-    - command: pwd -P
-      sdout: true
+    - command: cd ~/ && brew bundle install
+      description: Updating brew dependencies
+      stdout: true
+    - command: cd ~/ && brew cu -a -y
+      description: Updating brew cask dependencies
+      stdout: true
+    - command: cd ~/ && brew update && brew upgrade
+      description: Updating brew dependencies - part 2
+      stdout: true

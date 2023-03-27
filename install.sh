@@ -36,6 +36,8 @@ Windows)
     ;;
 esac
 
+echo "Running installer for $OS"
+
 DOTBOT_DIR="dotbot"
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
