@@ -81,5 +81,6 @@ fi
 mkdir -p ~/.gnupg # Create the gpg directory before running the installer
 
 [ -d ~/dotfiles ] || git clone https://github.com/andeki92/dotfiles.git ~/dotfiles
+[ -d ~/dotfiles ] && (cd ~/dotfiles && git submodule update --init --recursive)
 
 echo "Finished setting up your ${OS} environment 😎"
