@@ -9,14 +9,21 @@
 
 ## Setup
 
+To install `dotfiles` run the appropriate installer.
+
 ### Windows
 
-To install `dotfiles` on Windows (10/11) run the next snippet in the terminal:
-
+```pwsh
+powershell -NoProfile -ExecutionPolicy unrestricted -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; &([scriptblock]::Create((Invoke-WebRequest -UseBasicParsing 'https://raw.github.com/andeki2/dotfiles/main/.profiles/windows/setup.ps1')))
 ```
-| OS | Snippet |
-| --- | --- |
-| `Windows` | powershell -NoProfile -ExecutionPolicy unrestricted -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; &([scriptblock]::Create((Invoke-WebRequest -UseBasicParsing 'https://raw.github.com/andeki2/dotfiles/main/.profiles/windows/setup.ps1'))) |
+
+### Mac / WSL2
+
+```zsh
+wget -O - https://raw.github.com/andeki92/dotfiles/main/setup.sh --no-cache | bash
+```
+
+---
 
 ## Configuration
 

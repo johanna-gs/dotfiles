@@ -38,5 +38,3 @@
     - command: cd ~/ && brew update && brew upgrade
       description: Updating brew dependencies
       stdout: true
-    - command: source ~/.zshrc
-      description: Reload zsh configuration
