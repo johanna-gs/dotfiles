@@ -31,8 +31,6 @@
     # homebrew
     ~/Brewfile: .config/homebrew/Brewfile
 
-
-
 - shell:
     - command: cd ~/ && brew bundle install
       description: Updating brew dependencies

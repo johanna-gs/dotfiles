@@ -5,6 +5,7 @@ brew "wget"
 
 brew "mas" if OS.mac?
 
+brew "starship"
 brew "gping" # modern replacement for 'ping'
 brew "bottom" # modern replacement for 'top'
 brew "jq"
