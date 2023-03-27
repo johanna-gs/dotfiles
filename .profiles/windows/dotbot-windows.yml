@@ -19,7 +19,10 @@
     \PowerShell\Microsoft.PowerShell_profile.ps1: .profiles/windows/profile.ps1
     ~/.config/starship.toml: .config/starship/starship.toml
     # vscode
-    ~/AppData/Roaming/Code/User/settings.json: .config/vscode/settings.json
+    ~/AppData/Roaming/Code/User/settings.json:
+      path: .config/vscode/settings.json
+      force: true
+
 
 
 - shell:
