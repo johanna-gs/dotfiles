@@ -77,9 +77,6 @@ if [[ ${OS} == "WSL2" ]]; then
         echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'
     ) >>/home/$USER/.profile
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-    echo "After running the installer, make sure you add the git-credential-manager config:"
-    echo "      git config --global credential.helper '/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe'"
 fi
 
 mkdir -p ~/.gnupg # Create the gpg directory before running the installer

@@ -16,7 +16,10 @@
   // Show whitespace characters, but not single spaces between words.
   "editor.renderWhitespace": "boundary",
   // Display vertical rulers after 80 and 120 characters.
-  "editor.rulers": [80, 120],
+  "editor.rulers": [
+    80,
+    120
+  ],
   // Scroll a bit smoother to help your eyes keep track.
   "editor.smoothScrolling": true,
   // Hide "Open Editors" section in the explorer. You can see it from the tab bar anyway.
@@ -48,6 +51,7 @@
   // I don't remember, this fixed some keyboard shortcuts or something.
   "terminal.integrated.allowChords": false,
   "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+  "terminal.integrated.defaultProfile.linux": "zsh",
   // I'm using non-breaking spaces and stuff like that in my files, don't highlight it.
   "editor.unicodeHighlight.nonBasicASCII": false,
   // Just show the project and file name. I can see from the icon that this is VS Code.
