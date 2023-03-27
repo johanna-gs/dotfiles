@@ -70,8 +70,16 @@ if test ! $(which brew); then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+if [[ ${OS} == "WSL2" ]]; then
+    (
+        echo
+        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'
+    ) >>/home/$USER/.profile
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 mkdir -p ~/.gnupg # Create the gpg directory before running the installer
 
-git clone https://github.com/andeki92/dotfile ~/dotfiles
+git clone https://github.com/andeki92/dotfiles.git ~/dotfiles
 
 echo "Finished setting up your ${OS} environment 😎"
