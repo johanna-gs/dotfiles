@@ -56,7 +56,10 @@ if [[ ${OS} == "MacM1" ]] && ! xcode-select --print-path &>/dev/null; then
 
     sudo xcodebuild -license
     print_result $? 'Agree with the XCode Command Line Tools licence'
+fi
 
+if [[ ${OS} == "WSL2" ]]; then
+    sudo apt-get install build-essential procps curl file git
 fi
 
 if test ! $(which brew); then
