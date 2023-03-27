@@ -59,7 +59,7 @@ if [[ ${OS} == "MacM1" ]] && ! xcode-select --print-path &>/dev/null; then
 fi
 
 if [[ ${OS} == "WSL2" ]]; then
-    sudo apt-get install build-essential procps curl file git
+    sudo apt-get update && sudo apt-get install build-essential procps curl file git
 fi
 
 if test ! $(which brew); then
