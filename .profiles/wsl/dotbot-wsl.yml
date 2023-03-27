@@ -14,8 +14,12 @@
     # inspired by: https://kurtmckee.org/2022/06/managing-your-git-config-using-dotbot/
     ~/.gitignore: .config/git/gitignore
     ~/.gitconfig: .config/git/gitconfig.ini
-    ~/.gitconfig-platform-specific: .config/git/platform/wsl.ini
-    ~/.gitconfig-privatespace: .config/git/gitconfig-privatespace.ini
+    ~/.gitconfig-platform-specific:
+      path: .config/git/platform/wsl.ini
+      ignore-missing: true
+    ~/.gitconfig-privatespace:
+      path: .config/git/gitconfig-privatespace.ini
+      ignore-missing: true
     ~/.gitconfig-workspace: .config/git/gitconfig-workspace.ini
     # zsh configurations
     ~/.zshrc: .config/zsh/.zshrc
