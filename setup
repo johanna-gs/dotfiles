@@ -89,4 +89,4 @@ if [ ! -f ~/.ssh/id_rsa ]; then
     ssh-keygen
 fi
 
-echo "Finished setting up your ${OS} environment 😎"
+echo "Finished setting up your ${OS} environment 🎂"

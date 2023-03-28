@@ -20,7 +20,11 @@ powershell -NoProfile -ExecutionPolicy unrestricted -Command "[Net.ServicePointM
 ### Mac / WSL2
 
 ```zsh
-wget -O - https://raw.github.com/andeki92/dotfiles/main/setup.sh --no-cache | bash
+# If you have curl installed ########################################
+curl -Ls https://raw.github.com/andeki92/dotfiles/main/setup | bash
+
+# If you have wget installed ########################################
+wget -q -O - https://raw.github.com/andeki92/dotfiles/main/setup | bash
 ```
 
 ---
