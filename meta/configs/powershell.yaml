@@ -3,4 +3,6 @@
 
 - link:
     \PowerShell\Microsoft.PowerShell_profile.ps1: configs/powershell/profile.ps1
+    # icons
     ~/WindowsTerminalIcons/ubuntu.png: configs/powershell/icons/ubuntu.png
+    ~/WindowsTerminalIcons/powershell.png: configs/powershell/icons/powershell.png
