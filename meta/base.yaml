@@ -6,8 +6,3 @@
     shell:
       stdout: true
       stderr: true
-
-- create:
-  - $HOME/.config
-
-- clean: ["~"]
