@@ -27,26 +27,16 @@
         "hidden": false,
         "icon": "%userprofile%\\WindowsTerminalIcons\\powershell.png",
         "name": "PowerShell",
-        "source": "Windows.Terminal.PowershellCore"
+        "source": "Windows.Terminal.PowershellCore",
+        "tabColor": "#6272A4"
       },
       {
         "guid": "{17bf3de4-5353-5709-bcf9-835bd952a95e}",
         "hidden": false,
         "icon": "%userprofile%\\WindowsTerminalIcons\\ubuntu.png",
         "name": "Ubuntu",
-        "source": "Windows.Terminal.Wsl"
-      },
-      {
-        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-        "icon": "%userprofile%\\WindowsTerminalIcons\\cmd.png",
-        "name": "Commandline"
-      },
-      {
-        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-        "hidden": true,
-        "icon": "%userprofile%\\WindowsTerminalIcons\\azure.png",
-        "name": "Azure Cloud Shell",
-        "source": "Windows.Terminal.Azure"
+        "source": "Windows.Terminal.Wsl",
+        "tabColor": "#FFB86C"
       }
     ]
   },
