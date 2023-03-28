@@ -1,0 +1,7 @@
+- create:
+  - ~/.oci
+
+- link:
+    ~/.oci/config:
+      path: configs/oci/config
+      ignore-missing: true

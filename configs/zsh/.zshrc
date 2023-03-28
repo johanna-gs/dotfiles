@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 # Custom aliases
 [ -f ~/.config/aliases.zsh ] && source ~/.config/aliases.zsh

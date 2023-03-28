@@ -83,3 +83,11 @@ In order enable these symbolic links, run git bash as administrator, then:
 export MSYS=winsymlinks:nativestrict
 ./install
 ```
+
+## Tools
+
+### OCI
+
+Following the setup here: [OCI CLI](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm#InstallingCLI__linux_and_unix).
+
+After installing the OCI-Cli (proably with homebrew), you'll need to add a config file, this can be generated in the OCI-Console by setting up a new API key in your profile.

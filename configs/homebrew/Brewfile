@@ -1,15 +1,24 @@
+
 brew "wget"
 
+# modern replacements
+# some of these are aliased in zsh-alias
+brew "gping" # modern replacement for 'ping'
+brew "exa" # modern replacement for 'ls'
+brew "bottom" # modern replacement for 'top'
 
-
-
+# Mac-specific installs
 brew "mas" if OS.mac?
+brew "pinentry-mac" if OS.mac?
+
+
+# Oracle Cloud Infrastructure
+brew "oci-cli"
+
 
 brew "starship"
-brew "gping" # modern replacement for 'ping'
-brew "bottom" # modern replacement for 'top'
+brew "terraform"
 brew "jq"
-brew "exa" # modern replacement for 'ls'
 brew "zsh"
 
 # set arguments for all 'brew install --cask' commands

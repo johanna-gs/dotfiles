@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 functions reload() {
     [ -f  $HOME/.zshenv ] && source $HOME/.zshenv

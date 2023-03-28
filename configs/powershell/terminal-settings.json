@@ -2,8 +2,9 @@
   "$help": "https://aka.ms/terminal-documentation",
   "$schema": "https://aka.ms/terminal-profiles-schema",
   "actions": [],
-  "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+  "defaultProfile": "{17bf3de4-5353-5709-bcf9-835bd952a95e}",
   "firstWindowPreference": "defaultProfile",
+  "startupActions": "split-pane -V -p \"PowerShell\"; move-focus right; split-pane -H -p \"Ubuntu\"",
   "profiles": {
     "defaults": {
       "colorScheme": "Dracula",
