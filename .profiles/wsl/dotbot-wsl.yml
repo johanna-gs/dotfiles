@@ -10,6 +10,8 @@
 
 
 - link:
+    # wsl configurations
+    /etc/wsl.conf: .profiles/wsl/wsl.conf
     # git configurations
     # inspired by: https://kurtmckee.org/2022/06/managing-your-git-config-using-dotbot/
     ~/.gitignore: .config/git/gitignore
