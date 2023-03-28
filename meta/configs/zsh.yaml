@@ -1,0 +1,9 @@
+- create:
+  - ~/.config
+  
+- link:
+    # zsh configurations
+    ~/.zshrc: configs/zsh/.zshrc
+    ~/.config/aliases.zsh: configs/zsh/aliases.zsh
+    ~/.config/functions.zsh: configs/zsh/functions.zsh
+    ~/.config/starship.zsh: configs/zsh/starship.zsh

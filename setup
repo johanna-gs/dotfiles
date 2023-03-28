@@ -84,9 +84,4 @@ mkdir -p ~/.gnupg # Create the gpg directory before running the installer
 [ -d ~/dotfiles ] || git clone https://github.com/andeki92/dotfiles.git ~/dotfiles
 [ -d ~/dotfiles ] && (cd ~/dotfiles && git submodule update --init --recursive)
 
-if [ ! -f ~/.ssh/id_rsa ]; then
-    echo "Seems like you're missing a ssh-key, let's fix that 🔐"
-    ssh-keygen
-fi
-
 echo "Finished setting up your ${OS} environment 🎂"

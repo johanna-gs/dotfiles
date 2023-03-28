@@ -1,0 +1,5 @@
+- shell:
+  - command: choco install  C:/Users/anderski1/dotfiles/configs/choco/choco.packages.config --yes
+    description: Updating choco dependencies
+    stdout: true
+    stdin: true

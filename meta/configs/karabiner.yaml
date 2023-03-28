@@ -1,0 +1,7 @@
+- link:
+    ~/.config/karabiner/karabiner.json:
+      path: configs/karabiner/karabiner.json
+      force: true
+    ~/.config/karabiner/assets/complex_modifications:
+      path: configs/karabiner/modifications
+      force: true

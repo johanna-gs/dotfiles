@@ -1,0 +1,6 @@
+- create:
+  - ~/.config
+
+- link:
+    # starship
+    ~/.config/starship.toml: configs/starship/starship.toml

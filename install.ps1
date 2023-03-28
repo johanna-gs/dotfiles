@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 
-$CONFIG = ".profiles/windows/dotbot-windows.yml"
+$CONFIG = "meta/profiles/windows/dotbot-windows.yml"
 
 $DOTBOT_DIR = "dotbot"
 $DOTBOT_BIN = "bin/dotbot"

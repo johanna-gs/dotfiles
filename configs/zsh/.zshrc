@@ -1,13 +1,13 @@
 #!/bin/zsh
 
 # Custom aliases
-[ -f ~/.zsh/aliases.zsh ] && source ~/.zsh/aliases.zsh
+[ -f ~/.config/aliases.zsh ] && source ~/.config/aliases.zsh
 
 # Custom functions
-[ -f ~/.zsh/functions.zsh ] && source ~/.zsh/functions.zsh
+[ -f ~/.config/functions.zsh ] && source ~/.config/functions.zsh
 
 # Other zsh-configs
-[ -f ~/.zsh/starship.zsh ] && source ~/.zsh/starship.zsh
+[ -f ~/.config/starship.zsh ] && source ~/.config/starship.zsh
 
 # WSL specific things
 if grep --quiet microsoft /proc/version 2>/dev/null; then
@@ -18,6 +18,16 @@ fi
 
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
+
+case `uname` in
+  Linux)
+    ## add brew home to PATH in linux/WSL
+    brew_home=/home/linuxbrew/.linuxbrew
+    if [ -d "${brew_home}" ]; then
+      export PATH=${brew_home}/bin:$PATH
+    fi
+  ;;
+esac
 
 # Go
 if [[ -d /usr/local/go/bin ]]; then

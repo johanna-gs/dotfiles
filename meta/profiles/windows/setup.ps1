@@ -93,7 +93,7 @@ else {
 # Install packages: choco
 Write-Host "Installing Apps via chocolatey package manager..." -ForegroundColor Green
 
-choco install "$dotFilesRepo/.profiles/windows/choco.packages.config" --yes
+choco install "$dotFilesRepo/configs/choco/choco.packages.config" --yes
 
 # -----------------------------------------------------------------------------
 # Install modules and change Set-ExecutionPolicy to "Unrestricted"
