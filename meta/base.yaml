@@ -10,8 +10,4 @@
 - create:
   - $HOME/.config
 
-- clean:
-    $HOME:
-      force: true
-    $HOME/.config:
-      recursive: true
+- clean: ["~"]

@@ -14,7 +14,7 @@ To install `dotfiles` run the appropriate installer.
 ### Windows
 
 ```pwsh
-powershell -NoProfile -ExecutionPolicy unrestricted -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; &([scriptblock]::Create((Invoke-WebRequest -UseBasicParsing 'https://raw.github.com/andeki2/dotfiles/main/.profiles/windows/setup.ps1')))
+powershell -NoProfile -ExecutionPolicy unrestricted -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; &([scriptblock]::Create((Invoke-WebRequest -UseBasicParsing 'https://raw.github.com/andeki92/dotfiles/main/meta/profiles/windows/setup.ps1')))"
 ```
 
 ### Mac / WSL2
