@@ -34,7 +34,7 @@
         "hidden": false,
         "icon": "%userprofile%\\WindowsTerminalIcons\\ubuntu.png",
         "name": "Ubuntu",
-        "source": "Windows.Terminal.Wsl",
+        "source": "Windows.Terminal.Wsl"
       },
       {
         "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
