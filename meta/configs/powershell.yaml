@@ -1,2 +1,6 @@
+- create:
+    - ~/WindowsTerminalIcons
+
 - link:
     \PowerShell\Microsoft.PowerShell_profile.ps1: configs/powershell/profile.ps1
+    ~/WindowsTerminalIcons/ubuntu.png: configs/powershell/icons/ubuntu.png

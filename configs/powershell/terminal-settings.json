@@ -30,20 +30,12 @@
         "source": "Windows.Terminal.PowershellCore"
       },
       {
-        "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+        "guid": "{17bf3de4-5353-5709-bcf9-835bd952a95e}",
         "hidden": false,
         "icon": "%userprofile%\\WindowsTerminalIcons\\ubuntu.png",
-        "name": "Ubuntu Linux",
+        "name": "Ubuntu",
         "source": "Windows.Terminal.Wsl",
-        "startingDirectory": "\\\\wsl$\\Ubuntu-20.04\\home\\xcad"
-      },
-      {
-        "guid": "{46ca431a-3a87-5fb3-83cd-11ececc031d2}",
-        "hidden": false,
-        "icon": "%userprofile%\\WindowsTerminalIcons\\kali.png",
-        "name": "Kali Linux",
-        "source": "Windows.Terminal.Wsl",
-        "startingDirectory": "\\\\wsl.localhost\\kali-linux\\home\\xcad"
+        "startingDirectory": "\\\\wsl$\\Ubuntu-22.04\\home\\ak"
       },
       {
         "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
