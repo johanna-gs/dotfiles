@@ -1,8 +1,11 @@
 - create:
   - ~/.config
-  
+
 - link:
     # zsh configurations
+    ~/.zshenv:
+      path: configs/zsh/.zshenv
+      ignore-missing: true
     ~/.zshrc: configs/zsh/.zshrc
     ~/.config/aliases.zsh: configs/zsh/aliases.zsh
     ~/.config/functions.zsh: configs/zsh/functions.zsh
