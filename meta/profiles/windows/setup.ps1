@@ -113,6 +113,13 @@ New-ItemProperty `
   Personal -Value '$HOME\.config\Microsoft.PowerShell_profile.ps1' -Type ExpandString -Force
 
 # -----------------------------------------------------------------------------
+# Set Profile locations for PowerShell
+Write-Host ""
+Write-Host "Disabling 'Office' key..." -ForegroundColor Green
+Write-Host "------------------------------------" -ForegroundColor Green
+REG ADD 'HKCU\SOFTWARE\Classes\ms-officeapp\Shell\Open\Command' /t REG_SZ /d rundll32
+
+# -----------------------------------------------------------------------------
 # Install WSL
 Write-Host ""
 Write-Host "Installing WSL..." -ForegroundColor Green

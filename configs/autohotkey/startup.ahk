@@ -8,6 +8,8 @@ SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
 DetectHiddenWindows, On
 ;}
 
-Run, %userprofile%/.config/hyperkey.ahk
-Run, %userprofile%/.config/colemak_dh_iso.ahk
+EnvGet, vUserProfile, USERPROFILE
+
+Run, %vUserProfile%/.config/hyperkey.ahk
+Run, %vUserProfile%/.config/colemak_dh_iso.ahk
 ExitApp

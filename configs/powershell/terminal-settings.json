@@ -2,7 +2,7 @@
   "$help": "https://aka.ms/terminal-documentation",
   "$schema": "https://aka.ms/terminal-profiles-schema",
   "actions": [],
-  "defaultProfile": "{17bf3de4-5353-5709-bcf9-835bd952a95e}",
+  "defaultProfile": "{26f5a838-696a-4604-bd4c-86fad87beafd}",
   "firstWindowPreference": "defaultProfile",
   "startupActions": "split-pane -V -p \"PowerShell\"; move-focus right; split-pane -H -p \"Ubuntu\"",
   "profiles": {
@@ -32,7 +32,7 @@
         "tabColor": "#6272A4"
       },
       {
-        "guid": "{17bf3de4-5353-5709-bcf9-835bd952a95e}",
+        "guid": "{26f5a838-696a-4604-bd4c-86fad87beafd}",
         "hidden": false,
         "icon": "%userprofile%\\WindowsTerminalIcons\\ubuntu.png",
         "name": "Ubuntu",

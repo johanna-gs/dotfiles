@@ -2,6 +2,6 @@
   - ~/.config
 
 - link:
-  - ~/.config:
-      path: configs/autohotkey
+    ~/.config/:
+      path: configs/autohotkey/*
       glob: true
