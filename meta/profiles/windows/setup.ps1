@@ -108,8 +108,8 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 Write-Host ""
 Write-Host "Configuring PowerShell profile locations..." -ForegroundColor Green
 Write-Host "------------------------------------" -ForegroundColor Green
-New-ItemProperty \
-  'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders' \
+New-ItemProperty `
+  'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders' `
   Personal -Value '$HOME\.config\Microsoft.PowerShell_profile.ps1' -Type ExpandString -Force
 
 # -----------------------------------------------------------------------------
@@ -119,6 +119,13 @@ Write-Host "Installing WSL..." -ForegroundColor Green
 Write-Host "------------------------------------" -ForegroundColor Green
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
+
+# Suggest WSL Distro
+Write-Host ""
+Write-Host "Install WSL Distro (Action Required)..." -ForegroundColor Green
+Write-Host "------------------------------------" -ForegroundColor Green
+Write-Host "After restarting your computer, install an up to date WSL distro."
+Write-Host "Use `wsl install -d Ubuntu-22.04`"
 
 # -----------------------------------------------------------------------------
 # Restart Windows
