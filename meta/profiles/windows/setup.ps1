@@ -1,5 +1,5 @@
 # This script is intended to be run on initial setup of the dotfile-repo
-# It should be possible to run in multiple times (IaC-style), but using the 
+# It should be possible to run in multiple times (IaC-style), but using the
 # sync-script is generally recomended as the inital setup checks are slow.
 
 # Windows 10 Setup Script
@@ -102,6 +102,15 @@ Install-Module oh-my-posh -Scope CurrentUser
 Install-Module -AllowClobber Get-ChildItemColor
 Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
+
+# -----------------------------------------------------------------------------
+# Set Profile locations for PowerShell
+Write-Host ""
+Write-Host "Configuring PowerShell profile locations..." -ForegroundColor Green
+Write-Host "------------------------------------" -ForegroundColor Green
+New-ItemProperty
+  'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders'
+  Personal -Value '$HOME\.config\Microsoft.PowerShell_profile.ps1' -Type ExpandString -Force
 
 # -----------------------------------------------------------------------------
 # Install WSL
