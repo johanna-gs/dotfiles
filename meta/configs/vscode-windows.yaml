@@ -2,3 +2,9 @@
     ~/AppData/Roaming/Code/User/settings.json:
       path: configs/vscode/settings.json
       force: true
+
+- shell:
+  - command: C:/Users/anderski1/dotfiles/configs/vscode/install-extensions.sh
+    description: Updating VSCode Extensions
+    stdout: true
+    stdin: true
