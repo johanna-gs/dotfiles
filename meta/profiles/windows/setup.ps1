@@ -108,8 +108,8 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 Write-Host ""
 Write-Host "Configuring PowerShell profile locations..." -ForegroundColor Green
 Write-Host "------------------------------------" -ForegroundColor Green
-New-ItemProperty
-  'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders'
+New-ItemProperty \
+  'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders' \
   Personal -Value '$HOME\.config\Microsoft.PowerShell_profile.ps1' -Type ExpandString -Force
 
 # -----------------------------------------------------------------------------

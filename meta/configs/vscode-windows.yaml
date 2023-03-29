@@ -4,7 +4,7 @@
       force: true
 
 - shell:
-  - command: C:/Users/anderski1/dotfiles/configs/vscode/install-extensions.sh
+  - command: "sh C:/Users/anderski1/dotfiles/configs/vscode/install-extensions.sh"
     description: Updating VSCode Extensions
     stdout: true
     stdin: true
