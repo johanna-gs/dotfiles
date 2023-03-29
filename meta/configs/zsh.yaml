@@ -10,3 +10,9 @@
     ~/.config/aliases.zsh: configs/zsh/aliases.zsh
     ~/.config/functions.zsh: configs/zsh/functions.zsh
     ~/.config/starship.zsh: configs/zsh/starship.zsh
+
+- shell:
+  - command: chsh -s $(which zsh)
+    description: "Changing to zsh as default shell"
+    stdout: true
+    stderr: true

@@ -70,13 +70,14 @@ if test ! $(which brew); then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-if [[ ${OS} == "WSL2" ]]; then
+if [[ ${OS} == "WSL2" ]] && ! $(command -v brew &>/dev/null); then
     # Install homebrew
     (
         echo
         echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'
     ) >>/home/$USER/.profile
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    source $HOME/.profile
 fi
 
 mkdir -p ~/.gnupg # Create the gpg directory before running the installer
