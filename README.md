@@ -27,6 +27,16 @@ curl -Ls https://raw.github.com/andeki92/dotfiles/main/setup | bash
 wget -q -O - https://raw.github.com/andeki92/dotfiles/main/setup | bash
 ```
 
+## Errors
+
+### ZSH (invalid shell)
+
+In WSL2, if you get the `chsh: /home/linuxbrew/.linuxbrew/bin/zsh is an invalid shell` error, you need to add zsh to the `/etc/shells` config. Do this using:
+
+```
+command -v zsh | sudo tee -a /etc/shells
+```
+
 ---
 
 ## Configuration
