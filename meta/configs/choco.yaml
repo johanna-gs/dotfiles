@@ -3,3 +3,7 @@
     description: Updating choco dependencies
     stdout: true
     stdin: true
+  - command: choco upgrade all --y
+    description: Upgrading choco dependencies
+    stdout: true
+    stderr: true
