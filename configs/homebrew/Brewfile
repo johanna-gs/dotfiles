@@ -11,10 +11,8 @@ brew "bottom" # modern replacement for 'top'
 brew "mas" if OS.mac?
 brew "pinentry-mac" if OS.mac?
 
-
 # Oracle Cloud Infrastructure
 brew "oci-cli"
-
 
 brew "starship"
 brew "terraform"
