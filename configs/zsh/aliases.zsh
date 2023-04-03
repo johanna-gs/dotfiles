@@ -7,5 +7,9 @@ type exa >/dev/null 2>&1 && alias lla="ll -la"
 
 alias rl="reload"
 
-alias g="goto"
 alias grep='grep --color'
+
+# goto functionality (ish)
+alias gd="cd ~/dotfiles"
+alias gw="cd ~/workspace"
+alias gp="cd ~/privatespace"
