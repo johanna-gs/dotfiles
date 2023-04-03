@@ -2,7 +2,7 @@
   "$help": "https://aka.ms/terminal-documentation",
   "$schema": "https://aka.ms/terminal-profiles-schema",
   "actions": [],
-  "defaultProfile": "{26f5a838-696a-4604-bd4c-86fad87beafd}",
+  "defaultProfile": "{6d585fb5-a959-42fd-bd83-07b71e10803b}",
   "firstWindowPreference": "defaultProfile",
   "startupActions": "split-pane -V -p \"PowerShell\"; move-focus right; split-pane -H -p \"Ubuntu\"",
   "profiles": {
@@ -11,7 +11,7 @@
       "cursorShape": "filledBox",
       "font": {
         "face": "JetBrainsMono NFM",
-        "size": 14
+        "size": 12
       },
       "historySize": 12000,
       "intenseTextStyle": "bright",
@@ -32,11 +32,11 @@
         "tabColor": "#6272A4"
       },
       {
-        "guid": "{26f5a838-696a-4604-bd4c-86fad87beafd}",
+        "commandline": "ubuntu2204.exe",
+        "guid": "{6d585fb5-a959-42fd-bd83-07b71e10803b}",
         "hidden": false,
         "icon": "%userprofile%\\WindowsTerminalIcons\\ubuntu.png",
         "name": "Ubuntu",
-        "source": "Windows.Terminal.Wsl",
         "tabColor": "#FFB86C"
       }
     ]

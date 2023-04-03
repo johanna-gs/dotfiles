@@ -7,11 +7,16 @@
 
 # -----------------------------------------------------------------------------
 # Self elevate administrative permissions in this script
-if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
+#if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 
 function Check-Command($cmdname) {
   return [bool](Get-Command -Name $cmdname -ErrorAction SilentlyContinue)
 }
+
+# Enable Developer Mode: Enable: 1, Disable: 0
+#Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" "AllowDevelopmentWithoutDevLicense" 1
+# Bash on Windows
+Enable-WindowsOptionalFeature -Online -All -FeatureName "Microsoft-Windows-Subsystem-Linux" -NoRestart -WarningAction SilentlyContinue | Out-Null
 
 # -----------------------------------------------------------------------------
 # Set a new computer name
@@ -46,6 +51,18 @@ foreach ($uwp in $uwpRubbishApps) {
 }
 
 # -----------------------------------------------------------------------------
+# Devices, Power and Startup
+Write-Host "Configuring Devices, Power, and Startup..." -ForegroundColor "Yellow"
+
+# Sound: Disable Startup Sound: Enable: 0, Disable: 1
+Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" "DisableStartupSound" 1
+Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\BootAnimation" "DisableStartupSound" 1
+Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\EditionOverrides" "UserSetting_DisableStartupSound" 1
+
+# Power: Disable Hibernation
+powercfg /hibernate off
+
+# -----------------------------------------------------------------------------
 # Install Chocolatey and some apps
 if (Check-Command -cmdname 'choco') {
   Write-Host "Choco is already installed, skip installation."
@@ -54,7 +71,7 @@ else {
   Write-Host ""
   Write-Host "Installing Chocolatey for Windows..." -ForegroundColor Green
   Write-Host "------------------------------------" -ForegroundColor Green
-  Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+  Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 }
 
 Write-Host ""
@@ -132,7 +149,7 @@ Write-Host ""
 Write-Host "Install WSL Distro (Action Required)..." -ForegroundColor Green
 Write-Host "------------------------------------" -ForegroundColor Green
 Write-Host "After restarting your computer, install an up to date WSL distro."
-Write-Host "Use `wsl install -d Ubuntu-22.04`"
+Write-Host "Use wsl install -d Ubuntu-22.04"
 
 # -----------------------------------------------------------------------------
 # Restart Windows
