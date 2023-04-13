@@ -19,6 +19,9 @@ brew "terraform"
 brew "jq"
 brew "zsh"
 
+# kafka
+brew "kafka"
+
 # rust
 brew "rustup"
 

@@ -37,6 +37,17 @@ In WSL2, if you get the `chsh: /home/linuxbrew/.linuxbrew/bin/zsh is an invalid 
 command -v zsh | sudo tee -a /etc/shells
 ```
 
+### Docker engine fails to start (WSL2)
+
+Ubuntu 22.04 and above uses the "new" `iptables-nft` by default. This prevents docker from starting. Select `iptables-legacy` by running:
+
+```
+sudo update-alternatives --config iptables
+```
+
+and select `iptables-legacy` (option #1). After that, restart the docker service and you should be good to go 🤞.
+
+
 ---
 
 ## Configuration
