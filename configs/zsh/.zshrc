@@ -75,6 +75,9 @@ setopt share_history          # share command history data
 # Starship
 eval "$(starship init zsh)"
 
+# ASDF
+[ -f "$(brew --prefix asdf)/libexec/asdf.sh" ] && source "$(brew --prefix asdf)/libexec/asdf.sh"
+
 # SSH Activation
 eval $()keychain --eval --agents ssh id_rsa >/dev/null 2>&1
 

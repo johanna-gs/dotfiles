@@ -1,0 +1,12 @@
+# load asdf plugins
+- asdf:
+    - plugin: helm
+      url: https://github.com/Antiarchitect/asdf-helm.git
+      global: 3.11.3
+      versions:
+        - 3.11.3
+    - plugin: kubectl
+      url: https://github.com/asdf-community/asdf-kubectl.git
+      global: 1.25.9
+      versions:
+        - 1.25.9
