@@ -44,5 +44,5 @@ case $_distro in
 *) ICON="" ;;
 esac
 
-export STARSHIP_DISTRO="$ICON"
+export STARSHIP_DISTRO="$ICON "
 export STARSHIP_DEVICE="$DEVICE"

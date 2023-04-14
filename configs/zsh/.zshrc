@@ -21,8 +21,8 @@ export EDITOR='vim'
 
 case $(uname) in
 Linux)
-  ## add brew home to PATH in linux/WSL
   brew_home=/home/linuxbrew/.linuxbrew
+<<<<<<< Updated upstream
   if [ -d "${brew_home}" ]; then
     export PATH=${brew_home}/bin:$PATH
   fi
@@ -30,8 +30,17 @@ Linux)
   if service docker status 2>&1 | grep -q "is not running"; then
     wsl.exe -d "${WSL_DISTRO_NAME}" -u root -e /usr/sbin/service docker start >/dev/null 2>&1
   fi
+=======
+  ;;
+Darwin)
+  brew_home=/opt/homebrew
+>>>>>>> Stashed changes
   ;;
 esac
+
+if [ -d "${brew_home}" ]; then
+  export PATH=${brew_home}/bin:$PATH
+fi
 
 # Go
 if [[ -d /usr/local/go/bin ]]; then
@@ -47,6 +56,14 @@ fi
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ]; then
   PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Rust
+[ -f ~/.cargo/env ] && source ~/.cargo/env
+
+# SDL2
+if [[ -f "/opt/homebrew/bin/sdl2-config" ]]; then
+  export LIBRARY_PATH="$LIBRARY_PATH:/opt/homebrew/lib"
 fi
 
 ## History command configuration
@@ -71,6 +88,10 @@ eval $()keychain --eval --agents ssh id_rsa >/dev/null 2>&1
 #complete -o nospace -C /home/anders.kirkeby/.local/lib/vault/1.7.0/vault vault
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/anders.klever.kirkeby/.sdkman"
-[[ -s "/home/anders.klever.kirkeby/.sdkman/bin/sdkman-init.sh" ]] && source "/home/anders.klever.kirkeby/.sdkman/bin/sdkman-init.sh"
-source /home/anders.klever.kirkeby/.sdkman/.sdkmanshrc #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+case $(uname) in
+Linux)
+  export SDKMAN_DIR="/home/anders.klever.kirkeby/.sdkman"
+  [[ -s "/home/anders.klever.kirkeby/.sdkman/bin/sdkman-init.sh" ]] && source "/home/anders.klever.kirkeby/.sdkman/bin/sdkman-init.sh"
+  source /home/anders.klever.kirkeby/.sdkman/.sdkmanshrc #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+  ;;
+esac

@@ -1,0 +1,34 @@
+# Apple-specifci ignores 
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+tags
+vendor-tags
+.ssh
+_ide_helper.php
+.lvimrc
+.projections.json
+
+*.log
+*.pyc
+*.sw[nop]
+.bundle
+.exercism
+.ignore
+.vs
+coverage
+dist
+node_modules
+public
+tmp
+tmp.*
+vendor

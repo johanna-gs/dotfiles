@@ -1,17 +1,11 @@
 - create:
-  - ~/.config
+    - ~/.config
 
 - link:
     # zsh configurations
-    ~/.zshenv:
-      path: configs/zsh/.zshenv
-      ignore-missing: true
-    ~/.zshrc: configs/zsh/.zshrc
     ~/.config/aliases.zsh: configs/zsh/aliases.zsh
     ~/.config/functions.zsh: configs/zsh/functions.zsh
-
-# - shell:
-#   - command: chsh -s $(which zsh)
-#     description: "Changing to zsh as default shell"
-#     stdout: true
-#     stderr: true
+    ~/.zshenv:
+        ignore-missing: true
+        path: configs/zsh/.zshenv
+    ~/.zshrc: configs/zsh/.zshrc
