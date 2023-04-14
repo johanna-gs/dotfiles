@@ -32,7 +32,7 @@ export PATH=./vendor/bin:$PATH
 export PATH=~/.bin:$PATH
 export PATH=/opt:$PATH
 export PATH=${GOPATH}/bin:${GOROOT}/bin:$PATH
-export PATH=/opt/homebrew/opt/node@16/bin:$PATH 
+export PATH=/opt/homebrew/opt/node@16/bin:$PATH
 
 # Flutter setup
 export PATH=/opt/homebrew/bin/flutter:$PATH
@@ -169,7 +169,7 @@ export PATH="/Users/anderskirkeby/.local/bin:$PATH"
 fpath+=~/.zfunc
 autoload -Uz compinit && compinit
 
-# Load nvm 
+# Load nvm
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
