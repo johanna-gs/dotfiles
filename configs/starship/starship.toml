@@ -15,7 +15,7 @@ error_symbol = "[](238)"
 
 # Shows an icon that should be included by zshrc script based on the distribution or os
 [env_var.STARSHIP_DISTRO]
-format = '[$env_value](bold white)'  # removed space between distro and rest for pwsh
+format = '[$env_value](#bf5700)'  # removed space between distro and rest for pwsh
 variable = "STARSHIP_DISTRO"
 disabled = false
 
@@ -94,8 +94,17 @@ disabled = true
 [ruby]
 format = "via [ $version]($style) "
 
+[gradle]
+symbol = " "
+style = "bold blue"
+
+[kotlin]
+symbol = " "
+style = "bold #bf5700"
+
 [kubernetes]
-format = 'on [ $context\($namespace\)](bold purple) '
+symbol = "  "
+format = 'on [$context(\($namespace\))](bold purple) '
 disabled = false
 
 [rust]

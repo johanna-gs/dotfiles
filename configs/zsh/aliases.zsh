@@ -16,3 +16,17 @@ alias gw="cd ~/workspace"
 alias gp="cd ~/privatespace"
 
 alias tf="terraform"
+
+# kubernetes aliases
+alias k="kubectl"
+
+alias kg="k get"
+alias kgp="kg pods"
+alias kgs="kg svc"
+
+alias kpf="k port-forward"
+alias kl="k logs"
+
+# function aliases
+alias kex="kubectl_exec_into_pod"
+alias kps="kubectl_psql_start"

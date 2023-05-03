@@ -10,3 +10,8 @@
       global: 1.25.9
       versions:
         - 1.25.9
+    - plugin: gradle
+      url: https://github.com/rfrancis/asdf-gradle.git
+      global: 8.1.1
+      versions:
+        - 8.1.1

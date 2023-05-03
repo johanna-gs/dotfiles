@@ -1,10 +1,10 @@
 #!/usr/bin/env zsh
 
-# Custom aliases
-[ -f ~/.config/aliases.zsh ] && source ~/.config/aliases.zsh
-
 # Custom functions
 [ -f ~/.config/functions.zsh ] && source ~/.config/functions.zsh
+
+# Custom aliases
+[ -f ~/.config/aliases.zsh ] && source ~/.config/aliases.zsh
 
 # Other zsh-configs
 [ -f ~/.config/starship.zsh ] && source ~/.config/starship.zsh
