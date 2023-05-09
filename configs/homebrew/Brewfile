@@ -58,6 +58,9 @@ brew "k3d"
 # rust
 brew "rustup"
 
+# taskfile support
+brew "go-task"
+
 # set arguments for all 'brew install --cask' commands
 cask_args appdir: "~/Applications", require_sha: true
 

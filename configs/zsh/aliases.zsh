@@ -30,3 +30,7 @@ alias kl="k logs"
 # function aliases
 alias kex="kubectl_exec_into_pod"
 alias kps="kubectl_psql_start"
+
+# docker aliases
+alias dps="docker ps -a"
+alias dl="docker logs"
