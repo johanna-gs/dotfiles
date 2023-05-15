@@ -27,10 +27,13 @@ alias kgs="kg svc"
 alias kpf="k port-forward"
 alias kl="k logs"
 
-# function aliases
+# kubectl function aliases
 alias kex="kubectl_exec_into_pod"
 alias kps="kubectl_psql_start"
 
 # docker aliases
 alias dps="docker ps -a"
 alias dl="docker logs"
+
+# docker function aliases
+alias dex="docker_exec_into_container"

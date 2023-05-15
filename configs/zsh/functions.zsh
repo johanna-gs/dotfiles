@@ -28,3 +28,12 @@ functions kubectl_psql_start() {
         --env "PGPASSWORD=$PGPASSWORD_POSTGRES" \
         --command -- psql -U postgres -h timescaledb.default.svc.cluster.local postgres
 }
+
+functions docker_exec_into_container() {
+     if [ $# -eq 0 ]; then
+        echo "No container name supplied in arguments"
+        return
+    fi
+    echo "Execing into copntainer $1";
+    docker exec -i -t $1 /bin/bash
+}

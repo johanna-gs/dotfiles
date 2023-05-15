@@ -37,6 +37,10 @@ brew "sdl2" if OS.mac?
 brew "sdl2_image" if OS.mac?
 brew "sdl2_ttf" if OS.mac?
 
+# git (mainly for updates)
+brew "git"
+brew "pre-commit"
+
 # Oracle Cloud Infrastructure
 brew "oci-cli"
 
@@ -59,6 +63,7 @@ brew "k3d"
 brew "rustup"
 
 # taskfile support
+brew "just"
 brew "go-task"
 
 # set arguments for all 'brew install --cask' commands
