@@ -81,7 +81,7 @@ eval "$(starship init zsh)"
 # SSH Activation
 eval $(keychain --eval --agents ssh id_rsa) >/dev/null 2>&1
 
-#autoload -U +X bashcompinit && bashcompinit
+autoload -U +X bashcompinit && bashcompinit
 #complete -o nospace -C /home/anders.kirkeby/.local/lib/vault/1.7.0/vault vault
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

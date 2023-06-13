@@ -32,8 +32,11 @@ alias kex="kubectl_exec_into_pod"
 alias kps="kubectl_psql_start"
 
 # docker aliases
-alias dps="docker ps -a"
+alias dps='docker ps -a --format "table {{.Names}}\t{{.Status}}" | (read -r; printf "%s\n" "$REPLY"; sort -k 1 )'
 alias dl="docker logs"
 
 # docker function aliases
 alias dex="docker_exec_into_container"
+
+# wsl clock adjustment
+alias fc="fix_wsl_clock"

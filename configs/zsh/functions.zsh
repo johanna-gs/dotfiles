@@ -30,10 +30,14 @@ functions kubectl_psql_start() {
 }
 
 functions docker_exec_into_container() {
-     if [ $# -eq 0 ]; then
+    if [ $# -eq 0 ]; then
         echo "No container name supplied in arguments"
         return
     fi
-    echo "Execing into copntainer $1";
+    echo "Execing into container $1";
     docker exec -i -t $1 /bin/bash
+}
+
+functions fix_wsl_clock() {
+    sudo hwclock -s
 }
