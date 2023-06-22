@@ -11,7 +11,7 @@ hs.window.animationDuration = 0.0
 --- ==========================================
 local manager = {}
 
-hyper = {"cmd", "alt", "ctrl", "shift"} -- caps-lock with Karabiner
+hyper = { "cmd", "alt", "ctrl", "shift" } -- caps-lock with Karabiner
 
 hs.hotkey.bind(hyper, "h", function()
     manager.sendLeft()

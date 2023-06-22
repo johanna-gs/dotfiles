@@ -1,15 +1,45 @@
+tap "go-task/tap"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-versions"
+tap "homebrew/cask-drivers"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "homebrew/cask-fonts"
+tap "buo/cask-upgrade"
+tap "microsoft/git"
 
 brew "wget"
+brew "gnupg"
+brew "neovim"
+brew "openssh"
+brew "screen"
+brew "gmp"
+
+# Misc util collections
+brew "coreutils"
+brew "moreutils"
+brew "findutils"
 
 # modern replacements
 # some of these are aliased in zsh-alias
 brew "gping" # modern replacement for 'ping'
 brew "exa" # modern replacement for 'ls'
 brew "bottom" # modern replacement for 'top'
+brew "ripgrep" # modern replacement for 'grep'
 
 # Mac-specific installs
 brew "mas" if OS.mac?
 brew "pinentry-mac" if OS.mac?
+
+# Game development
+brew "sdl2" if OS.mac?
+brew "sdl2_image" if OS.mac?
+brew "sdl2_ttf" if OS.mac?
+
+# git (mainly for updates)
+brew "git"
+brew "pre-commit"
 
 # Oracle Cloud Infrastructure
 brew "oci-cli"
@@ -18,6 +48,23 @@ brew "starship"
 brew "terraform"
 brew "jq"
 brew "zsh"
+
+# version management
+brew "asdf"
+
+# kafka
+brew "kafka"
+
+# kubernetes
+# kubectl and helm are downloaded with asdf
+brew "k3d"
+
+# rust
+brew "rustup"
+
+# taskfile support
+brew "just"
+brew "go-task"
 
 # set arguments for all 'brew install --cask' commands
 cask_args appdir: "~/Applications", require_sha: true
@@ -38,10 +85,10 @@ cask "raycast"
 cask "slack"
 cask "spotify"
 cask "visual-studio-code"
+cask "warp"
 
 # 3D Printing
 cask "prusaslicer"
-cask "blender"
 
 #  Fonts
 cask "font-jetbrains-mono"

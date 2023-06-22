@@ -1,10 +1,10 @@
 #!/usr/bin/env zsh
 
-# Custom aliases
-[ -f ~/.config/aliases.zsh ] && source ~/.config/aliases.zsh
-
 # Custom functions
 [ -f ~/.config/functions.zsh ] && source ~/.config/functions.zsh
+
+# Custom aliases
+[ -f ~/.config/aliases.zsh ] && source ~/.config/aliases.zsh
 
 # Other zsh-configs
 [ -f ~/.config/starship.zsh ] && source ~/.config/starship.zsh
@@ -21,13 +21,20 @@ export EDITOR='vim'
 
 case $(uname) in
 Linux)
-  ## add brew home to PATH in linux/WSL
   brew_home=/home/linuxbrew/.linuxbrew
-  if [ -d "${brew_home}" ]; then
-    export PATH=${brew_home}/bin:$PATH
+
+  if service docker status 2>&1 | grep -q "is not running"; then
+    wsl.exe -d "${WSL_DISTRO_NAME}" -u root -e /usr/sbin/service docker start >/dev/null 2>&1
   fi
   ;;
+Darwin)
+  brew_home=/opt/homebrew
+  ;;
 esac
+
+if [ -d "${brew_home}" ]; then
+  export PATH=${brew_home}/bin:$PATH
+fi
 
 # Go
 if [[ -d /usr/local/go/bin ]]; then
@@ -45,6 +52,14 @@ if [ -d "$HOME/.local/bin" ]; then
   PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Rust
+[ -f ~/.cargo/env ] && source ~/.cargo/env
+
+# SDL2
+if [[ -f "/opt/homebrew/bin/sdl2-config" ]]; then
+  export LIBRARY_PATH="$LIBRARY_PATH:/opt/homebrew/lib"
+fi
+
 ## History command configuration
 HISTSIZE=5000                 # How many lines of history to keep in memory
 HISTFILE=~/.zsh_history       # Where to save history to disk
@@ -60,13 +75,20 @@ setopt share_history          # share command history data
 # Starship
 eval "$(starship init zsh)"
 
-# SSH Activation
-eval $()keychain --eval --agents ssh id_rsa >/dev/null 2>&1
+# ASDF
+[ -f "$(brew --prefix asdf)/libexec/asdf.sh" ] && source "$(brew --prefix asdf)/libexec/asdf.sh"
 
-#autoload -U +X bashcompinit && bashcompinit
+# SSH Activation
+eval $(keychain --eval --agents ssh id_rsa) >/dev/null 2>&1
+
+autoload -U +X bashcompinit && bashcompinit
 #complete -o nospace -C /home/anders.kirkeby/.local/lib/vault/1.7.0/vault vault
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/anders.klever.kirkeby/.sdkman"
-[[ -s "/home/anders.klever.kirkeby/.sdkman/bin/sdkman-init.sh" ]] && source "/home/anders.klever.kirkeby/.sdkman/bin/sdkman-init.sh"
-source /home/anders.klever.kirkeby/.sdkman/.sdkmanshrc #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+case $(uname) in
+Linux)
+  export SDKMAN_DIR="/home/anders.klever.kirkeby/.sdkman"
+  [[ -s "/home/anders.klever.kirkeby/.sdkman/bin/sdkman-init.sh" ]] && source "/home/anders.klever.kirkeby/.sdkman/bin/sdkman-init.sh"
+  source /home/anders.klever.kirkeby/.sdkman/.sdkmanshrc #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+  ;;
+esac

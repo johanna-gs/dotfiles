@@ -1,9 +1,7 @@
 # find out which distribution we are running on
 LFILE="/etc/*-release"
 MFILE="/System/Library/CoreServices/SystemVersion.plist"
-if [[ -f $LFILE ]]; then
-    _distro=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
-elif [[ -f $MFILE ]]; then
+if [[ -f $MFILE ]]; then
     _distro="macos"
 
     # on mac os use the systemprofiler to determine the current model
@@ -14,6 +12,8 @@ elif [[ -f $MFILE ]]; then
     *mini*) DEVICE="󰇄" ;;
     *) DEVICE="" ;;
     esac
+else
+    _distro=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
 fi
 
 # set an icon based on the distro
@@ -44,5 +44,5 @@ case $_distro in
 *) ICON="" ;;
 esac
 
-export STARSHIP_DISTRO="$ICON"
+export STARSHIP_DISTRO="$ICON "
 export STARSHIP_DEVICE="$DEVICE"

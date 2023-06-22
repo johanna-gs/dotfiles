@@ -33,7 +33,7 @@ truncation_symbol = "…/"
 home_symbol = " ~"
 read_only_style = "197"
 read_only = "  "
-format = " at [$path]($style)[$read_only]($read_only_style) "
+format = "at [$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
 symbol = " "
@@ -56,6 +56,20 @@ modified = " "
 staged = '[++\($count\)](green)'
 renamed = "襁 "
 deleted = " "
+
+# [battery]
+# full_symbol = "󰁹"
+# charging_symbol = "󰂄"
+
+# [[battery.display]]
+# threshold = 30
+# style = "bold red"
+
+[package]
+disabled = true
+
+[aws]
+disabled = true
 
 [terraform]
 format = "via [ terraform $version]($style) 壟 [$workspace]($style) "
@@ -80,9 +94,19 @@ disabled = true
 [ruby]
 format = "via [ $version]($style) "
 
+[gradle]
+symbol = " "
+style = "bold blue"
+
+[kotlin]
+symbol = " "
+style = "bold #bf5700"
+
 [kubernetes]
-format = 'on [ $context\($namespace\)](bold purple) '
+symbol = "  "
+format = 'on [$context(\($namespace\))](bold purple) '
 disabled = false
-[kubernetes.context_aliases]
-"clcreative-k8s-staging" = "cl-k8s-staging"
-"clcreative-k8s-production" = "cl-k8s-prod"
+
+[rust]
+symbol = "󱘗 "
+style = "bold 208"
