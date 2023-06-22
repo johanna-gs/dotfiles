@@ -23,9 +23,9 @@ SetCapslockState, AlwaysOff
     Send {Ctrl DownTemp}{Shift DownTemp}{Alt DownTemp}{LWin DownTemp}
     KeyWait, Capslock
     Send {Ctrl Up}{Shift Up}{Alt Up}{LWin Up}
-    if (A_PriorKey = "Capslock") {
-        Send {Esc}
-    }
+; if (A_PriorKey = "Capslock") {
+;     Send {Esc}
+; }
 return
 
 ;; vim navigation with hyper
@@ -37,3 +37,8 @@ return
 ;; popular hotkeys with hyper
 ~Capslock & c:: Send ^{c}
 ~Capslock & v:: Send ^{v}
+
+;; norwegian support
+~Capslock & e::Send {U+00E6}
+~Capslock & o::Send {U+00F8}
+~Capslock & a::Send {U+00E5}

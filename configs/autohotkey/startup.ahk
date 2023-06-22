@@ -11,7 +11,7 @@ DetectHiddenWindows, On
 EnvGet, vUserProfile, USERPROFILE
 
 Run, %vUserProfile%/.config/hyperkey.ahk
-Run, %vUserProfile%/.config/norwegian.ahk
+; Run, %vUserProfile%/.config/norwegian.ahk
 ; Run, %vUserProfile%/.config/colemak_dh_iso.ahk
 
 ExitApp
