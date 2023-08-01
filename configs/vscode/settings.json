@@ -3,7 +3,7 @@
   "breadcrumbs.enabled": true,
   // This has a strangely satisfying 80s feel to it.
   "editor.cursorBlinking": "smooth",
-  "editor.fontFamily": "JetBrainsMono Nerd Font, Source Code Pro, Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "JetBrainsMono NF, Source Code Pro, Consolas, 'Courier New', monospace",
   "editor.fontSize": 14,
   "editor.fontLigatures": true,
   // Enable auto-formatting on ctrl/cmd+s
