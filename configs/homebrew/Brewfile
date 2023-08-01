@@ -66,6 +66,9 @@ brew "rustup"
 brew "just"
 brew "go-task"
 
+# diagramming
+brew "d2"
+
 # set arguments for all 'brew install --cask' commands
 cask_args appdir: "~/Applications", require_sha: true
 
