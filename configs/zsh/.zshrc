@@ -12,8 +12,18 @@
 # WSL specific things
 if grep --quiet microsoft /proc/version 2>/dev/null; then
   # Set Windows display for WSL
-  export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}')':0.0'
+  export DISPLAY=':0.0'
   export LIBGL_ALWAYS_INDIRECT=1
+  export GDK_BACKEND=x11
+
+  # Oracle Tools
+  export PATH=$PATH:$HOME/.local/lib/oracle/instantclient_19_18
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.local/lib/oracle/instantclient_19_18
+  export ORACLE_HOME=$HOME/.local/lib/oracle/instantclient_19_18
+  export TNS_ADMIN=~/tnsadmin
+
+  # OCI
+  export OCI_CLI_SUPPRESS_FILE_PERMISSIONS_WARNING=True
 fi
 
 # Preferred editor for local and remote sessions

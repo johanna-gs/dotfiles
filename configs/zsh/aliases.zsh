@@ -44,3 +44,7 @@ alias fc="fix_wsl_clock"
 # arcanist aliases
 alias diff="arc diff --reviewers '#elhub_data-sharing'"
 alias land="arc land && git checkout master && git pull"
+
+# launchers
+alias idea="snap run intellij-idea-ultimate"
+alias intellij="idea"
