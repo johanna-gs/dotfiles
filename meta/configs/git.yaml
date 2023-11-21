@@ -8,3 +8,4 @@
       path: configs/git/gitconfig-privatespace.ini
       ignore-missing: true
     ~/.gitconfig-workspace: configs/git/gitconfig-workspace.ini
+      ignore-missing: true
