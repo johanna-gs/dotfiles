@@ -1,26 +1,23 @@
 # ~/.config/starship.toml
 
+format = """\
+[╭╴](238)$env_var$all\
+[╰─](238)($battery)$character"""
+
 # Inserts a blank line between shell prompts
 add_newline = true
 
 # Command Timeout (millis)
-command_timeout = 1000
+command_timeout = 10_000
 
-# Change the default prompt format
-format = """\
-[╭╴](238)$env_var\
-$all[╰─](238)$character"""
+[cmd_duration]
+min_time = 10_000  # Show command duration over 10,000 milliseconds (=10 sec)
+format = " took [$duration]($style)"
 
 # Change the default prompt characters
 [character]
 success_symbol = "[](238)"
-error_symbol = "[](238)"
-
-# Shows an icon that should be included by zshrc script based on the distribution or os
-[env_var.STARSHIP_DISTRO]
-format = '[$env_value](bold white)'  # removed space between distro and rest for pwsh
-variable = "STARSHIP_DISTRO"
-disabled = false
+error_symbol = "[](238)"
 
 # Shows the username
 [username]
@@ -30,13 +27,24 @@ format = "[$user]($style) "
 disabled = true  # disable in powershell
 show_always = false
 
+[hostname]
+ssh_only = false
+format = "<[$hostname]($style)>"
+trim_at = "-"
+style = "bold dimmed white"
+disabled = true
+
+[memory_usage]
+format = "$symbol[${ram}( | ${swap})]($style) "
+threshold = 70
+style = "bold dimmed white"
+disabled = false
+
 [directory]
 truncation_length = 3
-truncation_symbol = "…/"
+truncation_symbol = '…/'
 home_symbol = " ~"
-read_only_style = "197"
-read_only = "  "
-format = "at [$path]($style)[$read_only]($read_only_style) "
+format = "[$path]($style)[$lock_symbol]($lock_style) "
 
 [git_branch]
 symbol = " "
@@ -60,16 +68,24 @@ staged = '[++\($count\)](green)'
 renamed = "襁 "
 deleted = " "
 
-# [battery]
-# full_symbol = "󰁹"
-# charging_symbol = "󰂄"
+[battery]
+full_symbol = ""
+charging_symbol = ""
+discharging_symbol = ""
+format = '[\[](238)[$percentage]($style)[\]](238)'
 
-# [[battery.display]]
-# threshold = 30
-# style = "bold red"
+[[battery.display]]
+threshold = 20
+style = "bold red"
 
 [package]
 disabled = true
+
+# Shows an icon that should be included by zshrc script based on the distribution or os
+[env_var.STARSHIP_DISTRO]
+format = '[$env_value](bold white)'
+variable = "STARSHIP_DISTRO"
+disabled = false
 
 [aws]
 disabled = true
@@ -98,12 +114,10 @@ disabled = true
 format = "via [ $version]($style) "
 
 [gradle]
-symbol = " "
-style = "bold blue"
+format = "[ $version](bold blue) "
 
 [kotlin]
-symbol = " "
-style = "bold #bf5700"
+format = "[ $version](bold #bf5700) "
 
 [kubernetes]
 symbol = "  "
@@ -113,3 +127,6 @@ disabled = false
 [rust]
 symbol = "󱘗 "
 style = "bold 208"
+
+[java]
+disabled = true
