@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# Custom env
+[ -f ~/.zshenv ] && source ~/.zshenv
+
 # Custom functions
 [ -f ~/.config/functions.zsh ] && source ~/.config/functions.zsh
 
