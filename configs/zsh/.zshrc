@@ -105,11 +105,14 @@ precmd() { asdf_update_java_home; }
 eval $(keychain --eval --agents ssh id_rsa) >/dev/null 2>&1
 
 autoload -U +X bashcompinit && bashcompinit
-#complete -o nospace -C /home/anders.kirkeby/.local/lib/vault/1.7.0/vault vault
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 case $(uname) in
 Linux)
+  # Elhub Platform Utilities
+  if [ -d "$HOME/workspace/elt/platform-utils/scripts" ] ; then
+      PATH="$HOME/workspace/elt/platform-utils/scripts:$PATH"
+  fi
+
   export SDKMAN_DIR="/home/anders.klever.kirkeby/.sdkman"
   [[ -s "/home/anders.klever.kirkeby/.sdkman/bin/sdkman-init.sh" ]] && source "/home/anders.klever.kirkeby/.sdkman/bin/sdkman-init.sh"
   source /home/anders.klever.kirkeby/.sdkman/.sdkmanshrc #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
