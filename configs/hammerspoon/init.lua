@@ -13,36 +13,48 @@ local manager = {}
 
 hyper = { "cmd", "alt", "ctrl", "shift" } -- caps-lock with Karabiner
 
-hs.hotkey.bind(hyper, "h", function()
-    manager.sendLeft()
-end)
+-- hs.hotkey.bind(hyper, "h", function()
+--     manager.sendLeft()
+-- end)
 
-hs.hotkey.bind(hyper, "j", function()
-    manager.sendDown()
-end)
+-- hs.hotkey.bind(hyper, "j", function()
+--     manager.sendDown()
+-- end)
 
-hs.hotkey.bind(hyper, "k", function()
-    manager.sendUp()
-end)
+-- hs.hotkey.bind(hyper, "k", function()
+--     manager.sendUp()
+-- end)
 
-hs.hotkey.bind(hyper, "l", function()
-    manager.sendRight()
-end)
+-- hs.hotkey.bind(hyper, "l", function()
+--     manager.sendRight()
+-- end)
 
-hs.hotkey.bind(hyper, "f", function()
-    manager.maximize()
-end)
+-- hs.hotkey.bind(hyper, "f", function()
+--     manager.maximize()
+-- end)
 
-hs.hotkey.bind(hyper, "p", function()
-    manager.nextScreen()
-end)
+-- hs.hotkey.bind(hyper, "u", nil, function()
+--     manager.nextScreen()
+-- end)
 
-hs.hotkey.bind(hyper, "o", function()
-    manager.nextScreen()
-end)
+-- hs.hotkey.bind(hyper, "i", nil, function()
+--     manager.nextScreen()
+-- end)
 
-hs.hotkey.bind(hyper, "r", function()
+hs.hotkey.bind(hyper, "r", nil, function()
     hs.reload()
+end)
+
+hs.hotkey.bind(hyper, "e", nil, function ()
+    hs.eventtap.keyStrokes("æ", 0)
+end)
+
+hs.hotkey.bind(hyper, "o", nil, function ()
+    hs.eventtap.keyStrokes("ø", 0)
+end)
+
+hs.hotkey.bind(hyper, "a", nil, function ()
+    hs.eventtap.keyStrokes("å", 0)
 end)
 
 --- ==========================================

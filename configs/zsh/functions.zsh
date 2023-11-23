@@ -39,5 +39,28 @@ functions docker_exec_into_container() {
 }
 
 functions fix_wsl_clock() {
-    sudo hwclock -s
+    sudo ntpdate pool.ntp.org
+}
+
+functions open_detekt_report() {
+    if [[ ! -f build.gradle.kts ]]; then
+        echo "This command can only be run in a gradle project"
+        return 1
+    fi
+
+    REPORT_DIR=".reports"
+    REPORT_FILE="${REPORT_DIR}/detekt.html"
+
+    detekt -r html:${REPORT_FILE} 2>/dev/null
+
+    trap "rm -rf ${REPORT_DIR}" EXIT
+
+    if [[ -f "${REPORT_FILE}" ]]; then
+        echo "Opening ${REPORT_FILE}"
+        open ${REPORT_FILE}
+
+        sleep 5
+    else
+        echo "No report found!"
+    fi
 }

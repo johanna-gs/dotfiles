@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# Custom env
+[ -f ~/.zshenv ] && source ~/.zshenv
+
 # Custom functions
 [ -f ~/.config/functions.zsh ] && source ~/.config/functions.zsh
 
@@ -12,8 +15,18 @@
 # WSL specific things
 if grep --quiet microsoft /proc/version 2>/dev/null; then
   # Set Windows display for WSL
-  export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}')':0.0'
+  export DISPLAY=':0.0'
   export LIBGL_ALWAYS_INDIRECT=1
+  export GDK_BACKEND=x11
+
+  # Oracle Tools
+  export PATH=$PATH:$HOME/.local/lib/oracle/instantclient_19_18
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.local/lib/oracle/instantclient_19_18
+  export ORACLE_HOME=$HOME/.local/lib/oracle/instantclient_19_18
+  export TNS_ADMIN=~/tnsadmin
+
+  # OCI
+  export OCI_CLI_SUPPRESS_FILE_PERMISSIONS_WARNING=True
 fi
 
 # Preferred editor for local and remote sessions
@@ -26,6 +39,7 @@ Linux)
   if service docker status 2>&1 | grep -q "is not running"; then
     wsl.exe -d "${WSL_DISTRO_NAME}" -u root -e /usr/sbin/service docker start >/dev/null 2>&1
   fi
+
   ;;
 Darwin)
   brew_home=/opt/homebrew
@@ -78,15 +92,30 @@ eval "$(starship init zsh)"
 # ASDF
 [ -f "$(brew --prefix asdf)/libexec/asdf.sh" ] && source "$(brew --prefix asdf)/libexec/asdf.sh"
 
+# set JAVA_HOME on every change directory
+function asdf_update_java_home {
+  asdf current java 2>&1 > /dev/null
+  if [[ "$?" -eq 0 ]]
+  then
+      export JAVA_HOME=$(asdf where java)
+  fi
+}
+
+precmd() { asdf_update_java_home; }
+# end set JAVA_HOME
+
 # SSH Activation
 eval $(keychain --eval --agents ssh id_rsa) >/dev/null 2>&1
 
 autoload -U +X bashcompinit && bashcompinit
-#complete -o nospace -C /home/anders.kirkeby/.local/lib/vault/1.7.0/vault vault
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 case $(uname) in
 Linux)
+  # Elhub Platform Utilities
+  if [ -d "$HOME/workspace/elt/platform-utils/scripts" ] ; then
+      PATH="$HOME/workspace/elt/platform-utils/scripts:$PATH"
+  fi
+
   export SDKMAN_DIR="/home/anders.klever.kirkeby/.sdkman"
   [[ -s "/home/anders.klever.kirkeby/.sdkman/bin/sdkman-init.sh" ]] && source "/home/anders.klever.kirkeby/.sdkman/bin/sdkman-init.sh"
   source /home/anders.klever.kirkeby/.sdkman/.sdkmanshrc #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

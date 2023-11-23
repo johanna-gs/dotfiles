@@ -3,7 +3,10 @@
     # inspired by: https://kurtmckee.org/2022/06/managing-your-git-config-using-dotbot/
     ~/.gitignore: configs/git/gitignore
     ~/.gitconfig: configs/git/gitconfig.ini
+    ~/.gitmessage: configs/git/gitmessage
     ~/.gitconfig-privatespace:
       path: configs/git/gitconfig-privatespace.ini
       ignore-missing: true
-    ~/.gitconfig-workspace: configs/git/gitconfig-workspace.ini
+    ~/.gitconfig-workspace:
+      path: configs/git/gitconfig-workspace.ini
+      ignore-missing: true
