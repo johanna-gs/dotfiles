@@ -1,17 +1,47 @@
 {
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  // Filetype-specific settings.
+  "[markdown]": {
+    // Don't try to suggest things to me, I'm writing prose.
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "other": "off",
+      "strings": "off"
+    },
+    // (Soft) wrap long lines so that they fit in the viewport.
+    "editor.wordWrap": "on"
+  },
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "[yaml]": {
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.autoIndent": "keep",
+    "editor.insertSpaces": true,
+    "editor.quickSuggestions": {
+      "comments": false,
+      "other": true,
+      "strings": true
+    },
+    "editor.tabSize": 2,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 80,
+    "editor.wrappingIndent": "same"
+  },
   // Show breadcrumbs below the tab bar, telling you where you are in the code.
   "breadcrumbs.enabled": true,
   // This has a strangely satisfying 80s feel to it.
   "editor.cursorBlinking": "smooth",
   "editor.fontFamily": "JetBrainsMono NF, Source Code Pro, Consolas, 'Courier New', monospace",
-  "editor.fontSize": 14,
   "editor.fontLigatures": true,
+  "editor.fontSize": 14,
   // Enable auto-formatting on ctrl/cmd+s
   "editor.formatOnSave": true,
-  "terminal.integrated.fontSize": 15,
+  "editor.minimap.maxColumn": 120,
   // Make the minimap more abstract, and always show the displayed section (not just when hovering with the mouse).
   "editor.minimap.renderCharacters": false,
-  "editor.minimap.maxColumn": 120,
   "editor.minimap.showSlider": "always",
   // Show whitespace characters, but not single spaces between words.
   "editor.renderWhitespace": "boundary",
@@ -22,14 +52,17 @@
   ],
   // Scroll a bit smoother to help your eyes keep track.
   "editor.smoothScrolling": true,
+  // I'm using non-breaking spaces and stuff like that in my files, don't highlight it.
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "explorer.confirmDragAndDrop": false,
   // Hide "Open Editors" section in the explorer. You can see it from the tab bar anyway.
   "explorer.openEditors.visible": 0,
   // Glob -> File Type associations.
   "files.associations": {
-    "Saltfile": "yaml",
     "*.drawio": "xml",
+    "*.sls": "yaml",
     "*.zcml": "xml",
-    "*.sls": "yaml"
+    "Saltfile": "yaml"
   },
   // Files should (almost) always use LF line endings, not CRLF, not even under Windows.
   "files.eol": "\n",
@@ -46,53 +79,19 @@
     "**/node_modules/*/**": true,
     "**/target/*/incremental/**": true // Rust’s incremental compilation.
   },
+  "git.autofetch": true,
+  "redhat.telemetry.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
   "terminal.external.windowsExec": "C:\\\\Users\\\\andeki1\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\wt.exe",
-  // I don't remember, this fixed some keyboard shortcuts or something.
-  "terminal.integrated.allowChords": false,
-  "terminal.integrated.shellIntegration.decorationsEnabled": "never",
   "terminal.integrated.defaultProfile.linux": "zsh",
-  // I'm using non-breaking spaces and stuff like that in my files, don't highlight it.
-  "editor.unicodeHighlight.nonBasicASCII": false,
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.fontFamily": "JetBrainsMono NF",
+  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.shellIntegration.decorationsEnabled": "never",
   // Just show the project and file name. I can see from the icon that this is VS Code.
   // Starting with the project name allows me to distinguish multiple Code instances in the task bar more easily.
   "window.title": "${rootName}${separator}${dirty}${activeEditorShort}",
   "workbench.colorTheme": "Dracula",
   // This apparently sends keystrokes to Microsoft when searching in the settings. Don't need it.
-  "workbench.settings.enableNaturalLanguageSearch": false,
-  // Filetype-specific settings.
-  "[markdown]": {
-    // (Soft) wrap long lines so that they fit in the viewport.
-    "editor.wordWrap": "on",
-    // Don't try to suggest things to me, I'm writing prose.
-    "editor.quickSuggestions": {
-      "comments": "off",
-      "strings": "off",
-      "other": "off"
-    }
-  },
-  "[python]": {
-    "editor.formatOnType": true
-  },
-  "redhat.telemetry.enabled": false,
-  "terminal.explorerKind": "external",
-  "security.workspace.trust.untrustedFiles": "open",
-  "git.autofetch": true,
-  "explorer.confirmDragAndDrop": false,
-  "[yaml]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.autoIndent": "keep",
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wrappingIndent": "same",
-    "editor.wordWrapColumn": 80,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "editor.quickSuggestions": {
-      "other": true,
-      "comments": false,
-      "strings": true
-    }
-  },
-  "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-  }
+  "workbench.settings.enableNaturalLanguageSearch": false
 }
