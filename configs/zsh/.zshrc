@@ -116,6 +116,15 @@ Linux)
       PATH="$HOME/workspace/elt/platform-utils/scripts:$PATH"
   fi
 
+  # https://www.reddit.com/r/zsh/comments/sbt9zn/annoying_problem_with_starship_zsh_and_vimode/
+  function zle-line-init zle-keymap-select {
+    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    RPS2=$RPS1
+    zle reset-prompt
+  }
+  zle -N zle-line-init
+  zle -N zle-keymap-select
+
   export SDKMAN_DIR="/home/anders.klever.kirkeby/.sdkman"
   [[ -s "/home/anders.klever.kirkeby/.sdkman/bin/sdkman-init.sh" ]] && source "/home/anders.klever.kirkeby/.sdkman/bin/sdkman-init.sh"
   source /home/anders.klever.kirkeby/.sdkman/.sdkmanshrc #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
