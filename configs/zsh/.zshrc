@@ -94,26 +94,22 @@ eval "$(starship init zsh)"
 
 # set JAVA_HOME on every change directory
 function asdf_update_java_home {
-  asdf current java 2>&1 > /dev/null
-  if [[ "$?" -eq 0 ]]
-  then
-      export JAVA_HOME=$(asdf where java)
+  asdf current java 2>&1 >/dev/null
+  if [[ "$?" -eq 0 ]]; then
+    export JAVA_HOME=$(asdf where java)
   fi
 }
 
 precmd() { asdf_update_java_home; }
 # end set JAVA_HOME
 
-# SSH Activation
-eval $(keychain --eval --agents ssh id_rsa) >/dev/null 2>&1
-
 autoload -U +X bashcompinit && bashcompinit
 
 case $(uname) in
 Linux)
   # Elhub Platform Utilities
-  if [ -d "$HOME/workspace/elt/platform-utils/scripts" ] ; then
-      PATH="$HOME/workspace/elt/platform-utils/scripts:$PATH"
+  if [ -d "$HOME/workspace/elt/platform-utils/scripts" ]; then
+    PATH="$HOME/workspace/elt/platform-utils/scripts:$PATH"
   fi
 
   # https://www.reddit.com/r/zsh/comments/sbt9zn/annoying_problem_with_starship_zsh_and_vimode/

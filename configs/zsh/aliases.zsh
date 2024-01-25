@@ -49,5 +49,4 @@ alias land="arc land && git checkout master && git pull"
 alias idea="snap run intellij-idea-ultimate"
 alias intellij="idea"
 
-alias open="powershell.exe -c"
 alias dr="open_detekt_report"

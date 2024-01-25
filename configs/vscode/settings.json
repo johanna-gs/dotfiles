@@ -93,5 +93,16 @@
   "window.title": "${rootName}${separator}${dirty}${activeEditorShort}",
   "workbench.colorTheme": "Dracula",
   // This apparently sends keystrokes to Microsoft when searching in the settings. Don't need it.
-  "workbench.settings.enableNaturalLanguageSearch": false
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "rust-analyzer.files.excludeDirs": [
+    "template"
+  ],
+  "pgsql.connections": [
+    {
+      "server": "localhost:5432",
+      "database": "postgres",
+      "user": "postgres",
+      "password": ""
+    }
+  ],
 }
