@@ -1,3 +1,6 @@
+- create:
+    - ~/.config/git-hooks
+
 - link:
     # git configurations
     # inspired by: https://kurtmckee.org/2022/06/managing-your-git-config-using-dotbot/
@@ -10,3 +13,4 @@
     ~/.gitconfig-workspace:
       path: configs/git/gitconfig-workspace.ini
       ignore-missing: true
+    ~/.config/git-hooks/: configs/git/hooks/*
