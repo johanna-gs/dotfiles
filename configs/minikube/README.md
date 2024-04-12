@@ -1,45 +1,16 @@
-# Running K3D
+# Running Minikube
 
 ## Prerequisites
 
 We'll need the following installed to follow along:
 
-- k3d
+- minikube
 - kubectl (recommend installing it with asdf)
 - helm (recommend installing it with asdf)
 
 ## Creating the cluster
 
-Using the `cluster-config.yml` we can create a new cluster in k3d. The default cluster name is 'local-k8s'.
-
-```sh
-$ k3d cluster create --config ~/.config/k3d/cluster-config.yml
-
-INFO[0000] Using config file /home/anders.klever.kirkeby/.config/k3d/cluster-config.yml (k3d.io/v1alpha5#simple)
-INFO[0000] Prep: Network
-INFO[0000] Created network 'k3d-local-k3d'
-INFO[0000] Created image volume k3d-local-k3d-images
-INFO[0000] Starting new tools node...
-INFO[0000] Starting Node 'k3d-local-k3d-tools'
-INFO[0001] Creating node 'k3d-local-k3d-server-0'
-INFO[0001] Creating node 'k3d-local-k3d-agent-0'
-INFO[0001] Creating node 'k3d-local-k3d-agent-1'
-INFO[0001] Creating LoadBalancer 'k3d-local-k3d-serverlb'
-INFO[0001] Using the k3d-tools node to gather environment information
-INFO[0001] HostIP: using network gateway 172.21.0.1 address
-INFO[0001] Starting cluster 'local-k3d'
-INFO[0001] Starting servers...
-INFO[0001] Starting Node 'k3d-local-k3d-server-0'
-INFO[0005] Starting agents...
-INFO[0005] Starting Node 'k3d-local-k3d-agent-0'
-INFO[0005] Starting Node 'k3d-local-k3d-agent-1'
-INFO[0010] Starting helpers...
-INFO[0010] Starting Node 'k3d-local-k3d-serverlb'
-INFO[0016] Injecting records for hostAliases (incl. host.k3d.internal) and for 4 network members into CoreDNS configmap...
-INFO[0018] Cluster 'local-k3d' created successfully!
-INFO[0018] You can now use it like this:
-kubectl cluster-info
-```
+Launching the cluster in minikube simply requires running `minikube start`. The default cluster name is 'minikube'. Once started you can verify its running with `minikube status` and get the cluster information with `kubectl cluster-info`.
 
 Be default this should configure you kubeconfig to use the newly created cluster.
 
@@ -48,7 +19,7 @@ Be default this should configure you kubeconfig to use the newly created cluster
 To run the k8s dashboard we need a service account user with admin access. Applying the `admin-user.yml` file should get us there.
 
 ```sh
-$ kubectl -n default apply -f ~/.config/k3d/admin-user.yml
+$ kubectl -n default apply -f ~/.config/minikube/admin-user.yml
 
 serviceaccount/admin-user created
 clusterrolebinding.rbac.authorization.k8s.io/admin-user created

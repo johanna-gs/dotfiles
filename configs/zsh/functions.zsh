@@ -51,7 +51,7 @@ functions open_detekt_report() {
     REPORT_DIR=".reports"
     REPORT_FILE="${REPORT_DIR}/detekt.html"
 
-    detekt -r html:${REPORT_FILE} 2>/dev/null
+    detekt -r html:${REPORT_FILE}
 
     trap "rm -rf ${REPORT_DIR}" EXIT
 

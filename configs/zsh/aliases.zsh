@@ -24,8 +24,16 @@ alias kg="k get"
 alias kgp="kg pods"
 alias kgs="kg svc"
 
+alias kd="k describe"
+alias kdp="kd pods"
+alias kds="kd service"
+
 alias kpf="k port-forward"
 alias kl="k logs"
+
+# kubernetes plugin shortcuts
+alias kx="k ctx"
+alias kn="k ns"
 
 # kubectl function aliases
 alias kex="kubectl_exec_into_pod"

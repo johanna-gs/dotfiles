@@ -66,6 +66,11 @@ if [ -d "$HOME/.local/bin" ]; then
   PATH="$HOME/.local/bin:$PATH"
 fi
 
+# set PATH so it includes user's private bin if it exists
+if [ -d "/opt/liquibase" ]; then
+  PATH="$PATH:/opt/liquibase/"
+fi
+
 # Rust
 [ -f ~/.cargo/env ] && source ~/.cargo/env
 
@@ -73,6 +78,13 @@ fi
 if [[ -f "/opt/homebrew/bin/sdl2-config" ]]; then
   export LIBRARY_PATH="$LIBRARY_PATH:/opt/homebrew/lib"
 fi
+
+# Krew (k8s plugin manager)
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# Kafka setup
+export KAFKA_HOME="~/kafka-3.7.0-src/"
+export PATH="$KAFKA_HOME/bin:$PATH"
 
 ## History command configuration
 HISTSIZE=5000                 # How many lines of history to keep in memory
