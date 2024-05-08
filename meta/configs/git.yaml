@@ -8,9 +8,29 @@
     ~/.gitconfig: configs/git/gitconfig.ini
     ~/.gitmessage: configs/git/gitmessage
     ~/.gitconfig-privatespace:
-      path: configs/git/gitconfig-privatespace.ini
-      ignore-missing: true
+        path: configs/git/gitconfig-privatespace.ini
     ~/.gitconfig-workspace:
-      path: configs/git/gitconfig-workspace.ini
-      ignore-missing: true
-    ~/.config/git-hooks/: configs/git/hooks/*
+        path: configs/git/gitconfig-workspace.ini
+        if: '[ -f configs/git/gitconfig-workspace.ini]'
+    ~/.gitconfig-platform-specific:
+        if: '[ `uname` = "Darwin" ]'
+        path: configs/git/platform/wsl.ini
+        ignore-missing: true
+        relink: true
+    ~/.gitconfig-platform-specific:
+        if: 'uname -a | grep -q "WSL2"'
+        path: configs/git/platform/wsl.ini
+        ignore-missing: true
+        relink: true
+    # git-hooks
+    ~/.config/git-hooks/:
+        path: configs/git/hooks/*
+        glob: true
+
+- shell:
+    - command: |
+        if ! command -v keychain &> /dev/null; then
+          if uname -a | grep -q "WSL2"; then
+            sudo apt-get install keychain
+          fi
+        fi

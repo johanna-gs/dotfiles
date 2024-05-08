@@ -1,0 +1,22 @@
+- shell:
+    - command: |
+        # Install Rust Toolchain
+        if ! command -v "rustup" >/dev/null 2>&1; then
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        fi
+      description: Install rust toolchain
+      stdout: true
+    - command: |
+        # Install Rust Toolchain dependencies
+        if ! command -v "gcc" >/dev/null 2>&1; then
+          # we also need to have a C linker installed
+          sudo apt install build-essential --yes
+        fi
+      description: Install build-essentials
+      stdout: true
+    - command: cargo install exa
+      description: Install exa
+      stdout: true
+    - command: cargo install ripgrep
+      description: Install ripgrep
+      stdout: true

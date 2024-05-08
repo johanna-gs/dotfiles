@@ -3,6 +3,11 @@
 RED='\033[0;32m'
 NC='\033[0m' # No Color
 
+# Utility functions
+functions command_exists() {
+  command -v "$@" >/dev/null 2>&1
+}
+
 functions reload() {
     if [ -f  $HOME/.zshenv ]; then
         source $HOME/.zshrc

@@ -1,0 +1,42 @@
+- shell:
+    - command: |
+        if ! command -v "minikube" >/dev/null 2>&1; then
+          curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+          sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+        fi
+      description: Install minikube
+    - command: command -v kubectl
+      description: Verify that kubectl is installed
+    - command: |
+        if ! kubectl krew version &>/dev/null; then
+          (
+            set -x; cd "$(mktemp -d)" &&
+            OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
+            ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&
+            KREW="krew-${OS}_${ARCH}" &&
+            curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" &&
+            tar zxvf "${KREW}.tar.gz" &&
+            ./"${KREW}" install krew
+          )
+        fi
+      description: Install Krew (k8s plugins)
+    - command: kubectl krew install ctx
+      description: Install context switching plugin
+    - command: kubectl krew install ns
+      description: Install namespace switching plugin
+    - command: |
+        if ! command -v argocd &> /dev/null; then
+          if uname -a | grep -q "WSL2"; then
+            curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+            sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
+            rm argocd-linux-amd64
+          fi
+        fi
+    - command: |
+        if ! command -v argocd &> /dev/null; then
+          if [ `uname` = "Darwin" ]; then
+            curl -sSL -o argocd-darwin-arm64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-darwin-arm64
+            sudo install -m 555 argocd-darwin-arm64 /usr/local/bin/argocd
+            rm argocd-darwin-arm64
+          fi
+        fi

@@ -1,4 +1,0 @@
-- link:
-    ~/.gitconfig-platform-specific:
-      path: configs/git/platform/macos.ini
-      ignore-missing: true

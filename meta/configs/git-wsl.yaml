@@ -1,4 +1,0 @@
-- link:
-    ~/.gitconfig-platform-specific:
-      path: configs/git/platform/wsl.ini
-      ignore-missing: true

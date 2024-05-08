@@ -1,11 +1,31 @@
 - create:
     - ~/.config
+    - ~/.config/zsh
+    - ~/.config/zsh/autocomplete
 
 - link:
-    # zsh configurations
-    ~/.config/aliases.zsh: configs/zsh/aliases.zsh
-    ~/.config/functions.zsh: configs/zsh/functions.zsh
-    ~/.zshenv:
+    # main configs
+    ~/.zshrc: configs/zsh/zshrc
+    ~/.zshenv: configs/zsh/zshenv
+    # sub-configs
+    ~/.config/zsh/aliases.zsh: configs/zsh/_aliases.zsh
+    ~/.config/zsh/functions.zsh: configs/zsh/_functions.zsh
+    ~/.config/zsh/secrets.zsh:
         ignore-missing: true
-        path: configs/zsh/.zshenv
-    ~/.zshrc: configs/zsh/.zshrc
+        path: configs/zsh/_secrets.zsh
+    ~/.config/zsh/wsl.zsh:
+        if: 'uname -a | grep -q "WSL2"'
+        path: configs/zsh/_wsl.zsh
+    ~/.config/zsh/mac.zsh:
+        if: '[ `uname` = "Darwin" ]'
+        path: configs/zsh/_mac.zsh
+    # starship
+    ~/.config/starship.toml: configs/zsh/starship.toml
+    ~/.config/zsh/starship.zsh: configs/zsh/_starship.zsh
+    # autocomplete
+    ~/.config/zsh/autocomplete/kubectl: configs/zsh/autocomplete/_kubectl
+
+- shell:
+    - command: sudo chsh -s $(which zsh) $(whoami)
+      description: Setting default shell to zsh
+      stdout: true

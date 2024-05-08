@@ -1,0 +1,7 @@
+- shell:
+    - command: sudo apt-get install unattended-upgrades
+      description: Install unattended-upgrades
+      stdout: true
+    - command: sudo dpkg-reconfigure --priority=low unattended-upgrades --frontend=noninteractive
+      description: Enable automatic updates
+      stdout: true
