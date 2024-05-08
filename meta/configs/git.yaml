@@ -11,7 +11,7 @@
         path: configs/git/gitconfig-privatespace.ini
     ~/.gitconfig-workspace:
         path: configs/git/gitconfig-workspace.ini
-        if: '[ -f configs/git/gitconfig-workspace.ini]'
+        if: '[ -f configs/git/gitconfig-workspace.ini ]'
     ~/.gitconfig-platform-specific:
         if: '[ `uname` = "Darwin" ]'
         path: configs/git/platform/wsl.ini
