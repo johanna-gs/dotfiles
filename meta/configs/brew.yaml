@@ -3,12 +3,19 @@
     ~/Brewfile: configs/homebrew/Brewfile
 
 - shell:
-    - command: cd ~/ && brew bundle install
-      description: Installing brew bundles
-      stdout: true
-    # - command: brew cu -a -y
-    #   description: Updating brew cask dependencies
-    #   stdout: true
-    - command: cd ~/ && brew update && brew upgrade
-      description: Updating brew dependencies
-      stdout: true
+  - command: |
+      if ! command -v "brew" >/dev/null 2>&1; then
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      fi
+    description: Install Homebrew
+    stdout: true
+  - command: cd ~/ && brew bundle install
+    description: Installing brew bundles
+    stdout: true
+  # - command: brew cu -a -y
+  #   description: Updating brew cask dependencies
+  #   stdout: true
+  - command: cd ~/ && brew update && brew upgrade
+    description: Updating brew dependencies
+    stdout: true

@@ -1,5 +1,0 @@
-- link:
-    # wsl configurations
-    /etc/wsl.conf: 
-      path: meta/profiles/wsl/wsl.conf
-      force: true

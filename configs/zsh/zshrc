@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 # .zshenv is loaded before anything happens here!
+[ -f ~/.zshenv ] && source ~/.zshenv
 
 # Functions
 [ -f ~/.config/zsh/functions.zsh ] && source ~/.config/zsh/functions.zsh
@@ -20,23 +21,23 @@
 # Source rust environment if it exists
 [ -f ~/.cargo/env ] && source ~/.cargo/env
 
-# case $(uname) in
-# Linux)
-#   brew_home=/home/linuxbrew/.linuxbrew
+case $(uname) in
+Linux)
+  brew_home=/home/linuxbrew/.linuxbrew
 
-#   if service docker status 2>&1 | grep -q "is not running"; then
-#     wsl.exe -d "${WSL_DISTRO_NAME}" -u root -e /usr/sbin/service docker start >/dev/null 2>&1
-#   fi
+  if service docker status 2>&1 | grep -q "is not running"; then
+    wsl.exe -d "${WSL_DISTRO_NAME}" -u root -e /usr/sbin/service docker start >/dev/null 2>&1
+  fi
 
-#   ;;
-# Darwin)
-#   brew_home=/opt/homebrew
-#   ;;
-# esac
+  ;;
+Darwin)
+  brew_home=/opt/homebrew
+  ;;
+esac
 
-# if [ -d "${brew_home}" ]; then
-#   export PATH=${brew_home}/bin:$PATH
-# fi
+if [ -d "${brew_home}" ]; then
+  export PATH=${brew_home}/bin:$PATH
+fi
 
 ## History command configuration
 HISTSIZE=5000                 # How many lines of history to keep in memory
@@ -70,10 +71,10 @@ eval "$(starship init zsh)"
 autoload -Uz compinit && compinit
 
 # Source kubectl completion
-command -v kubectl >/dev/null 2>&1  && source ~/.config/zsh/autocomplete/kubectl
+command -v kubectl >/dev/null 2>&1 && source ~/.config/zsh/autocomplete/kubectl
 
 # # ASDF
-# [ -f "$(brew --prefix asdf)/libexec/asdf.sh" ] && source "$(brew --prefix asdf)/libexec/asdf.sh"
+[ -f "$(brew --prefix asdf)/libexec/asdf.sh" ] && source "$(brew --prefix asdf)/libexec/asdf.sh"
 
 # # set JAVA_HOME on every change directory
 # function asdf_update_java_home {
@@ -85,7 +86,6 @@ command -v kubectl >/dev/null 2>&1  && source ~/.config/zsh/autocomplete/kubectl
 
 # precmd() { asdf_update_java_home; }
 # end set JAVA_HOME
-
 
 # case $(uname) in
 # Linux)

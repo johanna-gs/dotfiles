@@ -11,3 +11,6 @@ export GPG_TTY=$(tty)
 
 # Krew (k8s plugin manager)
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# Elhub-plat-utils
+export PATH="$HOME/workspace/plat-platform-utils/scripts:$PATH"

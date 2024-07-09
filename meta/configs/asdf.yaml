@@ -2,36 +2,37 @@
 - asdf:
     - plugin: helm
       url: https://github.com/Antiarchitect/asdf-helm.git
-      global: 3.12.2
+      global: 3.14.0
       versions:
-        - 3.12.2
+        - 3.14.0
     - plugin: kubectl
       url: https://github.com/asdf-community/asdf-kubectl.git
-      global: 1.27.4
+      global: 1.30.2
       versions:
-        - 1.27.4
+        - 1.30.2
     - plugin: gradle
       url: https://github.com/rfrancis/asdf-gradle.git
-      global: 8.2.1
+      global: 8.8
       versions:
-        - 8.2.1
+        - 8.8
     - plugin: java
       url: https://github.com/halcyon/asdf-java.git
-      global: corretto-17.0.7.7.1
+      global: corretto-17.0.11.9.1
       versions:
-        - corretto-17.0.7.7.1
+        - corretto-17.0.11.9.1
     - plugin: kotlin
       url: https://github.com/asdf-community/asdf-kotlin.git
-      global: 1.9.10
+      global: 2.0.0
       versions:
-        - 1.9.10
+        - 2.0.0
+        - 1.9.24
     - plugin: maven
       url: https://github.com/Proemion/asdf-maven.git
-      global: 3.9.2
+      global: 3.9.8
       versions:
-        - 3.9.2
+        - 3.9.8
     - plugin: nodejs
       url: https://github.com/asdf-vm/asdf-nodejs.git
-      global: 18.15.0
+      global: 20.9.0
       versions:
-        - 18.15.0
+        - 20.9.0

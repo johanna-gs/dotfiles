@@ -1,4 +1,6 @@
 - shell:
+    - command: sudo apt-get update && sudo apt-get upgrade
+      stdout: true
     - command: sudo apt-get install unattended-upgrades
       description: Install unattended-upgrades
       stdout: true
