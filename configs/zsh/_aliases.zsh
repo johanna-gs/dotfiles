@@ -5,16 +5,17 @@
 # type exa >/dev/null 2>&1 && alias ll="exa --icons --group-directories-first -l" || alias ll="ls -l"
 # type exa >/dev/null 2>&1 && alias lla="ll -la"
 
+# basic terminal aliases
+alias ll="eza -l"
+alias la="eza -l -a"
+alias c="clear"
+alias grep='grep --color'
+
 # quick-access to the reload-script in functions.zsh
 alias rl="reload"
 
-alias grep='grep --color'
-
 # goto functionality (ish)
 alias gd="cd ~/dotfiles"
-alias gw="cd ~/workspace"
-alias gp="cd ~/privatespace"
-
 alias tf="terraform"
 
 # kubernetes aliases
@@ -49,12 +50,10 @@ alias dex="docker_exec_into_container"
 # wsl clock adjustment
 alias fc="fix_wsl_clock"
 
-# arcanist aliases
-alias diff="arc diff --reviewers '#elhub_data-sharing'"
-alias land="arc land && git checkout master && git pull"
-
 # launchers
-alias idea="snap run intellij-idea-ultimate"
-alias intellij="idea"
+alias ij="snap run intellij-idea-ultimate . >/dev/null 2>&1 &"
+alias mvn8="JAVA_HOME=/home/johannes.schaanning/.sdkman/candidates/java/8.0.302-open && mvn"
+alias k6="snap run k6"
 
+alias bcv='gh api repos/elhub/devxp-build-configuration/tags | jq -r '\''.[0].name'\'
 alias dr="open_detekt_report"
