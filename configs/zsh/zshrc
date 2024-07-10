@@ -68,7 +68,7 @@ fi
 eval "$(starship init zsh)"
 
 # Source plugins
-[[ -f ~/.config/zsh/plugins/plugins.zsh ]] && source ~/.config/zsh/plugins/plugins.zsh
+[[ -f ~/dotfiles/configs/zsh/plugins/plugins.zsh ]] && source ~/dotfiles/configs/zsh/plugins/plugins.zsh
 
 # autoload -Uz compinit bashcompinit && compinit && bashcompinit
 autoload -Uz compinit && compinit
