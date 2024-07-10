@@ -19,3 +19,6 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 #autosuggestion highlighting
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
+
+#fzf keybindings
+source <(fzf --zsh)
