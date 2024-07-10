@@ -10,6 +10,7 @@ brew "neovim"
 brew "openssh"
 brew "screen"
 brew "gmp"
+brew "fzf"
 
 # Misc util collections
 brew "coreutils"

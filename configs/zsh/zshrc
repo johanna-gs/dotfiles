@@ -67,6 +67,9 @@ fi
 # Source the starship initialization script
 eval "$(starship init zsh)"
 
+# Source plugins
+[[ -f ~/.config/zsh/plugins/plugins.zsh ]] && source ~/.config/zsh/plugins/plugins.zsh
+
 # autoload -Uz compinit bashcompinit && compinit && bashcompinit
 autoload -Uz compinit && compinit
 
