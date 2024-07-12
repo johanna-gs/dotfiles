@@ -11,6 +11,7 @@ brew "openssh"
 brew "screen"
 brew "gmp"
 brew "fzf"
+brew "navi"
 
 # Misc util collections
 brew "coreutils"
