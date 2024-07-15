@@ -22,3 +22,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 
 #fzf keybindings
 source <(fzf --zsh)
+
+# oh-my-zsh like cd completion
+source ~/dotfiles/configs/zsh/plugins/completion.zsh
