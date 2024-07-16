@@ -53,6 +53,7 @@ alias fc="fix_wsl_clock"
 # launchers
 alias ij="snap run intellij-idea-ultimate . >/dev/null 2>&1 &"
 alias mvn8="JAVA_HOME=/home/johannes.schaanning/.sdkman/candidates/java/8.0.302-open && mvn"
+alias gradlew8="JAVA_HOME=/home/johannes.schaanning/.sdkman/candidates/java/8.0.302-open && ./gradlew"
 alias k6="snap run k6"
 
 alias bcv='gh api repos/elhub/devxp-build-configuration/tags | jq -r '\''.[0].name'\'

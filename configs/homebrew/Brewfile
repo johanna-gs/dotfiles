@@ -13,6 +13,7 @@ brew "gmp"
 brew "fzf"
 brew "navi"
 brew "ag"
+brew "maven"
 
 # Misc util collections
 brew "coreutils"
