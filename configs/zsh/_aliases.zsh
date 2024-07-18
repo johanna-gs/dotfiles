@@ -11,6 +11,14 @@ alias la="eza -l -a"
 alias c="clear"
 alias grep='grep --color'
 
+# git shortcuts
+alias gcl="git clone"
+alias gd="git status"
+alias gs="git status"
+alias gb="git checkout -b"
+alias gc="git commit -m"
+alias gp="git push"
+
 # quick-access to the reload-script in functions.zsh
 alias rl="reload"
 
