@@ -19,6 +19,7 @@ alias gb="git checkout -b"
 alias gc="git commit -m"
 alias gp="git push"
 alias gcm="git checkout main"
+alias g="git pull"
 
 # quick-access to the reload-script in functions.zsh
 alias rl="reload"
