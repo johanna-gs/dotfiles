@@ -79,6 +79,10 @@ command -v kubectl >/dev/null 2>&1 && source ~/.config/zsh/autocomplete/kubectl
 # # ASDF
 [ -f "$(brew --prefix asdf)/libexec/asdf.sh" ] && source "$(brew --prefix asdf)/libexec/asdf.sh"
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 # # set JAVA_HOME on every change directory
 # function asdf_update_java_home {
 #   asdf current java 2>&1 >/dev/null
