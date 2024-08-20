@@ -13,13 +13,13 @@ alias grep='grep --color'
 
 # git shortcuts
 alias gcl="git clone"
-alias gd="git status"
-alias gs="git status"
 alias gb="git checkout -b"
 alias gc="git commit -m"
 alias gp="git push"
 alias gcm="git checkout main"
 alias g="git pull"
+alias gs="git stash"
+alias gsp="git stash pop"
 
 # quick-access to the reload-script in functions.zsh
 alias rl="reload"
