@@ -1,8 +1,5 @@
 #!/usr/bin/env zsh
 
-# Custom env
-[ -f ~/.config/zsh/secrets.zsh ] && source ~/.config/zsh/secrets.zsh
-
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
 
