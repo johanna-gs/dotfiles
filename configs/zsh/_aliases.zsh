@@ -21,6 +21,11 @@ alias g="git pull"
 alias gs="git stash"
 alias gsp="git stash pop"
 
+# gh-dxp shortcuts
+alias gdp="gh dxp pr -b"
+alias gdm="gh dxp merge -y"
+alias gdu="gh extension upgrade dxp --force"
+
 # quick-access to the reload-script in functions.zsh
 alias rl="reload"
 
