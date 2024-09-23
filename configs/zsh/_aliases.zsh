@@ -22,7 +22,7 @@ alias gs="git stash"
 alias gsp="git stash pop"
 
 # gh-dxp shortcuts
-alias gdp="gh dxp pr -b"
+alias gdp="gh dxp pr create -b"
 alias gdm="gh dxp merge -y"
 alias gdu="gh extension upgrade dxp --force"
 
