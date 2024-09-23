@@ -23,7 +23,7 @@ alias gsp="git stash pop"
 
 # gh-dxp shortcuts
 alias gdp="gh dxp pr create -b"
-alias gdm="gh dxp merge -y"
+alias gdm="gh dxp pr merge -y"
 alias gdu="gh extension upgrade dxp --force"
 
 # quick-access to the reload-script in functions.zsh
