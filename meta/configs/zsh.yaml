@@ -10,9 +10,6 @@
     # sub-configs
     ~/.config/zsh/aliases.zsh: configs/zsh/_aliases.zsh
     ~/.config/zsh/functions.zsh: configs/zsh/_functions.zsh
-    ~/.config/zsh/secrets.zsh:
-        ignore-missing: true
-        path: configs/zsh/_secrets.zsh
     ~/.config/zsh/wsl.zsh:
         if: 'uname -a | grep -q "WSL2"'
         path: configs/zsh/_wsl.zsh

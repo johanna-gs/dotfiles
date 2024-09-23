@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f0ff680-3d2f-451c-b5ae-d77c36d2dcda" name="Changes" comment="" />
+    <list default="true" id="7f0ff680-3d2f-451c-b5ae-d77c36d2dcda" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/zsh/zshrc" beforeDir="false" afterPath="$PROJECT_DIR$/configs/zsh/zshrc" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +46,7 @@
       <module name="dotfiles" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
-      <kind />
+      <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
@@ -52,7 +55,7 @@
       <module name="dotfiles" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
-      <kind />
+      <kind value="DIRECTORY" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
@@ -97,6 +100,7 @@
       <workItem from="1723458896670" duration="3286000" />
       <workItem from="1724322163171" duration="239000" />
       <workItem from="1724324469642" duration="41000" />
+      <workItem from="1724921064901" duration="115000" />
     </task>
     <servers />
   </component>
