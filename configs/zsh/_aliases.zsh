@@ -73,4 +73,3 @@ alias k6="snap run k6"
 alias tcg="mvn teamcity-configs:generate"
 
 alias bcv='gh api repos/elhub/devxp-build-configuration/tags | jq -r '\''.[0].name'\'
-alias dr="open_detekt_report"
