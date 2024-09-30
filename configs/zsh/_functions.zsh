@@ -43,6 +43,6 @@ functions docker_exec_into_container() {
     docker exec -i -t $1 /bin/bash
 }
 
-functions fix_wsl_clock() {
-    sudo ntpdate pool.ntp.org
-}
+#functions fix_wsl_clock() {
+#    sudo ntpdate pool.ntp.org
+#}
