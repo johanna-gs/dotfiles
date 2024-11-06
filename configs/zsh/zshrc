@@ -39,6 +39,8 @@ if [ -d "${brew_home}" ]; then
   export PATH=${brew_home}/bin:$PATH
 fi
 
+export PATH=$PATH:/usr/local/go/bin
+
 ## History command configuration
 HISTSIZE=5000                 # How many lines of history to keep in memory
 HISTFILE=~/.zsh_history       # Where to save history to disk
