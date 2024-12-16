@@ -20,7 +20,7 @@ alias gcm="git checkout main"
 alias g="git pull"
 alias gs="git stash"
 alias gsp="git stash pop"
-alias gitkillbranches= "git branch | grep -v "main" | xargs git branch -D"
+alias gitkillbranches="git branch | grep -v "main" | xargs git branch -D"
 
 # gh-dxp shortcuts
 alias gdp="gh dxp pr create -b"
