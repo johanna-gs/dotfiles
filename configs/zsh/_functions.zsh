@@ -42,3 +42,23 @@ docker_exec_into_container() {
     echo "Execing into container $1";
     docker exec -i -t $1 /bin/bash
 }
+
+install_toolbox() {
+  sudo apt install libxtst6 libxi6 x11-apps libnss3-dev libasound2-dev libfuse2 -y
+    curl -fsSL https://raw.githubusercontent.com/nagygergo/jetbrains-toolbox-install/master/jetbrains-toolbox.sh | bash
+
+    local retVal=$?
+
+    if [ $retVal -ne 0 ]; then
+      echo "❌ jetbrains-toolbox could not be installed"
+    else
+      echo "✅ jetbrains-toolbox installed"
+    fi
+}
+
+install_nerdFont() {
+    curl -L -o JetBrainsMono.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/JetBrainsMono.zip \
+        && unzip JetBrainsMono.zip JetBrainsMonoNerdFont-Regular.ttf -d /usr/local/share/fonts \
+        && rm JetBrainsMono.zip \
+        && sudo fc-cache -fv
+}
