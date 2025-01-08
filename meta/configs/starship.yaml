@@ -3,5 +3,5 @@
 
 - link:
     # starship
-    ~/.config/starship.toml: configs/starship/starship.toml
-    ~/.config/starship.zsh: configs/starship/starship.zsh
+    ~/.config/starship.toml: ~/dotfiles/configs/zsh/starship.toml
+    ~/.config/starship.zsh: ~/dotfiles/configs/zsh/_starship.zsh
