@@ -76,6 +76,11 @@ if ! fc-list | grep -i "JetBrainsMono" > /dev/null; then
   install_nerdFont
 fi
 
+# create wayland symlink if it doesn't exist
+if [ ! -L "$XDG_RUNTIME_DIR/wayland-*" ]; then
+  create_wayland_symlink
+fi
+
 # Source the starship initialization script
 eval "$(starship init zsh)"
 

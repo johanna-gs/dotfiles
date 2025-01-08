@@ -62,3 +62,11 @@ install_nerdFont() {
         && rm JetBrainsMono.zip \
         && sudo fc-cache -fv
 }
+
+create_wayland_symlink() {
+  if [ "$(stat -c %a /mnt/wslg/runtime-dir)" -ne 755 ]; then
+    sudo chmod 755 /mnt/wslg/runtime-dir
+  fi
+
+  ln -sf  /mnt/wslg/runtime-dir/wayland-* $XDG_RUNTIME_DIR/
+}
