@@ -85,30 +85,5 @@ command -v kubectl >/dev/null 2>&1 && source ~/.config/zsh/autocomplete/kubectl
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# # set JAVA_HOME on every change directory
-# function asdf_update_java_home {
-#   asdf current java 2>&1 >/dev/null
-#   if [[ "$?" -eq 0 ]]; then
-#     export JAVA_HOME=$(asdf where java)
-#   fi
-# }
-
-# precmd() { asdf_update_java_home; }
-# end set JAVA_HOME
-
-# case $(uname) in
-# Linux)
-#   # Elhub Platform Utilities
-#   if [ -d "$HOME/workspace/elt/platform-utils/scripts" ]; then
-#     PATH="$HOME/workspace/elt/platform-utils/scripts:$PATH"
-#   fi
-
-#   export SDKMAN_DIR="/home/anders.klever.kirkeby/.sdkman"
-#   [[ -s "/home/anders.klever.kirkeby/.sdkman/bin/sdkman-init.sh" ]] && source "/home/anders.klever.kirkeby/.sdkman/bin/sdkman-init.sh"
-#   ;;
-# esac
-source /home/johannes.schaanning/.sdkman/.sdkmanshrc # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /home/johannes.schaanning/.local/lib/vault/1.7.0/vault vault
-/home/johannes.schaanning/.local/devxp/devxp-linux/scripts/rc-notifications.sh
