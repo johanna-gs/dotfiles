@@ -11,3 +11,6 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # Elhub-plat-utils
 export PATH="$HOME/workspace/plat-platform-utils/scripts:$PATH"
+
+# Add ~/.local/bin to PATH
+export PATH="$HOME/.local/bin:$PATH"
