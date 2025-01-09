@@ -58,7 +58,7 @@ install_toolbox() {
 
 install_nerdFont() {
     curl -L -o JetBrainsMono.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/JetBrainsMono.zip \
-        && unzip JetBrainsMono.zip JetBrainsMonoNerdFont-Regular.ttf -d /usr/local/share/fonts \
+        && sudo unzip JetBrainsMono.zip JetBrainsMonoNerdFont-Regular.ttf -d /usr/local/share/fonts \
         && rm JetBrainsMono.zip \
         && sudo fc-cache -fv
 }
@@ -69,4 +69,15 @@ create_wayland_symlink() {
   fi
 
   ln -sf  /mnt/wslg/runtime-dir/wayland-* $XDG_RUNTIME_DIR/
+}
+
+install_ghostty() {
+  sudo apt install -y libgtk-4-dev libadwaita-1-dev git
+  cd ~/dotfiles/meta/ghostty
+  zig build -Doptimize=ReleaseFast
+  cp -r ~/dotfiles/meta/ghostty/zig-out/bin/ghostty ~/.local/bin
+  cp -r ~/dotfiles/meta/ghostty/zig-out/share/ghostty ~/.config
+  curl -LO https://github.com/mkasberg/ghostty-ubuntu/releases/download/1.0.1-0-ppa2/ghostty_1.0.1-0.ppa2_amd64_24.04.deb
+  sudo dpkg -i ghostty_*.deb
+  rm ghostty_1.0.1-0.ppa2_amd64_24.04.deb
 }

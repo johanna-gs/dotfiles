@@ -1,0 +1,6 @@
+- create:
+    - ~/.config
+    - ~/.config/ghostty
+
+- link:
+    ~/.config/ghostty/config: configs/ghostty/config
