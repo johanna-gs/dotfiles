@@ -7,3 +7,6 @@ url = https://github.com/anishathalye/dotbot
 [submodule "configs/zsh/plugins/zsh-autosuggestions"]
 	path = configs/zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "meta/ghostty"]
+	path = meta/ghostty
+	url = https://github.com/ghostty-org/ghostty
