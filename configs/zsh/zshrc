@@ -105,5 +105,8 @@ command -v kubectl >/dev/null 2>&1 && source ~/.config/zsh/autocomplete/kubectl
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C ~/.local/lib/vault/1.7.0/vault vault
