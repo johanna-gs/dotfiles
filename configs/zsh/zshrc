@@ -77,7 +77,7 @@ if ! fc-list | grep -i "JetBrainsMono" > /dev/null; then
 fi
 
 # create wayland symlink if it doesn't exist
-if [ ! -L "$XDG_RUNTIME_DIR/wayland-*" ]; then
+if [ ! -L "$XDG_RUNTIME_DIR/wayland-0" ]; then
   create_wayland_symlink
 fi
 
