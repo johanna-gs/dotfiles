@@ -12,3 +12,11 @@ To install `dotfiles`, clone this repository into ~/, and run
 ```
 ~/dotfiles/install-profile wsl
 ```
+
+If you experience any errors, you might need to restart your wsl and re-run the script
+```
+exit
+wsl --shutdown
+wsl
+~/dotfiles/install-profile wsl
+```
