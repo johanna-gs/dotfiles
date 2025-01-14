@@ -107,8 +107,13 @@ eval $(keychain --eval --agents ssh github)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+if [ -d ~/.shrc.d ]; then
+    for file in ~/.shrc.d/*sh; do
+      if [[ -r "$file" ]] && [[ "$file" =~ \.(sh|bash)$ ]]; then
+        source "$file"
+      fi
+    done
+fi
 export PATH="$HOME/.sdkman/candidates/java/current/bin:$PATH"
 
 autoload -U +X bashcompinit && bashcompinit
