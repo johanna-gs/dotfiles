@@ -68,6 +68,7 @@ alias fc="fix_wsl_clock"
 
 # launchers
 alias ij="~/.local/share/JetBrains/Toolbox/scripts/idea . >/dev/null 2>&1 &"
+alias pych="~/.local/share/JetBrains/Toolbox/scripts/pycharm . >/dev/null 2>&1 &"
 alias mvn8="JAVA_HOME=~/.sdkman/candidates/java/8.0.302-open && mvn"
 alias gradlew8="JAVA_HOME=~/.sdkman/candidates/java/8.0.302-open && ./gradlew"
 alias k6="snap run k6"
