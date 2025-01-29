@@ -14,3 +14,6 @@ export PATH="$HOME/workspace/plat-platform-utils/scripts:$PATH"
 
 # Add ~/.local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
+
+# Add Jetbrains Toolbox apps to PATH
+export PATH="$HOME/.local/share/JetBrains/Toolbox/scripts:$PATH"
