@@ -16,6 +16,7 @@ brew "navi"
 brew "ag"
 brew "maven"
 brew "keychain"
+brew "k9s"
 
 # Misc util collections
 brew "coreutils"
