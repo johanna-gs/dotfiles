@@ -10,6 +10,7 @@ alias ll="eza -l"
 alias la="eza -l -a"
 alias c="clear"
 alias grep='grep --color'
+alias cdg='cd ~/github"
 
 # git shortcuts
 alias gcl="git clone"
