@@ -81,3 +81,14 @@ install_ghostty() {
   sudo dpkg -i ghostty_*.deb
   rm ghostty_1.0.1-0.ppa2_amd64_24.04.deb
 }
+
+git_push_with_pr() {
+  local tmpfile=$(mktemp)
+  trap 'rm -f "$tmpfile"' EXIT
+  git push 2>&1 | tee "$tmpfile"
+  local rc=${pipestatus[1]}
+  if grep -qiE 'create a pull request|github.com/.*/pull/new/' "$tmpfile"; then
+    gh pr create --fill && gh pr view --web
+  fi
+  return $rc
+}
