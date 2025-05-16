@@ -101,7 +101,7 @@ command -v kubectl >/dev/null 2>&1 && source ~/.config/zsh/autocomplete/kubectl
 # # ASDF
 [ -f "$(brew --prefix asdf)/libexec/asdf.sh" ] && source "$(brew --prefix asdf)/libexec/asdf.sh"
 
-eval $(keychain --eval --agents ssh github)
+eval $(keychain --eval github)
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
