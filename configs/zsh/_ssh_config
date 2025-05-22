@@ -1,0 +1,20 @@
+Host teamcity
+    HostName teamcity.elhub.cloud
+Host teamcity-test
+    HostName teamcity-test.elhub.cloud
+Host teamcity-agent1
+    HostName teamcity-agent1.elhub.cloud
+Host teamcity-agent2
+    HostName teamcity-agent2.elhub.cloud
+Host teamcity-agent3
+    HostName teamcity-agent3.elhub.cloud
+Host teamcity-agent4
+    HostName teamcity-agent4.elhub.cloud
+Host teamcity-agent5
+    HostName teamcity-agent5.elhub.cloud
+Host teamcity-a1-test
+    HostName teamcity-a1-test.elhub.cloud
+Host teamcity-a1-win-1
+    HostName teamcity-a1-win-1.elhub.cloud
+Host *
+    AddKeysToAgent yes
