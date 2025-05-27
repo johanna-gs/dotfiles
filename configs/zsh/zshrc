@@ -103,6 +103,9 @@ command -v kubectl >/dev/null 2>&1 && source ~/.config/zsh/autocomplete/kubectl
 
 eval $(keychain --eval github)
 
+# Set up github token
+authenticate_to_github
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
