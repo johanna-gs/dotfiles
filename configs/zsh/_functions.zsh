@@ -113,7 +113,7 @@ authenticate_to_github() {
 
     # Check if already authenticated
     if gh auth status &>/dev/null 2>&1; then
-        echo "🐈‍⬛ Already authenticated with GitHub CLI"
+        echo "🐈 Already authenticated with GitHub CLI"
         return 0
     fi
 
