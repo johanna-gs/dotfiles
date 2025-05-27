@@ -113,7 +113,7 @@ authenticate_to_github() {
 
     # Check if already authenticated
     if gh auth status &>/dev/null 2>&1; then
-        echo "? Already authenticated with GitHub CLI"
+        echo "🐈‍⬛ Already authenticated with GitHub CLI"
         return 0
     fi
 
@@ -133,17 +133,17 @@ EOF
 
     # Setup Git integration
     if gh auth setup-git &>/dev/null; then
-        echo "? GitHub CLI authentication configured successfully"
-        echo "? Git integration setup complete"
+        echo "✅ GitHub CLI authentication configured successfully"
+        echo "✅ Git integration setup complete"
     else
-        echo "? Warning: Git integration setup failed, but auth should still work"
+        echo "❌ Warning: Git integration setup failed, but auth should still work"
     fi
 
     # Verify authentication
     if gh auth status &>/dev/null 2>&1; then
-        echo "? Authentication verified - logged in as $(gh api user --jq .login)"
+        echo "✅ Authentication verified - logged in as $(gh api user --jq .login)"
     else
-        echo "? Authentication setup failed"
+        echo "❌ Authentication setup failed"
         return 1
     fi
 }
