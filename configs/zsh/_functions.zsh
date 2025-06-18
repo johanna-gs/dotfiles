@@ -147,3 +147,8 @@ EOF
         return 1
     fi
 }
+
+get_component_version() {
+  local repo_name="$1"
+  gh api "repos/elhub/${repo_name}/tags" | jq -r '.[0].name'
+}
