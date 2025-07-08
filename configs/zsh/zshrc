@@ -67,6 +67,7 @@ if ! command_exists starship; then
 fi
 
 # Install jetbrains toolbox if it doesn't exist
+export PATH="$HOME/.local/share/JetBrains/Toolbox/bin:$PATH"
 if ! command_exists jetbrains-toolbox; then
   install_toolbox
 fi
