@@ -1,9 +1,16 @@
 - shell:
-    - command: sudo apt-get update && sudo apt-get upgrade
+    - command: sudo apt-get update && sudo apt-get upgrade -y
+      description: Update package lists and upgrade packages (auto-confirm)
       stdout: true
-    - command: sudo apt-get install unattended-upgrades
-      description: Install unattended-upgrades
+    - command: sudo apt-get dist-upgrade -y
+      description: Handle kept-back packages with dependency changes
+      stdout: true
+    - command: sudo apt-get install unattended-upgrades -y
+      description: Install unattended-upgrades (auto-confirm)
       stdout: true
     - command: sudo dpkg-reconfigure --priority=low unattended-upgrades --frontend=noninteractive
       description: Enable automatic updates
+      stdout: true
+    - command: sudo apt-get autoremove -y
+      description: Remove unnecessary packages
       stdout: true
