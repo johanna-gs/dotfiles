@@ -10,12 +10,13 @@
       fi
     description: Install Homebrew
     stdout: true
-  - command: cd ~/ && brew bundle install
+  - command: |
+      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      cd ~/ && brew bundle install
     description: Installing brew bundles
     stdout: true
-  # - command: brew cu -a -y
-  #   description: Updating brew cask dependencies
-  #   stdout: true
-  - command: cd ~/ && brew update && brew upgrade
+  - command: |
+      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      cd ~/ && brew update && brew upgrade
     description: Updating brew dependencies
     stdout: true
