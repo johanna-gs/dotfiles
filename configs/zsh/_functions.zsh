@@ -45,7 +45,7 @@ docker_exec_into_container() {
 
 install_toolbox() {
     sudo apt install libxtst6 libxi6 x11-apps libnss3-dev libasound2-dev libfuse2 -y
-    curl -fsSL https://github.com/johanna-gs/dotfiles/configs/zsh/scripts/install-toolbox.sh | bash
+    curl -fsSL https://raw.githubusercontent.com/johanna-gs/dotfiles/refs/heads/main/configs/zsh/scripts/install-toolbox.sh | bash
 
     local retVal=$?
 
