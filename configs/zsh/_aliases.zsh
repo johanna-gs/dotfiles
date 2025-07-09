@@ -75,5 +75,6 @@ alias gradlew8="JAVA_HOME=~/.sdkman/candidates/java/8.0.302-open && ./gradlew"
 alias k6="snap run k6"
 alias tcg="mvn teamcity-configs:generate"
 
+# git version commands
 alias bcv='gh api repos/elhub/devxp-build-configuration/tags | jq -r '\''.[0].name'\'
 alias gcv='get_component_version'
