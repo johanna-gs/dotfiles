@@ -14,6 +14,7 @@ brew "ag"
 brew "maven"
 brew "keychain"
 brew "k9s"
+brew "eza"
 
 # Misc util collections
 brew "coreutils"
