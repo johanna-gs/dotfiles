@@ -87,7 +87,7 @@ authenticate_to_github() {
     local username="$(whoami)"
 
     if ! command_exists gh; then
-      echo: "Error: GitHub CLI (gh) is not installed. Please install it first."
+      echo "Error: GitHub CLI (gh) is not installed. Please install it first."
       return 1
     fi
 
