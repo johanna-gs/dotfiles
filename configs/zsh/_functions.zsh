@@ -86,11 +86,6 @@ authenticate_to_github() {
     local token_file="$HOME/.github_token"
     local username="$(whoami)"
 
-    if ! command_exists gh; then
-      echo "Error: GitHub CLI (gh) is not installed. Please install it first."
-      return 1
-    fi
-
     # Check if token file exists
     if [[ ! -f "$token_file" ]]; then
         echo "Error: GitHub token file not found at $token_file"
