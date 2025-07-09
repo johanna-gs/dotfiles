@@ -15,12 +15,6 @@
 # Source wsl environment if it exists
 [ -f ~/.config/zsh/wsl.zsh ] && source ~/.config/zsh/wsl.zsh
 
-# Source mac environment if it exists
-[ -f ~/.config/zsh/mac.zsh ] && source ~/.config/zsh/mac.zsh
-
-# Source rust environment if it exists
-[ -f ~/.cargo/env ] && source ~/.cargo/env
-
 case $(uname) in
 Linux)
   brew_home=/home/linuxbrew/.linuxbrew
@@ -82,11 +76,6 @@ if [ ! -L "$XDG_RUNTIME_DIR/wayland-0" ]; then
   create_wayland_symlink
 fi
 
-# install ghostty if not installed
-if ! command_exists ghostty; then
-  install_ghostty
-fi
-
 # Source the starship initialization script
 eval "$(starship init zsh)"
 
@@ -118,6 +107,7 @@ if [ -d ~/.shrc.d ]; then
       fi
     done
 fi
+
 export PATH="$HOME/.sdkman/candidates/java/current/bin:$PATH"
 
 autoload -U +X bashcompinit && bashcompinit

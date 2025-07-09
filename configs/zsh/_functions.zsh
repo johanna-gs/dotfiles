@@ -44,8 +44,8 @@ docker_exec_into_container() {
 }
 
 install_toolbox() {
-  sudo apt install libxtst6 libxi6 x11-apps libnss3-dev libasound2-dev libfuse2 -y
-    curl -fsSL https://raw.githubusercontent.com/nagygergo/jetbrains-toolbox-install/master/jetbrains-toolbox.sh | bash
+    sudo apt install libxtst6 libxi6 x11-apps libnss3-dev libasound2-dev libfuse2 -y
+    ./scripts/install-toolbox.sh
 
     local retVal=$?
 
@@ -69,17 +69,6 @@ create_wayland_symlink() {
   fi
 
   ln -sf  /mnt/wslg/runtime-dir/wayland-* $XDG_RUNTIME_DIR/
-}
-
-install_ghostty() {
-  sudo apt install -y libgtk-4-dev libadwaita-1-dev git
-  cd ~/dotfiles/meta/ghostty
-  zig build -Doptimize=ReleaseFast
-  cp -r ~/dotfiles/meta/ghostty/zig-out/bin/ghostty ~/.local/bin
-  cp -r ~/dotfiles/meta/ghostty/zig-out/share/ghostty ~/.config
-  curl -LO https://github.com/mkasberg/ghostty-ubuntu/releases/download/1.0.1-0-ppa2/ghostty_1.0.1-0.ppa2_amd64_24.04.deb
-  sudo dpkg -i ghostty_*.deb
-  rm ghostty_1.0.1-0.ppa2_amd64_24.04.deb
 }
 
 git_push_with_pr() {
