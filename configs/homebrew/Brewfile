@@ -16,6 +16,7 @@ brew "keychain"
 brew "k9s"
 brew "eza"
 brew "gh"
+brew "docker"
 
 # Misc util collections
 brew "coreutils"
