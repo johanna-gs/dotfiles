@@ -61,10 +61,10 @@ if ! command_exists starship; then
 fi
 
 # Install jetbrains toolbox if it doesn't exist
-export PATH="$HOME/.local/share/JetBrains/Toolbox/bin:$PATH"
-if ! command_exists jetbrains-toolbox; then
-  install_toolbox
-fi
+# export PATH="$HOME/.local/share/JetBrains/Toolbox/bin:$PATH"
+# if ! command_exists jetbrains-toolbox; then
+#   install_toolbox
+# fi
 
 # Install jetbrains nerd font if it doesn't exist
 if ! fc-list | grep -i "JetBrainsMono" > /dev/null; then
