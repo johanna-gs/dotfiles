@@ -16,7 +16,9 @@ brew "keychain"
 brew "k9s"
 brew "eza"
 brew "gh"
-brew "docker"
+brew "helm"
+brew "kubectl"
+brew "kubectx"
 
 # Misc util collections
 brew "coreutils"
@@ -55,7 +57,7 @@ brew "just"
 brew "go-task"
 
 # set arguments for all 'brew install --cask' commands
-cask_args appdir: "~/Applications", require_sha: true
+cask_args appdir: "~/Applications"
 
 cask "git-credential-manager-core"
 cask "visual-studio-code"
@@ -63,3 +65,4 @@ cask "visual-studio-code"
 #  Fonts
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
+cask "font-noto-color-emoji"

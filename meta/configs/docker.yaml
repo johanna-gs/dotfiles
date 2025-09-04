@@ -1,0 +1,50 @@
+- shell:
+    - command: |
+        sudo apt update
+        sudo apt install -y ca-certificates curl gnupg lsb-release
+      description: Install pre-requisites for installing Docker
+      stdout: true
+    - command: |
+        dpkg --print-architecture
+      description: Get the system architecture of your computer and put it in a variable
+      stdout: true
+    - command: |
+        if [ ! -f /usr/share/keyrings/docker-archive-keyring.gpg ]; then
+          curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+          echo "Docker GPG key added"
+        else
+          echo "Docker GPG key already exists"
+        fi
+      description: Add apt signing key for Docker
+      stdout: true
+    - command: |
+        if [ ! -f /etc/apt/sources.list.d/docker.list ]; then
+          ARCH=$(dpkg --print-architecture)
+          RELEASE=$(lsb_release -cs)
+          echo "deb [arch=$ARCH signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $RELEASE stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+          echo "Docker repository added"
+        else
+          echo "Docker repository already configured"
+        fi
+      description: Add apt repository for Docker stable version
+      stdout: true
+    - command: |
+        if ! command -v docker >/dev/null 2>&1; then
+          sudo apt update
+          sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+          echo "Docker installed successfully"
+        else
+          echo "Docker is already installed ($(docker --version))"
+        fi
+      description: Install Docker and its dependencies
+      stdout: true
+    - command: |
+        if ! groups $USER | grep -q docker; then
+          sudo usermod -aG docker $USER
+          echo "User $USER added to docker group"
+          echo "Please log out and back in for group changes to take effect"
+        else
+          echo "User $USER is already in the docker group"
+        fi
+      description: Add user to docker group
+      stdout: true
