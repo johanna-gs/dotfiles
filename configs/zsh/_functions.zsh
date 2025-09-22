@@ -34,6 +34,27 @@ kubectl_psql_start() {
         --command -- psql -U postgres -h timescaledb.default.svc.cluster.local postgres
 }
 
+helm_template() {
+  if [[ ! -d "apps" ]]; then
+      echo "Error: This function must be run from a directory that contains an 'apps' directory"
+      echo "Current directory: $PWD"
+      return 1
+  fi
+
+  if [[ $# -ne 2 ]]; then
+      echo "Usage: helm_template <APPNAME> <CLUSTER>"
+      echo "Example: helm_template myApp myCluster"
+      return 1
+  fi
+
+  local APPNAME="$1"
+  local CLUSTER="$2"
+
+  helm template prom "./apps/base/$APPNAME/" -f "./apps/base/$APPNAME/values.yaml" -f "./apps/overlays/$CLUSTER/$APPNAME/values.yaml" --set-string "global.cluster=$CLUSTER" > output.yaml
+
+  echo "Helm template generated and saved to output.yaml"
+}
+
 docker_exec_into_container() {
     if [ $# -eq 0 ]; then
         echo "No container name supplied in arguments"

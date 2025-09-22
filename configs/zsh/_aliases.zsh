@@ -35,6 +35,9 @@ alias rl="reload"
 alias gd="cd ~/dotfiles"
 alias tf="terraform"
 
+# helm aliases
+alias helmtemp="helm_template"
+
 # kubernetes aliases
 alias k="kubectl"
 
