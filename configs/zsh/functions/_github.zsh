@@ -67,6 +67,19 @@ EOF
 }
 
 get_component_version() {
-  local repo_name="$1"
+  local repo_name
+
+  # If argument provided, use it directly
+  if [[ -n "$1" ]]; then
+    repo_name="$1"
+  else
+    # Use fzf to select from directories in ~/github
+    repo_name=$(ls -1 "$HOME/github" |
+                fzf --prompt="Select repo: " --height=40% --border)
+
+    # Exit if no selection made
+    [[ -z "$repo_name" ]] && return 1
+  fi
+
   gh api "repos/elhub/${repo_name}/tags" | jq -r '.[0].name'
 }

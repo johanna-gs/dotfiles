@@ -1,13 +1,9 @@
 #!/usr/bin/env zsh
 
-alias goto="gotorepo"
-gotorepo() {
+alias goto="go_to_repo"
+go_to_repo() {
   local selected
-  selected=$(find ~/github \
-    -mindepth 1 \
-    -maxdepth 1 \
-    -type d \
-    -exec basename {} \; | \
+  selected=$(ls -1 ~/github | \
     fzf \
       --height 40% \
       --reverse \
