@@ -35,11 +35,6 @@ alias rl="reload"
 alias gd="cd ~/dotfiles"
 alias tf="terraform"
 
-# helm aliases
-alias helmtemp="helm_template"
-alias helmdepbuild="helm_dependencies_build"
-alias helmdepupdate="helm_dependencies_build"
-
 # kubernetes aliases
 alias k="kubectl"
 
