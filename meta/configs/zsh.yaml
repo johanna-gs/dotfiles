@@ -2,6 +2,7 @@
     - ~/.config
     - ~/.config/zsh
     - ~/.config/zsh/autocomplete
+    - ~/.config/zsh/functions
 
 - link:
     # main configs
@@ -11,6 +12,10 @@
     # sub-configs
     ~/.config/zsh/aliases.zsh: configs/zsh/_aliases.zsh
     ~/.config/zsh/functions.zsh: configs/zsh/_functions.zsh
+    ~/.config/zsh/functions/github.zsh: configs/zsh/functions/_github.zsh
+    ~/.config/zsh/functions/helm.zsh: configs/zsh/functions/_helm.zsh
+    ~/.config/zsh/functions/init.zsh: configs/zsh/functions/_init.zsh
+    ~/.config/zsh/functions/kubectl.zsh: configs/zsh/functions/_kubectl.zsh
     ~/.config/zsh/wsl.zsh:
         if: 'uname -a | grep -q "WSL2"'
         path: configs/zsh/_wsl.zsh
