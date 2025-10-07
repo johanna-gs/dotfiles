@@ -48,10 +48,6 @@ brew "asdf"
 # kafka
 brew "kafka"
 
-# kubernetes
-# kubectl and helm are downloaded with asdf
-# brew "k3d"
-
 # taskfile support
 brew "just"
 brew "go-task"

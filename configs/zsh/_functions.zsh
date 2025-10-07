@@ -3,6 +3,7 @@
 RED='\033[0;32m'
 NC='\033[0m' # No Color
 
+alias rl="reload"
 reload() {
     if [ -f  $HOME/.zshenv ]; then
         source $HOME/.zshrc
