@@ -20,3 +20,4 @@ command_exists() {
 [ -f ~/.config/zsh/functions/kubectl.zsh ] && source ~/.config/zsh/functions/kubectl.zsh
 [ -f ~/.config/zsh/functions/init.zsh ] && source ~/.config/zsh/functions/init.zsh
 [ -f ~/.config/zsh/functions/github.zsh ] && source ~/.config/zsh/functions/github.zsh
+[ -f ~/.config/zsh/functions/github.zsh ] && source ~/.config/zsh/functions/navigation.zsh

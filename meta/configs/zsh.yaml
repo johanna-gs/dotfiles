@@ -16,6 +16,7 @@
     ~/.config/zsh/functions/helm.zsh: configs/zsh/functions/_helm.zsh
     ~/.config/zsh/functions/init.zsh: configs/zsh/functions/_init.zsh
     ~/.config/zsh/functions/kubectl.zsh: configs/zsh/functions/_kubectl.zsh
+    ~/.config/zsh/functions/navigation.zsh: configs/zsh/functions/_navigation.zsh
     ~/.config/zsh/wsl.zsh:
         if: 'uname -a | grep -q "WSL2"'
         path: configs/zsh/_wsl.zsh
