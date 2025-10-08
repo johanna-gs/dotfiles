@@ -7,7 +7,7 @@ alias ht=helm_template
 # =========================
 
 _helmtpl_require() {
-  for cmd in helm kubectl fzf; do
+  for cmd in helm fzf; do
     command -v "$cmd" >/dev/null || { echo "$cmd not found"; return 1; }
   done
 }
@@ -42,12 +42,13 @@ _helmtpl_pick_app() {
 }
 
 _helmtpl_pick_cluster() {
-  local ctxs ctx
-  ctxs="$(kubectl config get-contexts -o name 2>/dev/null | sort)"
-  [ -n "$ctxs" ] || { echo "No kube contexts found"; return 1; }
-  ctx="$(echo "$ctxs" | _helmtpl_select "Select cluster: ")"
-  [ -n "$ctx" ] || { echo "No cluster selected"; return 1; }
-  echo "$ctx"
+  local overlays="$1" clusters cluster
+  [ -d "$overlays" ] || { echo "Overlays directory not found: $overlays"; return 1; }
+  clusters="$(find "$overlays" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)"
+  [ -n "$clusters" ] || { echo "No clusters found in $overlays"; return 1; }
+  cluster="$(echo "$clusters" | _helmtpl_select "Select cluster: ")"
+  [ -n "$cluster" ] || { echo "No cluster selected"; return 1; }
+  echo "$cluster"
 }
 
 _helmtpl_ensure_outdir() {
@@ -100,7 +101,7 @@ helm_template() {
   local cluster="${2:-}"
 
   [ -n "$app" ] || app="$(_helmtpl_pick_app "$base")"
-  [ -n "$cluster" ] || cluster="$(_helmtpl_pick_cluster)"
+  [ -n "$cluster" ] || cluster="$(_helmtpl_pick_cluster "$overlays")"
 
   local app_base_dir="$base/$app"
   [ -d "$app_base_dir" ] || { echo "App not found: $app_base_dir"; return 1; }
