@@ -33,15 +33,13 @@ alias gdu="gh extension upgrade dxp --force"
 # kubernetes aliases
 alias k="kubectl"
 
-alias kg="k get"
-alias kgp="kg pods"
-alias kgs="kg svc"
+alias kg="kubectl_get"
+alias kgp="k get pods"
 
-alias kd="k describe"
-alias kdp="kd pods"
+alias kd="kubectl_describe_pod"
 
-alias kpf="k port-forward"
-alias kl="k logs"
+alias kpf="kubectl_port_forward"
+alias kl="kubectl_logs"
 
 # kubernetes plugin shortcuts
 alias kx="k ctx"
