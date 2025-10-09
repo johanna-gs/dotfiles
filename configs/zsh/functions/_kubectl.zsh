@@ -21,26 +21,38 @@ kubectl_exec_into_pod() {
     kubectl exec --stdin --tty "$pod_name" -- /bin/bash
 }
 
-kubectl_describe_pod() {
-    local pod_name
+kubectl_describe() {
+    local resource_type="$1"
+    local resource_name="$2"
 
-    if [ $# -gt 0 ]; then
-        pod_name="$1"
-    else
-        pod_name=$(kubectl get pods --no-headers -o custom-columns=":metadata.name" | \
-            fzf --prompt="Select pod to describe: " \
-                --height=40% --reverse \
-                --preview='kubectl describe pod {}' \
-                --preview-window=right:70%:wrap:follow | \
-                    awk '{print $1}')
-
-        if [ -z "$pod_name" ]; then
-            echo "No pod selected"
-            return
-        fi
+    # If no resource type provided, show error
+    if [ -z "$resource_type" ]; then
+        echo "Usage: kubectl_describe_resource <resource-type> [resource-name]"
+        echo "Example: kubectl_describe_resource pod"
+        echo "Example: kubectl_describe_resource deployment my-app"
+        return 1
     fi
 
-    kubectl describe pod "$pod_name"
+    # If resource name provided, describe it directly
+    if [ -n "$resource_name" ]; then
+        kubectl describe "$resource_type" "$resource_name"
+        return
+    fi
+
+    # Otherwise, use fzf to select
+    resource_name=$(kubectl get "$resource_type" --no-headers -o custom-columns=":metadata.name" 2>/dev/null | \
+        fzf --prompt="Select $resource_type to describe: " \
+            --height=40% --reverse \
+            --preview="kubectl describe $resource_type {}" \
+            --preview-window=right:70%:wrap:follow | \
+            awk '{print $1}')
+
+    if [ -z "$resource_name" ]; then
+        echo "No $resource_type selected"
+        return
+    fi
+
+    kubectl describe "$resource_type" "$resource_name"
 }
 
 kubectl_logs() {

@@ -36,7 +36,7 @@ alias k="kubectl"
 alias kg="kubectl_get"
 alias kgp="k get pods"
 
-alias kd="kubectl_describe_pod"
+alias kd="kubectl_describe"
 
 alias kpf="kubectl_port_forward"
 alias kl="kubectl_logs"
