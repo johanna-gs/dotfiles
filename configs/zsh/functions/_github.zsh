@@ -83,3 +83,31 @@ get_component_version() {
 
   gh api "repos/elhub/${repo_name}/tags" | jq -r '.[0].name'
 }
+
+alias gpc=pr_checkout
+
+pr_checkout() {
+  local pr_number
+
+  # If argument provided, use it directly
+  if [[ -n "$1" ]]; then
+    pr_number="$1"
+  else
+    # Use fzf to select from PR list
+    pr_number=$(gh pr list |
+                    tail -n +2 |
+                    awk -F'\t' '{
+                      title = substr($2, 1, 60)
+                      if (length($2) > 60) title = title "..."
+                      printf "%-8s %-63s %-10s %s\n", $1, title, $4, $5
+                    }' |
+                    fzf --prompt="Select PR: " --height=40% --border |
+                    awk '{print $1}' |
+                    sed 's/#//')
+
+    # Exit if no selection made
+    [[ -z "$pr_number" ]] && return 1
+  fi
+
+  gh pr checkout "$pr_number"
+}
