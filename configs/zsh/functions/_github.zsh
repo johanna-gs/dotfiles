@@ -101,7 +101,7 @@ pr_checkout() {
                       if (length($2) > 60) title = title "..."
                       printf "%-8s %-63s %-10s %s\n", $1, title, $4, $5
                     }' |
-                    fzf --prompt="Select PR: " --height=40% --border |
+                    fzf --prompt="Select PR: " --height=~40% --border |
                     awk '{print $1}' |
                     sed 's/#//')
 
