@@ -95,15 +95,21 @@ pr_checkout() {
   else
     # Use fzf to select from PR list
     pr_number=$(gh pr list |
-                    tail -n +2 |
-                    awk -F'\t' '{
-                      title = substr($2, 1, 60)
-                      if (length($2) > 60) title = title "..."
-                      printf "%-8s %-63s %-10s %s\n", $1, title, $4, $5
-                    }' |
-                    fzf --prompt="Select PR: " --height=~40% --border |
-                    awk '{print $1}' |
-                    sed 's/#//')
+                tail -n +2 |
+                awk -F'\t' '{
+                  # Truncate title to 50 characters
+                  title = substr($2, 1, 50)
+                  if (length($2) > 50) title = title "..."
+
+                  # Truncate branch to 20 characters
+                  branch = substr($3, 1, 20)
+                  if (length($3) > 20) branch = branch "..."
+
+                  printf "%-8s %-55s %-25s %-10s %s\n", $1, title, branch, $4, $5
+                }' |
+                fzf --prompt="Select PR: " --height=~40% --border |
+                awk '{print $1}' |
+                sed 's/#//')
 
     # Exit if no selection made
     [[ -z "$pr_number" ]] && return 1
