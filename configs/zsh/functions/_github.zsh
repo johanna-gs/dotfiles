@@ -95,7 +95,6 @@ pr_checkout() {
   else
     # Use fzf to select from PR list
     pr_number=$(gh pr list |
-                tail -n +2 |
                 awk -F'\t' '{
                   # Truncate title to 50 characters
                   title = substr($2, 1, 50)
