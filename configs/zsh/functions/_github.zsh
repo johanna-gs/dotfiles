@@ -85,7 +85,6 @@ get_component_version() {
 }
 
 alias gpc=pr_checkout
-
 pr_checkout() {
   local pr_number
 
@@ -115,4 +114,41 @@ pr_checkout() {
   fi
 
   gh pr checkout "$pr_number"
+}
+
+alias gclean=git-cleanup
+git-cleanup() {
+  # Get the current branch
+  local current_branch=$(git branch --show-current)
+
+  # Get all local branches except the current one
+  local branches=$(git branch | grep -v "^\*" | sed 's/^[* ]*//')
+
+  # Prune remote branches
+  echo "Pruning remote branches..."
+  git remote prune origin
+  echo ""
+
+  if [[ -z "$branches" ]]; then
+    echo "No local branches to delete (only current branch exists)"
+    return 0
+  fi
+
+  echo "The following branches will be deleted:"
+  echo "$branches"
+  echo ""
+  read "response?Continue? (y/n) "
+
+  if [[ "$response" =~ ^[Yy]$ ]]; then
+    # Delete each branch
+    echo "$branches" | while read branch; do
+      if [[ -n "$branch" ]]; then
+        git branch -D "$branch"
+      fi
+    done
+
+    echo "Cleanup complete!"
+  else
+    echo "Cleanup cancelled"
+  fi
 }
