@@ -22,7 +22,7 @@ alias gs="git stash"
 alias gsp="git stash pop"
 
 # git version commands
-alias bcv='gh api repos/elhub/devxp-build-configuration/tags | jq -r '\''.[0].name'\'
+alias bcv='get_component_version devxp-build-configuration'
 alias gcv='get_component_version'
 
 # gh-dxp shortcuts
