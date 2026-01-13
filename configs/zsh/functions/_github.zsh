@@ -81,7 +81,14 @@ get_component_version() {
     [[ -z "$repo_name" ]] && return 1
   fi
 
-  gh api "repos/elhub/${repo_name}/tags" | jq -r '.[0].name'
+  gh api "repos/elhub/${repo_name}/tags" | \
+    jq -r '.[0] | .name + " " + .commit.sha' | \
+    while read -r tag_name commit_sha; do
+      commit_date=$(gh api "repos/elhub/${repo_name}/commits/${commit_sha}" | \
+                    jq -r '.commit.committer.date' | \
+                    xargs -I {} date -d {} "+%Y-%m-%d %H:%M:%S")
+      echo "${tag_name} | ${commit_date}"
+    done
 }
 
 alias gpc=pr_checkout
