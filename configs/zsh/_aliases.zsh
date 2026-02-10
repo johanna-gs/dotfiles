@@ -9,6 +9,7 @@ alias grep='grep --color'
 # moving around
 alias cdg="cd ~/github"
 alias cdd="cd ~/dotfiles"
+alias ku="goto kubernetes"
 
 # git shortcuts
 alias g="git pull --prune"
