@@ -130,3 +130,24 @@ helm_template() {
     "${fargs[@]}" \
     "${helm_flags[@]}"
 }
+
+helm_dep_update() {
+  _helmtpl_require || return 1
+
+  local base; base="$(_helmtpl_detect_base)" || {
+    echo "Error: not in a valid Helm repo (missing argocd/apps/base or apps/base or HELM_APPS_BASE)"
+    return 1
+  }
+
+  local app="${1:-}"
+  [ -n "$app" ] || app="$(_helmtpl_pick_app "$base")"
+
+  local app_base_dir="$base/$app"
+  [ -d "$app_base_dir" ] || { echo "App not found: $app_base_dir"; return 1; }
+  [ -f "$app_base_dir/Chart.yaml" ] || { echo "No Chart.yaml in $app_base_dir"; return 1; }
+
+  echo "Updating dependencies for: $app_base_dir"
+  helm dependency update "$app_base_dir"
+}
+
+alias hdu=helm_dep_update
