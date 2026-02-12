@@ -89,6 +89,14 @@ helm_template() {
   setopt LOCAL_OPTIONS NO_UNSET
   _helmtpl_require || return 1
 
+  # --- NEW: collect helm flags (e.g. --debug) ---
+  local -a helm_flags=()
+  while [[ "${1:-}" == --* ]]; do
+    helm_flags+=("$1")
+    shift
+  done
+  # --------------------------------------------
+
   # Early exit if repo structure missing
   local base; base="$(_helmtpl_detect_base)" || {
     echo "Error: not in a valid Helm repo (missing argocd/apps/base or apps/base or HELM_APPS_BASE)"
@@ -118,5 +126,7 @@ helm_template() {
     return 1
   }
 
-  _helmtpl_render "$app" "$cluster" "$app_base_dir" "${fargs[@]}"
+  _helmtpl_render "$app" "$cluster" "$app_base_dir" \
+    "${fargs[@]}" \
+    "${helm_flags[@]}"
 }
