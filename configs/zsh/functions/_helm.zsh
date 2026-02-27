@@ -70,9 +70,9 @@ _helmtpl_build_deps() {
 }
 
 _helmtpl_render() {
-  local app="$1" cluster="$2" chart_path="$3"; shift 3
+  local app="$1" cluster="$2" chart_path="$3" suffix="$4"; shift 4
   local outdir; outdir="$(_helmtpl_ensure_outdir)"
-  local outfile="$outdir/${app}-${cluster}.yaml"
+  local outfile="$outdir/${app}-${cluster}${suffix}.yaml"
 
   helm template "$app" "$chart_path" \
     "$@" \
@@ -89,13 +89,28 @@ helm_template() {
   setopt LOCAL_OPTIONS NO_UNSET
   _helmtpl_require || return 1
 
-  # --- NEW: collect helm flags (e.g. --debug) ---
+  # --- Parse all args, extracting -s <suffix> and helm flags from positional args ---
+  local suffix=""
   local -a helm_flags=()
-  while [[ "${1:-}" == --* ]]; do
-    helm_flags+=("$1")
+  local -a pos_args=()
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -s)
+        shift
+        [[ $# -gt 0 ]] || { echo "-s requires an argument"; return 1; }
+        suffix="-$1"
+        ;;
+      -*)
+        helm_flags+=("$1")
+        ;;
+      *)
+        pos_args+=("$1")
+        ;;
+    esac
     shift
   done
-  # --------------------------------------------
+  # ---------------------------------------------------------------------------------
 
   # Early exit if repo structure missing
   local base; base="$(_helmtpl_detect_base)" || {
@@ -105,8 +120,8 @@ helm_template() {
   local overlays; overlays="$(_helmtpl_overlays_from_base "$base")"
   [ -d "$overlays" ] || echo "Warning: overlays path not found: $overlays"
 
-  local app="${1:-}"
-  local cluster="${2:-}"
+  local app="${pos_args[1]:-}"
+  local cluster="${pos_args[2]:-}"
 
   [ -n "$app" ] || app="$(_helmtpl_pick_app "$base")"
   [ -n "$cluster" ] || cluster="$(_helmtpl_pick_cluster "$overlays")"
@@ -126,7 +141,7 @@ helm_template() {
     return 1
   }
 
-  _helmtpl_render "$app" "$cluster" "$app_base_dir" \
+  _helmtpl_render "$app" "$cluster" "$app_base_dir" "$suffix" \
     "${fargs[@]}" \
     "${helm_flags[@]}"
 }
