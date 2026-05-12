@@ -8,7 +8,7 @@ kubectl_exec_into_pod() {
         pod_name="$1"
     else
         # Otherwise, use fzf to select a pod
-        pod_name=$(kubectl get pods --no-headers -o custom-columns=":metadata.name" | fzf --prompt="Select pod: " --height=40% --reverse)
+        pod_name=$(kubecolor get pods --no-headers -o custom-columns=":metadata.name" | fzf --prompt="Select pod: " --height=40% --reverse)
 
         # Exit if no pod was selected
         if [ -z "$pod_name" ]; then
@@ -35,15 +35,15 @@ kubectl_describe() {
 
     # If resource name provided, describe it directly
     if [ -n "$resource_name" ]; then
-        kubectl describe "$resource_type" "$resource_name"
+        kubecolor describe "$resource_type" "$resource_name"
         return
     fi
 
     # Otherwise, use fzf to select
-    resource_name=$(kubectl get "$resource_type" --no-headers -o custom-columns=":metadata.name" 2>/dev/null | \
+    resource_name=$(kubecolor get "$resource_type" --no-headers -o custom-columns=":metadata.name" 2>/dev/null | \
         fzf --prompt="Select $resource_type to describe: " \
             --height=40% --reverse \
-            --preview="kubectl describe $resource_type {}" \
+            --preview="kubecolor describe $resource_type {}" \
             --preview-window=right:70%:wrap:follow | \
             awk '{print $1}')
 
@@ -52,7 +52,7 @@ kubectl_describe() {
         return
     fi
 
-    kubectl describe "$resource_type" "$resource_name"
+    kubecolor describe "$resource_type" "$resource_name"
 }
 
 kubectl_logs() {
@@ -62,11 +62,11 @@ kubectl_logs() {
         pod_name="$1"
         shift  # Remove the first argument so we can pass remaining args to kubectl logs
     else
-        pod_name=$(kubectl get pods --no-headers -o custom-columns=":metadata.name" | \
+        pod_name=$(kubecolor get pods --no-headers -o custom-columns=":metadata.name" | \
             fzf --prompt="Select pod for logs: " \
                 --height=40% \
                 --reverse \
-                --preview='kubectl logs {} --tail=50' \
+                --preview='kubecolor logs {} --tail=50' \
                 --preview-window=right:70%:wrap:follow)
 
         if [ -z "$pod_name" ]; then
@@ -75,7 +75,7 @@ kubectl_logs() {
         fi
     fi
 
-    kubectl logs "$pod_name" "$@"
+    kubecolor logs "$pod_name" "$@"
 }
 
 kubectl_get() {
@@ -83,7 +83,7 @@ kubectl_get() {
 
     # If arguments are provided, use them
     if [ $# -gt 0 ]; then
-        kubectl get "$@"
+        kubecolor get "$@"
         return
     fi
 
@@ -99,11 +99,11 @@ kubectl_get() {
     fi
 
     # Select specific resource
-    resource_name=$(kubectl get "$resource_type" --no-headers -o custom-columns=":metadata.name" | \
+    resource_name=$(kubecolor get "$resource_type" --no-headers -o custom-columns=":metadata.name" | \
         fzf --prompt="Select $resource_type: " \
             --height=40% \
             --reverse \
-            --preview="kubectl get $resource_type {} -o yaml" \
+            --preview="kubecolor get $resource_type {} -o yaml" \
             --preview-window=right:70%:wrap:follow)
 
     if [ -z "$resource_name" ]; then
@@ -111,7 +111,7 @@ kubectl_get() {
         return
     fi
 
-    kubectl get "$resource_type" "$resource_name" -o yaml
+    kubecolor get "$resource_type" "$resource_name" -o yaml
 }
 
 
@@ -121,12 +121,12 @@ kubectl_port_forward() {
     # If arguments are provided, use them directly
     # Usage: kubectl_port_forward pod-name 8080:80
     if [ $# -gt 0 ]; then
-        kubectl port-forward "$@"
+        kubecolor port-forward "$@"
         return
     fi
 
     # Shows all pods with a preview of their running containers and ports
-    pod_name=$(kubectl get pods --no-headers -o custom-columns=":metadata.name" | \
+    pod_name=$(kubecolor get pods --no-headers -o custom-columns=":metadata.name" | \
         fzf --prompt="Select pod to port-forward: " \
             --height=40% \
             --reverse \
@@ -140,7 +140,7 @@ kubectl_port_forward() {
 
     # This shows what ports the containers are actually listening on
     echo "\nAvailable container ports in pod '$pod_name':"
-    kubectl get pod "$pod_name" -o jsonpath='{.spec.containers[*].ports[*].containerPort}' | tr ' ' '\n' | sort -u
+    kubecolor get pod "$pod_name" -o jsonpath='{.spec.containers[*].ports[*].containerPort}' | tr ' ' '\n' | sort -u
 
     echo -n "\nEnter remote port (port on the pod): "
     read remote_port
@@ -164,5 +164,5 @@ kubectl_port_forward() {
     echo "Access the service at http://localhost:$local_port"
     echo "Press Ctrl+C to stop port forwarding\n"
 
-    kubectl port-forward "$pod_name" "$local_port:$remote_port"
+    kubecolor port-forward "$pod_name" "$local_port:$remote_port"
 }

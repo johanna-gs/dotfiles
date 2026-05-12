@@ -32,7 +32,7 @@ alias gdm="gh dxp pr merge -y"
 alias gdu="gh extension upgrade dxp --force"
 
 # kubernetes aliases
-alias k="kubectl"
+alias k="kubecolor"
 
 alias kg="kubectl_get"
 alias kgp="k get pods"
