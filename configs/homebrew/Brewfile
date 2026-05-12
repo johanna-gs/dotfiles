@@ -19,6 +19,7 @@ brew "gh"
 brew "helm"
 brew "kubectl"
 brew "kubectx"
+brew "kubecolor"
 
 # Misc util collections
 brew "coreutils"
