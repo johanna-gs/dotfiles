@@ -40,7 +40,6 @@ brew "pre-commit"
 brew "oci-cli"
 
 brew "starship"
-brew "terraform"
 brew "jq"
 
 # version management
@@ -56,10 +55,12 @@ brew "go-task"
 # set arguments for all 'brew install --cask' commands
 cask_args appdir: "~/Applications"
 
-cask "git-credential-manager-core"
+cask "git-credential-manager"
 cask "visual-studio-code"
 
 #  Fonts
-cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-noto-color-emoji"
+
+# Multiplex
+brew "herdr"
