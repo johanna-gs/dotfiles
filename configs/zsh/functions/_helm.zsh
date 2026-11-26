@@ -42,10 +42,13 @@ _helmtpl_pick_app() {
 }
 
 _helmtpl_pick_cluster() {
-  local overlays="$1" clusters cluster
+  local overlays="$1" app="${2:-}" clusters cluster c
   [ -d "$overlays" ] || { echo "Overlays directory not found: $overlays"; return 1; }
-  clusters="$(find "$overlays" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)"
-  [ -n "$clusters" ] || { echo "No clusters found in $overlays"; return 1; }
+  clusters="$(_helmtpl_list_apps "$overlays")"
+  if [ -n "$app" ]; then
+    clusters="$(for c in ${(f)clusters}; do [ -d "$overlays/$c/$app" ] && echo "$c"; done)"
+  fi
+  [ -n "$clusters" ] || { echo "No clusters found in $overlays${app:+ containing $app}"; return 1; }
   cluster="$(echo "$clusters" | _helmtpl_select "Select cluster: ")"
   [ -n "$cluster" ] || { echo "No cluster selected"; return 1; }
   echo "$cluster"
@@ -124,7 +127,7 @@ helm_template() {
   local cluster="${pos_args[2]:-}"
 
   [ -n "$app" ] || app="$(_helmtpl_pick_app "$base")"
-  [ -n "$cluster" ] || cluster="$(_helmtpl_pick_cluster "$overlays")"
+  [ -n "$cluster" ] || cluster="$(_helmtpl_pick_cluster "$overlays" "$app")"
 
   local app_base_dir="$base/$app"
   [ -d "$app_base_dir" ] || { echo "App not found: $app_base_dir"; return 1; }
@@ -136,12 +139,16 @@ helm_template() {
   [ -f "$app_base_dir/values.yaml" ]    && fargs+=(-f "$app_base_dir/values.yaml")
   [ -f "$app_overlay_dir/values.yaml" ] && fargs+=(-f "$app_overlay_dir/values.yaml")
 
-  _helmtpl_build_deps "$app_base_dir" || {
-    echo "Error: failed to resolve chart dependencies in $app_base_dir"
+  # Prefer the overlay's Chart.yaml when the cluster has one, else use base
+  local chart_dir="$app_base_dir"
+  [ -f "$app_overlay_dir/Chart.yaml" ] && chart_dir="$app_overlay_dir"
+
+  _helmtpl_build_deps "$chart_dir" || {
+    echo "Error: failed to resolve chart dependencies in $chart_dir"
     return 1
   }
 
-  _helmtpl_render "$app" "$cluster" "$app_base_dir" "$suffix" \
+  _helmtpl_render "$app" "$cluster" "$chart_dir" "$suffix" \
     "${fargs[@]}" \
     "${helm_flags[@]}"
 }
@@ -157,12 +164,29 @@ helm_dep_update() {
   local app="${1:-}"
   [ -n "$app" ] || app="$(_helmtpl_pick_app "$base")"
 
-  local app_base_dir="$base/$app"
-  [ -d "$app_base_dir" ] || { echo "App not found: $app_base_dir"; return 1; }
-  [ -f "$app_base_dir/Chart.yaml" ] || { echo "No Chart.yaml in $app_base_dir"; return 1; }
+  local overlays; overlays="$(_helmtpl_overlays_from_base "$base")"
 
-  echo "Updating dependencies for: $app_base_dir"
-  helm dependency update "$app_base_dir"
+  # Target: "base" or a cluster overlay; pick with fzf if not given
+  local target="${2:-}"
+  if [ -z "$target" ]; then
+    local options="base" c
+    if [ -d "$overlays" ]; then
+      for c in $(_helmtpl_list_apps "$overlays"); do
+        [ -f "$overlays/$c/$app/Chart.yaml" ] && options+=$'\n'"$c"
+      done
+    fi
+    target="$(echo "$options" | _helmtpl_select "Select target: ")"
+    [ -n "$target" ] || { echo "No target selected"; return 1; }
+  fi
+
+  local chart_dir="$base/$app"
+  [ "$target" = "base" ] || chart_dir="$overlays/$target/$app"
+
+  [ -d "$chart_dir" ] || { echo "App not found: $chart_dir"; return 1; }
+  [ -f "$chart_dir/Chart.yaml" ] || { echo "No Chart.yaml in $chart_dir"; return 1; }
+
+  echo "Updating dependencies for: $chart_dir"
+  helm dependency update "$chart_dir"
 }
 
 alias hdu=helm_dep_update
